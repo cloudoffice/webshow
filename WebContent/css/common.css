@@ -1,0 +1,163 @@
+@charset "utf-8";
+ul, body {margin:0; padding:0;}
+body {background-color:transparent; overflow: hidden;}
+
+/*layout*/
+#wrap {min-width:1024px; min-height:768px; margin:0; padding:0;}
+
+#container {background-color:#fff; overflow:auto; clear:both;}
+.thumbWrap {float:left; width:170px; overflow-y:scroll; height:627px; background-color:#eee; border:1px solid #b1b1b1; border-top:0px solid #fff; margin-top:2px; vertical-align:top;}
+.thumbnail {width:120px; height:85px; margin:32px auto; font-size:12px; color:#868686;}
+.thumbnail1 {display:block; width:114px; height:85px; background-color:#fff; border:1px solid #b1b1b1;}
+.thumbName {padding:2px}
+
+.docWrap {width:1000px; padding:0 20%;}
+.doc {float:left; background:#fff; overflow:hidden; height:600px; width:800px; bottom:0; margin:30px auto 0 auto; border:1px solid #b1b1b1; font-size:15px; color:#5c5c5c;}
+
+#toolBar {position:relative; min-width:1024px; height:141px; padding:0px; margin:0px; font-family:Dotum;}
+#toolBar .titleBar {height:26px; color:#fff; font-weight:bold; background-color:#f56d49; line-height:40px;}
+#toolBar .logo {float:left; display:block; margin-left:30px; margin-top:3px; width:20px; height:20px; background:url(../images/logo.png) repeat 0 0;}
+#toolBar .documentTitle {float:left; display:block; margin-left:16px; font-weight:bold; line-height:26px; color:#fff; font-size:14px;}
+
+#toolBar .menuBar {height:27px; border-bottom:1px solid #9d9d9d;}
+.menuBar .mainMenu {float:left; position:relative; padding-left:10px;}
+	.menuBar .mainMenu > ul {list-style-type:none; position:relative;}
+
+	.menuBar .mainMenu > ul > li {position:relative; float:left; display:block; height:27px; font-weight:bold; text-decoration:none; margin-left:3px; margin-top:0px; padding:0; color:#8a8a8a; font-size:14px; line-height:29px; padding:0 20px; text-decoration:none; text-overflow:ellipsis; white-space:nowrap; max-width:100px; cursor:pointer;}
+	.menuBar .mainMenu > ul > li.menuFile {position:relative; float:left; margin-left:10px; display:block; height:27px; font-weight:bold; text-decoration:none; margin-left:3px; margin-top:0px; padding:0; color:#e1501d;  background-color:#ffdbd2; font-size:14px; line-height:29px; padding:0 20px; text-decoration:none; text-overflow:ellipsis; white-space:nowrap; max-width:100px; cursor:pointer;}
+
+	.menuBar .mainMenu > ul > li.menuFile:hover {color:#fff; font-weight:bold; background-color:#d3400c;}
+	.menuBar .mainMenu > ul > li.menuView:hover {color:#e1501d; font-weight:bold; background-color:#eaeaea;}
+	.menuBar .mainMenu > ul > li.menuEdit:hover {color:#e1501d; font-weight:bold; background-color:#eaeaea;}
+	.menuBar .mainMenu > ul > li.menuInsert:hover {color:#e1501d; font-weight:bold; background-color:#eaeaea;}
+	.menuBar .mainMenu > ul > li.menuForm:hover {color:#e1501d; font-weight:bold; background-color:#eaeaea;}  
+	.menuBar .mainMenu > ul > li.menuTable:hover {color:#e1501d; font-weight:bold; background-color:#eaeaea;}
+	.menuBar .mainMenu > ul > li.menuShare:hover {color:#e1501d; font-weight:bold; background-color:#eaeaea;}
+
+	.subMenuFile {list-style-type:none; position:absolute; padding:6px 0; top:27px; left:0;; display:none; z-index:100; width:200px; background-color:#fff; border:1px solid #9d9d9d; font-weight:normal; box-shadow: 0 3px 5px 1px rgba(0,0,0,.20)}
+	.subMenuFile li {position:relative; padding:0; list-style-type:none; font-size:14px; color:#2e2e2e; text-decoration:none; height:30px;}
+	.subMenuFile li span {display:block; padding:0 0 0 10px; font-size:13px; color:#2e2e2e; line-height:30px; height:30px; text-decoration:none; }	
+	.subMenuFile li:hover {background-color:#c5e1f2;}
+	.menuBar .mainMenu > ul > li.menuFile:hover .subMenuFile {display:block;}
+
+	.subMenuFile li span.subMenuDropdownNormal {position:absolute; top:0; left:180px; background:url('../images/subMenuDropdownNormal.png') no-repeat 0 0; width:7px; height:30px;}
+
+	.thrMenuFileNew {list-style-type:none; position:absolute; padding:6px 0; top:-7px; left:200px; display:none; z-index:100; width:220px; background-color:#fff; border:1px solid #9d9d9d; font-weight:normal; box-shadow: 0 3px 5px 1px rgba(0,0,0,.30)}
+	.thrMenuFileNew li {position:relative; display:block; padding:0; width:220px; height:30px;}
+	.thrMenuFileNew li span {position:absolute; display:block; left:16px; padding:0;font-size:13px; color:#2e2e2e; line-height:30px;}
+	.thrMenuFileNew li a:hover {background-color:#c5e1f2;}
+	
+	.subMenuFile li.fileNew:hover .thrMenuFileNew {display:block;}
+
+	.thrMenuFileDownlode { list-style-type:none; position:absolute; padding:6px 0; top:-7px; left:200px; display:none; z-index:100; width:200px; background-color:#fff; border:1px solid #9d9d9d; font-weight:normal; box-shadow: 0 3px 5px 1px rgba(0,0,0,.30)}
+	.thrMenuFileDownlode li {position:relative; display:block; padding:0; width:200px; height:30px;}
+	.thrMenuFileDownlode li span {position:absolute; display:block; left:16px; padding:0;font-size:13px; color:#2e2e2e; line-height:30px;}
+	.thrMenuFileDownlode li a:hover { background-color:#c5e1f2;}
+	
+	.subMenuFile li.fileDownlode:hover .thrMenuFileDownlode { display:block;}
+
+	.subMenuEdit {list-style-type:none; position:absolute; padding:6px 0; top:27px; left:0; display:none; z-index:100; width:200px; background-color:#fff; border:1px solid #9d9d9d; font-weight:normal; box-shadow: 0 3px 5px 1px rgba(0,0,0,.30)}
+	.subMenuEdit li {position:relative; padding:0; list-style-type:none; font-size:13px; color:#2e2e2e; text-decoration:none; height:30px;}
+	.subMenuEdit li span {display:block; padding:0 0 0 10px; font-size:13px; color:#2e2e2e; line-height:30px; height:30px; text-decoration:none;}	
+	.subMenuEdit li:hover {background-color:#c5e1f2;}
+	.menuBar .mainMenu > ul > li.menuEdit:hover .subMenuEdit {display:block;}
+
+	.subMenuView {list-style-type:none; position:absolute; padding:6px 0; top:27px; left:0; display:none; z-index:100; width:200px; background-color:#fff; border:1px solid #9d9d9d; font-weight:normal; box-shadow: 0 3px 5px 1px rgba(0,0,0,.30)}
+	.subMenuView li {position:relative; padding:0; list-style-type:none; font-size:13px; color:#2e2e2e; text-decoration:none; height:30px;}
+	.subMenuView li span {display:block; padding:0 0 0 10px; font-size:13px; color:#2e2e2e; line-height:30px; height:30px; text-decoration:none;}	
+	.subMenuView li:hover {background-color:#c5e1f2;}
+	.menuBar .mainMenu > ul > li.menuView:hover .subMenuView {display:block;}
+	
+	.subMenuInsert {list-style-type:none; position:absolute; padding:6px 0; top:27px; left:0; display:none; z-index:100; width:200px; background-color:#fff; border:1px solid #9d9d9d; font-weight:normal; box-shadow: 0 3px 5px 1px rgba(0,0,0,.30)}
+	.subMenuInsert li {position:relative; padding:0; list-style-type:none; font-size:13px; color:#2e2e2e; text-decoration:none; height:30px;}
+	.subMenuInsert li span {display:block; padding:0 0 0 10px; font-size:13px; color:#2e2e2e; line-height:30px; height:30px; text-decoration:none;}	
+	.subMenuInsert li:hover {background-color:#c5e1f2;}
+	.menuBar .mainMenu > ul > li.menuInsert:hover .subMenuInsert {display:block;}
+
+	.subMenuInsert li span.subMenuDropdownNormal {position:absolute; top:0; left:180px; background:url('../images/subMenuDropdownNormal.png') no-repeat 0 0; width:7px; height:30px;}
+
+	.thrMenuInsertFootnoteEndnote {list-style-type:none; position:absolute; padding:6px 0; top:-7px; left:200px; display:none; z-index:100; width:200px; background-color:#fff; border:1px solid #9d9d9d; font-weight:normal; box-shadow: 0 3px 5px 1px rgba(0,0,0,.30)}
+	.thrMenuInsertFootnoteEndnote li {position:relative; display:block; padding:0; width:200px; height:30px;}
+	.thrMenuInsertFootnoteEndnote li span {position:absolute; display:block; left:16px; padding:0;font-size:13px; color:#2e2e2e; line-height:30px;}
+	.thrMenuInsertFootnoteEndnote li a:hover {background-color:#c5e1f2;}
+	
+	.subMenuInsert li.insertFootnoteEndnote:hover .thrMenuInsertFootnoteEndnote {display:block;}
+	
+	.subMenuForm {list-style-type:none; position:absolute; padding:6px 0; top:27px; left:0; display:none; z-index:100; width:200px; background-color:#fff; border:1px solid #9d9d9d; font-weight:normal; box-shadow: 0 3px 5px 1px rgba(0,0,0,.30)}
+	.subMenuForm li {position:relative; padding:0; list-style-type:none; font-size:13px; color:#2e2e2e; text-decoration:none; height:30px;}
+	.subMenuForm li span {display:block; padding:0 0 0 10px; font-size:13px; color:#2e2e2e; line-height:30px; height:30px; text-decoration:none;}	
+	.subMenuForm li:hover {background-color:#c5e1f2;}
+	.menuBar .mainMenu > ul > li.menuForm:hover .subMenuForm {display:block;}
+
+	.subMenuForm li span.subMenuDropdownNormal {position:absolute; top:0; left:180px; background:url('../images/subMenuDropdownNormal.png') no-repeat 0 0; width:7px; height:30px;}
+
+	.thrMenuFormFontFamily {list-style-type:none; position:absolute; padding:6px 0; top:-7px; left:200px; display:none; z-index:100; width:200px; background-color:#fff; border:1px solid #9d9d9d; font-weight:normal; box-shadow: 0 3px 5px 1px rgba(0,0,0,.30)}
+	.thrMenuFormFontFamily li {position:relative; display:block; padding:0; width:200px; height:30px;}
+	.thrMenuFormFontFamily li span {position:absolute; display:block; left:16px; padding:0;font-size:13px; color:#2e2e2e; line-height:30px;}
+	.thrMenuFormFontFamily li a:hover {background-color:#c5e1f2;}
+	
+	.subMenuForm li.formFontFamily:hover .thrMenuFormFontFamily {display:block;}
+
+	.thrMenuFormParagraphStyle {list-style-type:none; position:absolute; padding:6px 0; top:-7px; left:200px; display:none; z-index:100; width:200px; background-color:#fff; border:1px solid #9d9d9d; font-weight:normal; box-shadow: 0 3px 5px 1px rgba(0,0,0,.30)}
+	.thrMenuFormParagraphStyle li {position:relative; display:block; padding:0; width:200px; height:30px;}
+	.thrMenuFormParagraphStyle li span {position:absolute; display:block; left:16px; padding:0;font-size:13px; color:#2e2e2e; line-height:30px;}
+	.thrMenuFormParagraphStyle li a:hover {background-color:#c5e1f2;}
+	
+	.subMenuForm li.formParagraphStyle:hover .thrMenuFormParagraphStyle {display:block;}
+	
+	.thrMenuFormAlign {list-style-type:none; position:absolute; padding:6px 0; top:-7px; left:200px; display:none; z-index:100; width:200px; background-color:#fff; border:1px solid #9d9d9d; font-weight:normal; box-shadow: 0 3px 5px 1px rgba(0,0,0,.30)}
+	.thrMenuFormAlign li {position:relative; display:block; padding:0; width:200px; height:30px;}
+	.thrMenuFormAlign li span {position:absolute; display:block; left:16px; padding:0;font-size:13px; color:#2e2e2e; line-height:30px;}
+	.thrMenuFormAlign li a:hover {background-color:#c5e1f2;}
+	
+	.subMenuForm li.formAlign:hover .thrMenuFormAlign {display:block;}
+
+	.thrMenuFormLineSpacing {list-style-type:none; position:absolute; display:block; padding:6px 0; top:-7px; left:200px; display:none; z-index:100; width:200px; background-color:#fff; border:1px solid #9d9d9d; font-weight:normal; box-shadow: 0 3px 5px 1px rgba(0,0,0,.30)}
+	.thrMenuFormLineSpacing li {position:relative; display:block; padding:0; width:200px; height:30px;}
+	.thrMenuFormLineSpacing li span {position:absolute; display:block; left:16px; padding:0;font-size:13px; color:#2e2e2e; line-height:30px;}
+	.thrMenuFormLineSpacing li a:hover {background-color:#c5e1f2;}
+	
+	.subMenuForm li.formLineSpacing:hover .thrMenuFormLineSpacing {display:block;}
+
+	.thrMenuFormLineStyles {list-style-type:none; position:absolute; display:block; padding:6px; top:-21px; left:200px; display:none; z-index:100; width:183px; background-color:#fff; border:1px solid #9d9d9d; font-weight:normal; box-shadow: 0 3px 5px 1px rgba(0,0,0,.30)}
+	.thrMenuFormLineStyles li {position:relative; display:inline-block; margin:4px; padding:0; width:50px; height:50px; vertical-align:middle;}
+	.thrMenuFormLineStyles li a {position:relative; display:inline-block; margin:-1px 0 0 -1px; padding:0; width:50px; height:50px; font-size:14px; color:#2e2e2e; text-decoration:none; border:1px solid #B9B9B9; background:url('../images/buttonBarSubmenu.png') no-repeat -180px 0; text-indent:-10000px;}
+
+	.thrMenuFormLineStyles_01 {margin-top:2px;}
+	.thrMenuFormLineStyles_02 {margin-top:2px;}
+
+	.subMenuForm > li.formListStyles:hover .thrMenuFormLineStyles {display:block;}
+
+	.thrMenuFormLineStyles li a.NumberedList4 {background-position:-180px -20px;}
+	.thrMenuFormLineStyles li a.NumberedList5 {background-position:-240px -20px;}
+
+	.thrMenuFormLineStyles li a.BulletedList1 {background-position:-300px -20px;}
+	.thrMenuFormLineStyles li a.BulletedList2 {background-position:-360px -20px;}
+	.thrMenuFormLineStyles li a.BulletedList3 {background-position:-420px -20px;}
+
+	.thrMenuFormLineStyles li a.NumberedList1 {background-position:0px -20px;}
+	.thrMenuFormLineStyles li a.NumberedList2 {background-position:-60px -20px;}
+	.thrMenuFormLineStyles li a.NumberedList3 {background-position:-120px -20px;}
+
+	.subMenuTable {list-style-type:none; position:absolute; padding:6px 0; top:27px; left:0; display:none; z-index:100; width:200px; background-color:#fff; border:1px solid #9d9d9d; font-weight:normal; box-shadow: 0 3px 5px 1px rgba(0,0,0,.30)}
+	.subMenuTable li {position:relative; padding:0; list-style-type:none; font-size:13px; color:#2e2e2e; text-decoration:none; height:30px;}
+	.subMenuTable li span {display:block; padding:0 0 0 10px; font-size:13px; color:#2e2e2e; line-height:30px; height:30px; text-decoration:none;}	
+	.subMenuTable li:hover {background-color:#c5e1f2;}
+	.menuBar .mainMenu > ul > li.menuTable:hover .subMenuTable {display:block;}
+	
+	.subMenuShare {list-style-type:none; position:absolute; padding:6px 0; top:27px; left:0; display:none; z-index:100; width:200px; background-color:#fff; border:1px solid #9d9d9d; font-weight:normal; box-shadow: 0 3px 5px 1px rgba(0,0,0,.30)}
+	.subMenuShare li {position:relative; padding:0; list-style-type:none; font-size:13px; color:#2e2e2e; text-decoration:none; height:30px;}
+	.subMenuShare li span {display:block; padding:0 0 0 10px; font-size:13px; color:#2e2e2e; line-height:30px; height:30px; text-decoration:none;}	
+	.subMenuShare li:hover {background-color:#c5e1f2;}
+	.menuBar .mainMenu > ul > li.menuShare:hover .subMenuShare {display:block;}
+
+	.subMenuFile li.menuLine {border-bottom:1px solid #d8d8d8; margin:3px 5px; width:190px; height:0px;}
+	.subMenuEdit li.menuLine {border-bottom:1px solid #d8d8d8; margin:3px 5px; width:190px; height:0px;}
+	.subMenuView li.menuLine {border-bottom:1px solid #d8d8d8; margin:3px 5px; width:190px; height:0px;}
+	.subMenuInsert li.menuLine {border-bottom:1px solid #d8d8d8; margin:3px 5px; width:190px; height:0px;}
+	.subMenuForm li.menuLine {border-bottom:1px solid #d8d8d8; margin:3px 5px; width:190px; height:0px;}
+	.subMenuTable li.menuLine {border-bottom:1px solid #d8d8d8; margin:3px 5px; width:190px; height:0px;}
+	.subMenuShare li.menuLine {border-bottom:1px solid #d8d8d8; margin:3px 5px; width:190px; height:0px;}
+
+#toolBar .buttonBar {height:88px; border-bottom:2px solid #f56d49;]
+
