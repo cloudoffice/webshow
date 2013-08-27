@@ -4,9 +4,11 @@
 .figures {height:62px;}
 .figuresTitle {height:26px; font-size:13px; color:#666; font-weight:bold; text-decoration:none; line-height:20px;}
 .figurePositionTitle {height:26px; font-size:13px; color:#666; font-weight:bold; text-align:center; text-decoration:none; line-height:20px;}
+.figureColorTitle {height:26px; font-size:13px; color:#666; font-weight:bold; text-align:center; text-decoration:none; line-height:20px;}
 .figurePosition {height:62px;}
-.figureFont {float:left; margin:10px 13px 10px 25px; width:44px; height:44px; background:url(../images/front.png) no-repeat 0 0;}
-.figureBack {float:left; margin:10px 25px 10px 13px; width:44px; height:44px; background:url(../images/back.png) no-repeat 0 0;}
+.figureFontIcon {cursor:pointer; float:left; margin:10px 13px 10px 25px; width:44px; height:44px; background:url(../images/front.png) no-repeat 0 0;}
+.figureBackIcon {cursor:pointer; float:left; margin:10px 25px 10px 13px; width:44px; height:44px; background:url(../images/back.png) no-repeat 0 0;}
+.figureColorIcon {cursor:pointer; float:left; margin:10px 25px 10px 25px; width:44px; height:44px; background:url(../images/backColor.png) no-repeat 0 0;}
 
 
 .circleBox {width:56px; height:56px; float:left;}
