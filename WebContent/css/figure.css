@@ -1,15 +1,16 @@
-.figure1 > div { margin:5px 15px;}
-
-
-.circleBox {width:60px; height:60px; float:left;}
+.figures > div { margin:6px 15px;}
+.figure1, .figure2, .figure3 {display:inline-block;}
+.figures {height:62px;}
+.figuresTitle, .figurePositionTitle {height:26px; font-size:13px; color:#666; font-weight:bold; text-decoration:none; line-height:20px;}
+.circleBox {width:56px; height:56px; float:left;}
 .circle {
    cursor:pointer;
-   width: 60px;
-   height: 60px;
+   width: 56px;
+   height: 56px;
    background: red; 
-   -moz-border-radius: 30px; 
-   -webkit-border-radius: 30px; 
-   border-radius: 30px;
+   -moz-border-radius: 28px; 
+   -webkit-border-radius: 28px; 
+   border-radius: 28px;
 }
 
 .squareBox {width:56px; height:56px; float:left;}
@@ -101,7 +102,7 @@
   border-bottom-right-radius: 28px;
 }
 
-.heartBox {width:79px; height:55px; float:left; left: 5px;}
+.heartBox {width:64px; height:55px; float:left;}
 .heart {
     cursor:pointer;
 	margin-left:13px; 
@@ -110,10 +111,10 @@
 .heart:before {
 	position: absolute;
     content: "";
-	left:15px;
-	top: 0;
-	width:33px;
-	height: 55px;
+	left:19px;
+	top: 1px;
+	width:32px;
+	height: 54px;
 	background: red;
 	-moz-border-radius: 50px 50px 0 0;
 	border-radius: 50px 50px 0 0;
@@ -131,10 +132,10 @@
 .heart:after { 
 	position: absolute;
     content: "";
-	left:-18px;
-	top: 0;
-	width: 33px;
-	height: 55px;
+	left:-13px;
+	top: 1px;
+	width: 32px;
+	height: 54px;
 	background: red; 
 	-moz-border-radius: 50px 50px 0 0;
 	border-radius: 50px 50px 0 0;
