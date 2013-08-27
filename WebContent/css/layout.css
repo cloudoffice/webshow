@@ -1,0 +1,19 @@
+@charset "utf-8";
+ul, body {margin:0; padding:0;}
+body {background-color:transparent; overflow: hidden;}
+
+/*layout*/
+#wrap {min-width:1182px; min-height:768px; margin:0; padding:0;}
+
+#container {background-color:#fff; overflow:auto; clear:both;}
+.slide {height:30px; width:170px; border-bottom:1px solid #b1b1b1; color:#666;}
+.slideInsert {cursor:pointer; float:left; width:84px; height:30px; text-decoration:none; border-right:1px solid #b1b1b1; font-size:24px; font-weight:bold; text-align:center; line-height:34px;}
+.slideDelete {cursor:pointer; float:left; width:85px; height:30px; text-decoration:none; font-size:28px; font-weight:bold; text-align:center; line-height:30px;}
+.thumbWrap {float:left; width:170px; height:627px; background-color:#eee; border-bottom:1px solid #b1b1b1; border-right:1px solid #b1b1b1; vertical-align:top;}
+.thumbnails {display:block; height:596px; overflow-y:scroll;}
+.thumbnail {width:120px; height:85px; margin:32px auto; font-size:12px; color:#868686;}
+.thumbnail1 {display:block; width:114px; height:85px; background-color:#fff; border:1px solid #b1b1b1;}
+.thumbName {padding:2px}
+
+.docWrap {width:850px; margin:0 auto;}
+.doc {float:left; background:#fff; overflow:hidden; height:600px; width:800px; bottom:0; margin:30px 20px; border:1px solid #b1b1b1; font-size:15px; color:#5c5c5c;}

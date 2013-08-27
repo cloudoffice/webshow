@@ -3,9 +3,17 @@
 <head>
 	<title>webShow</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<link rel="stylesheet" type="text/css" href="../css/common.css" />
+	<link rel="stylesheet" type="text/css" href="../css/layout.css" />
 	<link rel="stylesheet" type="text/css" href="../css/figure.css" />
 	<link rel="stylesheet" type="text/css" href="../css/animation.css" />
+	<link rel="stylesheet" type="text/css" href="../css/menu.css" />
+	<script src="../js/animation.js"></script>
+	<script type="text/javascript" src="../js/libs/jquery/jquery.js"></script>
+	<script>
+		$(document).ready(function(){
+			new Animation();
+		});
+	</script>
 </head>
 <body>
 	 <div id="wrap">
@@ -344,30 +352,46 @@
 			</div>
 			<div class="buttonBar">
 				<div class="figure1">
-					<div class="circleBox">
-                    	<div class="circle"></div>	
+					<div class="figures">
+						<div class="circleBox">
+	                    	<div class="circle"></div>	
+	                    </div>
+						<div class="squareBox">
+	                    	<div class="square"></div>
+	                    </div>
+						<div class="triangleBox">
+	                    	<div class="triangle"></div>
+	                    </div>
+						<div class="twelve-point-starBox">
+	                    	<div class="twelve-point-star"></div>
+	                    </div>
+						<div class="six-point-starBox">
+	                    	<div class="six-point-star"></div>
+	                    </div>
+						<div class="pacmanBox">
+	                    	<div class="pacman"></div>
+	                    </div>
+						<div class="heartBox">
+	                    	<div class="heart"></div>
+	                    </div>
                     </div>
-					<div class="squareBox">
-                    	<div class="square"></div>
-                    </div>
-					<div class="triangleBox">
-                    	<div class="triangle"></div>
-                    </div>
-					<div class="twelve-point-starBox">
-                    	<div class="twelve-point-star"></div>
-                    </div>
-					<div class="six-point-starBox">
-                    	<div class="six-point-star"></div>
-                    </div>
-					<div class="pacmanBox">
-                    	<div class="pacman"></div>
-                    </div>
-					<div class="heartBox">
-                    	<div class="heart"></div>
-                    </div>
+                    <div class="figuresTitle">도형 삽입</div>
 				</div>
-				<div class="figure2"></div>
-				<div class="figure3"></div>
+				<div class="line"></div>
+				<div class="figure2">
+					<div class="figurePosition">
+						<div class="figureFontIcon"></div>
+						<div class="figureBackIcon"></div>
+					</div>
+					<div class="figurePositionTitle">도형 정렬</div>
+				</div>
+				<div class="line"></div>
+				<div class="figure3">
+					<div class="figureColor">
+						<div class="figureColorIcon"></div>
+					</div>
+					<div class="figureColorTitle">도형 색</div>
+				</div>
 				<a class="animation" href="#">animation</a>
 			</div>
 		</div>
@@ -409,7 +433,7 @@
                 </div>
 			</div>
 			<div class="docWrap">
-				<div class="doc"></div>
+				<div class="doc"><div class="square" id="square1"></div></div>
 			</div>
 			<div class="aniWarp">
 				<div class="aniContents">
@@ -425,13 +449,11 @@
 					</div>
 				</div>
 				<div class="aniList">
-					<div class="ani1">
-                    	<a class="ani01">
-                            <div class="num"></div>
-                            <span class="text">애니메니션1</span>
-                            <div class="aniDelete" href="#"></div>
-                    	</a>
-                    </div>
+					<div class="aniListWrap"></div>
+					<div class="aniPosition">
+						<div class="aniUp">▲</div>
+						<div class="aniDown">▼</div>						
+					</div>
                    	<div class="aniPlay">재생</div>
 				</div>
 			</div>
