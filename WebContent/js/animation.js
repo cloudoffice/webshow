@@ -25,7 +25,7 @@ Animation.prototype = {
 				"<div class='aniDelete' href='#'></div>" +
 				"</a>" + "</div>");
 				*/
-		$(".ani1").append("<div class='ani0"+(order+1)+"'>" + 
+		$(".aniListWrap").append("<div class='ani1' id='ani"+(order+1)+"'>" + 
 				"<div class='num'>" + (order+1) + "</div>" + 
 				"<span class='text'>애니메니션" + (order+1) + "</span>" + 
 				"<div class='aniDelete' href='#'></div>" +
