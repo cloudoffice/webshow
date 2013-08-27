@@ -15,7 +15,7 @@
 .figure3 > div > div:hover {background-color:#ffdbd2;}
 
 .figures > div { margin:6px 20px;}
-.circleBox {width:56px; height:56px; float:left;}
+#circleBox {width:56px; height:56px; float:left;}
 .circle {
    cursor:pointer;
    width: 56px;
@@ -26,7 +26,7 @@
    border-radius: 28px;
 }
 
-.squareBox {width:56px; height:56px; float:left;}
+#squareBox {width:56px; height:56px; float:left;}
 .square {
    cursor:pointer;
    width: 56px; 
@@ -34,7 +34,7 @@
    background: blue; 
 }
 
-.triangleBox {width:60px; height:56px; float:left;}
+#triangleBox {width:60px; height:56px; float:left;}
 .triangle {
    cursor:pointer;
    width: 0; 
@@ -44,7 +44,7 @@
    border-right: 30px solid transparent; 
 }
 
-.twelve-point-starBox {width:41px; height:41px; float:left; padding:7px;}
+#twelve-point-starBox {width:41px; height:41px; float:left; padding:7px;}
 .twelve-point-star {
    cursor:pointer;
    height: 41px;
@@ -79,7 +79,7 @@
    transform: rotate(-30deg);
 }
 
-.six-point-starBox {width:50px; height:55px; float:left;}
+#six-point-starBox {width:50px; height:55px; float:left;}
 .six-point-star {
    cursor:pointer;
    position: absolute;
@@ -100,7 +100,7 @@
    margin: 15px 0 0 -25px;
 }
 
-.pacmanBox {width:50px; height:55px; float:left;}
+#pacmanBox {width:50px; height:55px; float:left;}
 .pacman {
   cursor:pointer;
   width: 0px;
@@ -115,7 +115,7 @@
   border-bottom-right-radius: 28px;
 }
 
-.heartBox {width:64px; height:55px; float:left;}
+#heartBox {width:64px; height:55px; float:left;}
 .heart {
     cursor:pointer;
 	margin-left:13px; 

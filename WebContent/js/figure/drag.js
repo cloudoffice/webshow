@@ -9,6 +9,8 @@ function startDrag(e, target){
 
 	$(document).mousemove(function(e){moveDrag(e,target);});
 	$(document).mouseup(function(e){stopDrag(e,target);});
+	
+	applyToWindowCapture();
 }
 function moveDrag(e, target){
 	console.log(e);
@@ -17,6 +19,8 @@ function moveDrag(e, target){
 
 	$(target).css("left", e.clientX + x );
 	$(target).css("top", e.clientY + y );
+	
+	applyToWindowCapture();
 }
 function stopDrag(e,target){
 	createBorder(e,target);
@@ -24,4 +28,6 @@ function stopDrag(e,target){
 
 	$(document).unbind("mousemove");
 	$(document).unbind("mouseup");
+	
+	applyToWindowCapture();
 }

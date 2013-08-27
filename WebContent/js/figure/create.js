@@ -1,23 +1,48 @@
 var n=0;
-var figureLeft=230;
-var figureTop=200;
+var figureLeft=100;
+var figureTop=50;
 var classvalue;
-
+var width, height;
 function createFigure(e, target){
+	console.log(e);
 	n++;
-	classvalue = $(target).attr("class");
-	$("<div id="+n+" class="+ classvalue+ "></div>").appendTo(".doc" );
+	classvalue = $(target).attr("value");
+	width = $(target).width();
+	height = $(target).height();
+	$("<div id="+n+"></div>").appendTo(".doc");
 	var f=document.getElementById(n);
-	f.style.position="absolute";
+	f.style.width = width+"px";
+	f.style.height = height+"px";
+	f.style.position="relative";
 	f.style.left=figureLeft+"px";
 	f.style.top= figureTop+"px";
+	f.style.cursor = "move";
 	f.style.zIndex="10";
+	
+	$("<div id="+ classvalue+n+" class="+classvalue+"></div>").appendTo("#"+n);
+//	$("#"+classvalue+n).attr("z-index","5");
+	var sub_target = $("#"+classvalue+n);
+	/*
+	var f_canvas = $(target).get(0);
+	html2canvas(f_canvas, {
+		onrendered: function(canvas){
+			$(canvas).attr("id", classvalue+n);
+	//		$(canvas).attr("class",classvalue);
+			$(canvas).attr("style","width:"+width+"px; height:"+height+"px");
+			
+			$("#"+n).empty();
+			$("#"+n).append(canvas);
+		},
+		width:f_canvas.width,
+		height:f_canvas.height		
+	});
+	*/
 	
 	figureLeft = figureLeft + 25;
 	figureTop = figureTop + 25;
 	
 	$("#"+n).click(function(e){
-		createBorder(e, this);
+		createBorder(e, this, sub_target);
 		$(document).unbind("click");
 	});
 	
@@ -37,9 +62,11 @@ function createFigure(e, target){
 			$("#div7").remove();
 			$("#div8").remove();
 			$(document).unbind("click");
-			$("#box").unbind("click");							
+	//		$("#box").unbind("click");							
 		});
 	});	
+	
+	applyToWindowCapture();
 };
 
 var div = document.createElement("div");
@@ -52,7 +79,7 @@ var div6 = document.createElement("div");
 var div7 = document.createElement("div");
 var div8 = document.createElement("div");
 var w, h, l, t; 
-function createBorder(e, target){	
+function createBorder(e, target, sub_target){	
 	w = $(target).width();
 	h = $(target).height();
 	l = $(target).offset().left;	
@@ -80,7 +107,7 @@ function createBorder(e, target){
 	div1.style.border ="0px";
 	div1.style.cursor = "nw-resize";
 	div1.style.zIndex = "50";
-	$("#div1").mousedown(function(e){startDiv1Resize(e, target);});
+	div1.onmousedown = $.proxy(this.startDiv1Resize, this, e, target, sub_target);
 	document.getElementById("docu").appendChild(div1);
 	
 	div2.id = "div2";
@@ -93,7 +120,7 @@ function createBorder(e, target){
 	div2.style.border ="0px";
 	div2.style.cursor = "n-resize";
 	div2.style.zIndex = "50";
-	$("#div2").mousedown(function(e){startDiv2Resize(e, target);});
+	div2.onmousedown = $.proxy(this.startDiv2Resize, this, e, target, sub_target);
 	document.getElementById("docu").appendChild(div2);
 	
 	div3.id = "div3";
@@ -106,7 +133,7 @@ function createBorder(e, target){
 	div3.style.border ="0px";
 	div3.style.cursor = "ne-resize";
 	div3.style.zIndex = "50";
-	$("#div3").mousedown(function(e){startDiv3Resize(e, target);});
+	div3.onmousedown = $.proxy(this.startDiv3Resize, this, e, target, sub_target);
 	document.getElementById("docu").appendChild(div3);
 	
 	div4.id = "div4";
@@ -119,7 +146,7 @@ function createBorder(e, target){
 	div4.style.border ="0px";
 	div4.style.cursor = "e-resize";
 	div4.style.zIndex = "50";
-	$("#div4").mousedown(function(e){startDiv4Resize(e, target);});	
+	div4.onmousedown = $.proxy(this.startDiv4Resize, this, e, target, sub_target);	
 	document.getElementById("docu").appendChild(div4);
 	
 	div5.id = "div5";
@@ -132,7 +159,7 @@ function createBorder(e, target){
 	div5.style.border ="0px";
 	div5.style.cursor = "w-resize";
 	div5.style.zIndex = "50";
-	$("#div5").mousedown(function(e){startDiv5Resize(e, target);});	
+	div5.onmousedown = $.proxy(this.startDiv5Resize, this, e, target, sub_target);	
 	document.getElementById("docu").appendChild(div5);
 	
 	div6.id = "div6";
@@ -145,7 +172,7 @@ function createBorder(e, target){
 	div6.style.border ="0px";
 	div6.style.cursor = "sw-resize";
 	div6.style.zIndex = "50";
-	$("#div6").mousedown(function(e){startDiv6Resize(e, target);});	
+	div6.onmousedown = $.proxy(this.startDiv6Resize, this, e, target, sub_target);
 	document.getElementById("docu").appendChild(div6);
 	
 	div7.id = "div7";
@@ -158,7 +185,7 @@ function createBorder(e, target){
 	div7.style.border ="0px";
 	div7.style.cursor = "s-resize";
 	div7.style.zIndex = "50";	
-	$("#div7").mousedown(function(e){startDiv7Resize(e, target);});	
+	div7.onmousedown = $.proxy(this.startDiv7Resize, this, e, target, sub_target);	
 	document.getElementById("docu").appendChild(div7);
 	
 	div8.id = "div8";
@@ -171,6 +198,20 @@ function createBorder(e, target){
 	div8.style.border ="0px";
 	div8.style.cursor = "se-resize";
 	div8.style.zIndex = "50";
-	$("#div8").mousedown(function(e){startResize(e, target);});
+	div8.onmousedown = $.proxy(this.startResize, this, e, target, sub_target);
 	document.getElementById("docu").appendChild(div8);
 }
+
+function applyToWindowCapture(){
+	var mainWindow = $("#docu").get(0);
+	html2canvas(mainWindow, {
+		onrendered: function(canvas){
+			$(canvas).attr("style","width:114px; height:85px");
+			
+			$("#thum1").empty();
+			$("#thum1").append(canvas);
+		},
+		width : mainWindow.width,
+		height : mainWindow.height
+	});
+} 
