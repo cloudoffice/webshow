@@ -14,11 +14,22 @@ Animation.prototype = {
 		var len = this.orderArray.length;
 		this.orderArray[len] = data;
 		console.log(this.orderArray);
-		this.addAnimationList();
+		this.addAnimationList(this.orderArray[len], len);
 	},
 	
-	addAnimationList : function() {
-		
+	addAnimationList : function(newAnimation, order) {
+/*		$(".aniList").append("<div class='ani"+(order+1)+"'>" +
+				"<a class='ani0"+(order+1)+"'>" + 
+				"<div class='num'>" + (order+1) + "</div>" + 
+				"<span class='text'>애니메니션" + (order+1) + "</span>" + 
+				"<div class='aniDelete' href='#'></div>" +
+				"</a>" + "</div>");
+				*/
+		$(".ani1").append("<div class='ani0"+(order+1)+"'>" + 
+				"<div class='num'>" + (order+1) + "</div>" + 
+				"<span class='text'>애니메니션" + (order+1) + "</span>" + 
+				"<div class='aniDelete' href='#'></div>" +
+				"</div>");
 	},
 	
 	getSelectedObjectClassName : function(e) {
