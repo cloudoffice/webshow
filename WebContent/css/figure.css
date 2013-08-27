@@ -1,5 +1,7 @@
-.buttonBar div {}
-.circle { float:left; margin:8px 10px;
+
+.circleBox {width:60px; height:60px; float:left; margin:8px 10px;}
+.circle {
+   cursor:pointer;
    width: 60px;
    height: 60px;
    background: red; 
@@ -8,13 +10,17 @@
    border-radius: 30px;
 }
 
-.square { float:left; margin:10px 20px;
+.squareBox {width:56px; height:56px; float:left; margin:10px 20px;}
+.square {
+   cursor:pointer;
    width: 56px; 
    height: 56px; 
    background: blue; 
 }
 
-.triangle { float:left; margin:8px 10px;
+.triangleBox {width:60px; height:60px; float:left; margin:8px 10px;}
+.triangle {
+   cursor:pointer;
    width: 0; 
    height: 0; 
    border-bottom: 60px solid green; 
@@ -22,7 +28,9 @@
    border-right: 30px solid transparent; 
 }
 
-.twelve-point-star { float:left;  margin:15px 275px;
+.twelve-point-starBox {width:45px; height:45px; float:left; padding:8px; margin:8px 10px;}
+.twelve-point-star {
+   cursor:pointer;
    height: 45px;
    width: 45px;
    background: orange;
@@ -55,7 +63,9 @@
    transform: rotate(-30deg);
 }
 
-.six-point-star { float:left;  margin:5px 355px;
+.six-point-starBox {width:60px; height:67px; float:left;  margin:5px 10px;}
+.six-point-star {
+   cursor:pointer;
    position: absolute;
    width: 0; 
    height: 0; 
@@ -74,7 +84,9 @@
    margin: 18px 0 0 -30px;
 }
 
-.pacman { float:left;  margin:8px 0 0 185px;
+.pacmanBox {width:60px; height:64px; float:left;  margin:8px 10px;}
+.pacman {
+  cursor:pointer;
   width: 0px;
   height: 0px;
   border-right: 32px solid transparent;
@@ -87,15 +99,19 @@
   border-bottom-right-radius: 32px;
 }
 
-.heart {  float:left; margin-left:30px;
+.heartBox {width:79px; height:66px; float:left; left: 5px; margin:5px 10px;}
+.heart {
+    cursor:pointer;
+	margin-left:13px; 
 	position: relative;
 }
-.heart:before, #heart:after {
+.heart:before {
 	position: absolute;
-  content: "";
-	left: 30px; top: 0;
-	width: 30px;
-	height: 70px;
+    content: "";
+	left:26px;
+	top: 0;
+	width:36px;
+	height: 66px;
 	background: red;
 	-moz-border-radius: 50px 50px 0 0;
 	border-radius: 50px 50px 0 0;
@@ -111,7 +127,15 @@
 	transform-origin: 0 100%;
 }
 .heart:after { 
-	left: 0; 
+	position: absolute;
+    content: "";
+	left:-10px;
+	top: 0;
+	width: 36px;
+	height: 66px;
+	background: red; 
+	-moz-border-radius: 50px 50px 0 0;
+	border-radius: 50px 50px 0 0;
 	-webkit-transform: rotate(45deg); 
 	-moz-transform: rotate(45deg); 
 	-ms-transform: rotate(45deg); 
@@ -122,4 +146,3 @@
 	-ms-transform-origin: 100% 100%;
 	-o-transform-origin: 100% 100%;
 	transform-origin :100% 100%;
-}
