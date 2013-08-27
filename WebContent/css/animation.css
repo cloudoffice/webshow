@@ -6,7 +6,7 @@
 .contents div {cursor:pointer; margin-bottom:8px; width:130px; height:18px; background-color:#ccc; text-align:center;}
 
 .ani1 {margin:20px 0 0 15px; line-height:20px; width:136px; height:20px; font-size:13px; color:#666; vertical-align:top;}
-.num {float:left; width:18px; height:18px; background:url(../images/num.png) repeat 0 0;}
+.num {float:left; width:18px; height:18px; background-color:#f56d49; text-align:center; color:#fff;}
 .text {float:left; padding:0 14px 0 10px;}
 .aniDelete {cursor:pointer; float:left; width:17px; height:17px; background:url(../images/delete.png) repeat 0 0;}
 .aniPlay {cursor:pointer; margin-top:315px; width:166px; height:25px;  line-height:25px; font-size:14px; color:#fff;  text-align:center; font-weight:bold; background-color:#f56d49;}
