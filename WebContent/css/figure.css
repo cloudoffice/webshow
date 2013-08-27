@@ -1,4 +1,4 @@
-.figures > div { margin:6px 20px;}
+
 .figure1, .figure2, .figure3 {float:left;}
 .line {float:left; width:1px; height:80px; margin:5px 0; border-right:1px solid #b1b1b1;}
 .figures {height:62px;}
@@ -6,11 +6,15 @@
 .figurePositionTitle {height:26px; font-size:13px; color:#666; font-weight:bold; text-align:center; text-decoration:none; line-height:20px;}
 .figureColorTitle {height:26px; font-size:13px; color:#666; font-weight:bold; text-align:center; text-decoration:none; line-height:20px;}
 .figurePosition {height:62px;}
-.figureFontIcon {cursor:pointer; float:left; margin:10px 13px 10px 25px; width:44px; height:44px; background:url(../images/front.png) no-repeat 0 0;}
-.figureBackIcon {cursor:pointer; float:left; margin:10px 25px 10px 13px; width:44px; height:44px; background:url(../images/back.png) no-repeat 0 0;}
-.figureColorIcon {cursor:pointer; float:left; margin:10px 25px 10px 25px; width:44px; height:44px; background:url(../images/backColor.png) no-repeat 0 0;}
+.figureFontIcon {cursor:pointer; float:left; margin:8px 10px 6px 25px; padding:4px; width:44px; height:44px; background:url(../images/front.png) no-repeat 4px 4px;}
+.figureBackIcon {cursor:pointer; float:left; margin:8px 25px 6px 10px; padding:4px; width:44px; height:44px; background:url(../images/back.png) no-repeat 4px 4px;}
+.figureColorIcon {cursor:pointer; float:left; margin:8px 25px 6px 25px; padding:4px; width:44px; height:44px; background:url(../images/backColor.png) no-repeat 4px 4px;}
 
+.figure1 > div > div:hover {background-color:#ffdbd2;}
+.figure2 > div > div:hover {background-color:#ffdbd2;}
+.figure3 > div > div:hover {background-color:#ffdbd2;}
 
+.figures > div { margin:6px 20px;}
 .circleBox {width:56px; height:56px; float:left;}
 .circle {
    cursor:pointer;
