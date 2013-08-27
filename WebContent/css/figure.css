@@ -1,5 +1,9 @@
-.buttonBar div {}
-.circle { float:left; margin:8px 10px;
+.figure1 > div { margin:5px 15px;}
+
+
+.circleBox {width:60px; height:60px; float:left;}
+.circle {
+   cursor:pointer;
    width: 60px;
    height: 60px;
    background: red; 
@@ -8,29 +12,35 @@
    border-radius: 30px;
 }
 
-.square { float:left; margin:10px 20px;
+.squareBox {width:56px; height:56px; float:left;}
+.square {
+   cursor:pointer;
    width: 56px; 
    height: 56px; 
    background: blue; 
 }
 
-.triangle { float:left; margin:8px 10px;
+.triangleBox {width:60px; height:56px; float:left;}
+.triangle {
+   cursor:pointer;
    width: 0; 
    height: 0; 
-   border-bottom: 60px solid green; 
+   border-bottom: 56px solid green; 
    border-left: 30px solid transparent; 
    border-right: 30px solid transparent; 
 }
 
-.twelve-point-star { float:left;  margin:15px 275px;
-   height: 45px;
-   width: 45px;
+.twelve-point-starBox {width:41px; height:41px; float:left; padding:7px;}
+.twelve-point-star {
+   cursor:pointer;
+   height: 41px;
+   width: 41px;
    background: orange;
    position: absolute;
 }
 .twelve-point-star:before {
-   height: 45px;
-   width: 45px;
+   height: 41px;
+   width: 41px;
    background: orange;
    content:"";
    position: absolute;
@@ -42,8 +52,8 @@
    transform: rotate(30deg);
 }
 .twelve-point-star:after {
-   height: 45px;
-   width: 45px;
+   height: 41px;
+   width: 41px;
    background: orange;
    content:"";
    position: absolute;
@@ -55,47 +65,55 @@
    transform: rotate(-30deg);
 }
 
-.six-point-star { float:left;  margin:5px 355px;
+.six-point-starBox {width:50px; height:55px; float:left;}
+.six-point-star {
+   cursor:pointer;
    position: absolute;
    width: 0; 
    height: 0; 
-   border-left: 30px solid transparent; 
-   border-right: 30px solid transparent; 
-   border-bottom: 50px solid red;
+   border-left: 25px solid transparent; 
+   border-right: 25px solid transparent; 
+   border-bottom: 41px solid red;
 }
 .six-point-star:after {
    content:"";
    position: absolute;
    width: 0; 
    height: 0; 
-   border-left: 30px solid transparent; 
-   border-right:30px solid transparent; 
-   border-top: 50px solid red;
-   margin: 18px 0 0 -30px;
+   border-left: 25px solid transparent; 
+   border-right:25px solid transparent; 
+   border-top: 41px solid red;
+   margin: 15px 0 0 -25px;
 }
 
-.pacman { float:left;  margin:8px 0 0 185px;
+.pacmanBox {width:50px; height:55px; float:left;}
+.pacman {
+  cursor:pointer;
   width: 0px;
   height: 0px;
-  border-right: 32px solid transparent;
-  border-top: 32px solid #ffd630;
-  border-left: 32px solid #ffd630;
-  border-bottom: 32px solid #ffd630;
-  border-top-left-radius: 32px;
-  border-top-right-radius: 32px;
-  border-bottom-left-radius: 32px;
-  border-bottom-right-radius: 32px;
+  border-right: 28px solid transparent;
+  border-top: 28px solid #ffd630;
+  border-left: 28px solid #ffd630;
+  border-bottom: 28px solid #ffd630;
+  border-top-left-radius: 28px;
+  border-top-right-radius: 28px;
+  border-bottom-left-radius: 28px;
+  border-bottom-right-radius: 28px;
 }
 
-.heart {  float:left; margin-left:30px;
+.heartBox {width:79px; height:55px; float:left; left: 5px;}
+.heart {
+    cursor:pointer;
+	margin-left:13px; 
 	position: relative;
 }
-.heart:before, #heart:after {
+.heart:before {
 	position: absolute;
-  content: "";
-	left: 30px; top: 0;
-	width: 30px;
-	height: 70px;
+    content: "";
+	left:15px;
+	top: 0;
+	width:33px;
+	height: 55px;
 	background: red;
 	-moz-border-radius: 50px 50px 0 0;
 	border-radius: 50px 50px 0 0;
@@ -111,7 +129,15 @@
 	transform-origin: 0 100%;
 }
 .heart:after { 
-	left: 0; 
+	position: absolute;
+    content: "";
+	left:-18px;
+	top: 0;
+	width: 33px;
+	height: 55px;
+	background: red; 
+	-moz-border-radius: 50px 50px 0 0;
+	border-radius: 50px 50px 0 0;
 	-webkit-transform: rotate(45deg); 
 	-moz-transform: rotate(45deg); 
 	-ms-transform: rotate(45deg); 
@@ -122,4 +148,3 @@
 	-ms-transform-origin: 100% 100%;
 	-o-transform-origin: 100% 100%;
 	transform-origin :100% 100%;
-}
