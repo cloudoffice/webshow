@@ -5,8 +5,7 @@ function Animation() {
 Animation.prototype = {
 	init : function() {
 		this.orderArray = new Array();
-		this.event1();
-		this.event2();
+		this.event();
 	},
 	
 	mappingObjectNAnimation : function(e) {
@@ -25,32 +24,47 @@ Animation.prototype = {
 				"</div>");
 	},
 	
-	deleteAnimationList : function() {
+	deleteAnimationList : function(e) {
+		var aniId = e.currentTarget.parentElement.id;
+		var order = $("#" + aniId).children(".num").text();
 		
+		$("#" + aniId).remove();
+		this.deleteMappingObjectNAnimation(order-1);
 	},
 	
-	getSelectedObjectClassName : function(e) {
+	deleteMappingObjectNAnimation : function(order) {
+		var array = this.orderArray.splice(order, 1);
+	},
+	
+	getSelectedObjectId : function(e) {
 		this.objectId = e.currentTarget.id;
 	},
 	
-	changeAnimationOrder : function() {
-		
+	changeAnimationOrder : function(e) {
+
 	},
 	
 	playAnimation : function() {
 		
 	}, 
 	
-	event1: function() {
-		$(".doc").on("click", "div", $.proxy(this.getSelectedObjectClassName, this));
-	},
-	
-	event2: function() {
+	event : function() {
+		//도형선택 시 도형 id받아옴
+		$(".doc").on("click", "div", $.proxy(this.getSelectedObjectId, this));
+		
+		//애니메이션 선택 시 도형+애니매이션 mapping 배열에 추가
 		$(".show").on("click", $.proxy(this.mappingObjectNAnimation, this));
 		$(".flyUp").on("click", $.proxy(this.mappingObjectNAnimation, this));
 		$(".flyDown").on("click", $.proxy(this.mappingObjectNAnimation, this));
 		$(".flyLeft").on("click", $.proxy(this.mappingObjectNAnimation, this));
 		$(".flyRight").on("click", $.proxy(this.mappingObjectNAnimation, this));
 		$(".fade").on("click", $.proxy(this.mappingObjectNAnimation, this));
+		
+		//애니메이션 순서 변경
+		$(".aniUp").on("click", $.proxy(this.changeAnimationOrder, this));
+		$(".aniDown").on("click", $.proxy(this.changeAnimationOrder, this));
+		
+		//애니메이션 list에서 삭제
+		$(".aniListWrap").delegate(".aniDelete", "click", $.proxy(this.deleteAnimationList, this));
 	}, 
 };
