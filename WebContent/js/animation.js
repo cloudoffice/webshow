@@ -74,12 +74,7 @@ Animation.prototype = {
 		
 		//aniDown
 		if (e.target.className == "aniDown") {
-//			$("#" + this.aniListId).remove();
-			$("<div class='ani1' id='ani" + order + "'>" + 
-					"<div class='num'>" + (order + 1) + "</div>" + 
-					"<span class='text'>" + aniText + "</span>" + 
-					"<div class='aniDelete' href='#'></div>" +
-					"</div>").insertAfter("#ani" + (order + 1));
+			$("#" + this.aniListId).insertAfter('#ani' + (order + 1));
 //			$("#ani" + (order)).children(".num").html(order + 1);
 //			
 //			$("#ani"+(order)).attr("id", "ani" + (order + 1));
