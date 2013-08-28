@@ -15,89 +15,67 @@
 .figure3 > div > div:hover {background-color:#ffdbd2;}
 
 .figures > div { margin:6px 20px;}
-#circleBox {width:56px; height:56px; float:left;}
+#circleBox {width:50px; height:50px; float:left;}
 .circle {
  /*  cursor:pointer;*/
-   width: 56px;
-   height: 56px;
-   background: red; 
-   -moz-border-radius: 28px; 
-   -webkit-border-radius: 28px; 
-   border-radius: 28px;
+   width: 46px;
+   height: 46px;
+   background:#fff; 
+   border:2px solid #777;
+   -moz-border-radius: 23px; 
+   -webkit-border-radius: 23px; 
+   border-radius: 23px;
 }
 
-#squareBox {width:56px; height:56px; float:left;}
+#squareBox {width:50px; height:50px; float:left;}
 .square {
  /*  cursor:pointer;*/
-   width: 56px; 
-   height: 56px; 
-   background: blue; 
+   width: 46px; 
+   height: 46px; 
+   background:#fff;
+   border:2px solid #777;  
 }
 
-#triangleBox {width:60px; height:56px; float:left;}
+#triangleBox {width:60px; height:50px; float:left; padding-left:8px;}
 .triangle {
-   /*cursor:pointer;*/
-   width: 0; 
-   height: 0; 
-   border-bottom: 56px solid green; 
-   border-left: 30px solid transparent; 
-   border-right: 30px solid transparent; 
+     width:46px; 
+     height:46px; 
+     border:2px solid #777; 
+     background:#fff;
+     transform: skew(-20deg); 
+     -o-transform: skew(-20deg); 
+     -moz-transform: skew(-20deg); 
+     -webkit-transform: skew(-20deg);
 }
 
-#twelve-point-starBox {width:41px; height:41px; float:left; padding:7px;}
+#twelve-point-starBox {width:57px; height:56px; float:left; left:-25px;}
 .twelve-point-star {
-   /*cursor:pointer;*/
-   height: 41px;
-   width: 41px;
-   background: orange;
-   position: absolute;
-}
-.twelve-point-star:before {
-   height: 41px;
-   width: 41px;
-   background: orange;
-   content:"";
-   position: absolute;
-   /* Rotate */
-   -moz-transform: rotate(30deg);
-   -webkit-transform: rotate(30deg);
-   -ms-transform: rotate(30deg);
-   -o-transform: rotate(30deg);
-   transform: rotate(30deg);
-}
-.twelve-point-star:after {
-   height: 41px;
-   width: 41px;
-   background: orange;
-   content:"";
-   position: absolute;
-   /* Rotate */
-   -moz-transform: rotate(-30deg);
-   -webkit-transform: rotate(-30deg);
-   -ms-transform: rotate(-30deg);
-   -o-transform: rotate(-30deg);
-   transform: rotate(-30deg);
+     width:36px; 
+     height:36px; 
+     border:2px solid #777; 
+     background:#fff;
+   	 margin:16px 0 0 28px;
+     -webkit-transform: rotate(-45deg);
+     -moz-transform: rotate(-45deg);
+     -ms-transform: rotate(-45deg);
+     -o-transform: rotate(-45deg);
+     transform: rotate(-45deg);
+     -webkit-transform-origin: 0 100%;
+     -moz-transform-origin: 0 100%;
+     -ms-transform-origin: 0 100%;
+     -o-transform-origin: 0 100%;
+     transform-origin: 0 100%;
 }
 
-#six-point-starBox {width:50px; height:55px; float:left;}
+#six-point-starBox {width:69px; height:35px; float:left;}
 .six-point-star {
-  /* cursor:pointer;*/
-   position: absolute;
-   width: 0; 
-   height: 0; 
-   border-left: 25px solid transparent; 
-   border-right: 25px solid transparent; 
-   border-bottom: 41px solid red;
-}
-.six-point-star:after {
-   content:"";
-   position: absolute;
-   width: 0; 
-   height: 0; 
-   border-left: 25px solid transparent; 
-   border-right:25px solid transparent; 
-   border-top: 41px solid red;
-   margin: 15px 0 0 -25px;
+     height:31px;
+     width:64px;
+     border:2px solid #777; 
+     border-radius: 90px 90px 0 0;
+     -moz-border-radius: 90px 90px 0 0;
+     -webkit-border-radius: 90px 90px 0 0;
+     background:#fff;
 }
 
 #pacmanBox {width:50px; height:55px; float:left;}
