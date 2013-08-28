@@ -9,7 +9,7 @@ function createFigure(e, target){
 	classvalue = $(target).attr("value");
 	width = $(target).width();
 	height = $(target).height();
-	$("<div id="+n+"></div>").appendTo("#doc");
+	$("<div id="+n+"></div>").appendTo("#doc1");
 	var f=document.getElementById(n);
 	f.style.width = width+"px";
 	f.style.height = height+"px";
@@ -96,7 +96,7 @@ function createBorder(e, target, sub_target){
 	div.style.cursor = "move";
 	div.style.zIndex = "1";
 		
-	document.getElementById("doc").appendChild(div);
+	document.getElementById("doc1").appendChild(div);
 	
 	div1.id = "div1";
 	div1.style.position = "absolute";
@@ -109,7 +109,7 @@ function createBorder(e, target, sub_target){
 	div1.style.cursor = "nw-resize";
 	div1.style.zIndex = "50";
 	div1.onmousedown = $.proxy(this.startDiv1Resize, this, e, target, sub_target);
-	document.getElementById("doc").appendChild(div1);
+	document.getElementById("doc1").appendChild(div1);
 	
 	div2.id = "div2";
 	div2.style.position = "absolute";
@@ -122,7 +122,7 @@ function createBorder(e, target, sub_target){
 	div2.style.cursor = "n-resize";
 	div2.style.zIndex = "50";
 	div2.onmousedown = $.proxy(this.startDiv2Resize, this, e, target, sub_target);
-	document.getElementById("doc").appendChild(div2);
+	document.getElementById("doc1").appendChild(div2);
 	
 	div3.id = "div3";
 	div3.style.position = "absolute";
@@ -135,7 +135,7 @@ function createBorder(e, target, sub_target){
 	div3.style.cursor = "ne-resize";
 	div3.style.zIndex = "50";
 	div3.onmousedown = $.proxy(this.startDiv3Resize, this, e, target, sub_target);
-	document.getElementById("doc").appendChild(div3);
+	document.getElementById("doc1").appendChild(div3);
 	
 	div4.id = "div4";
 	div4.style.position = "absolute";
@@ -148,7 +148,7 @@ function createBorder(e, target, sub_target){
 	div4.style.cursor = "e-resize";
 	div4.style.zIndex = "50";
 	div4.onmousedown = $.proxy(this.startDiv4Resize, this, e, target, sub_target);	
-	document.getElementById("doc").appendChild(div4);
+	document.getElementById("doc1").appendChild(div4);
 	
 	div5.id = "div5";
 	div5.style.position = "absolute";
@@ -161,7 +161,7 @@ function createBorder(e, target, sub_target){
 	div5.style.cursor = "w-resize";
 	div5.style.zIndex = "50";
 	div5.onmousedown = $.proxy(this.startDiv5Resize, this, e, target, sub_target);	
-	document.getElementById("doc").appendChild(div5);
+	document.getElementById("doc1").appendChild(div5);
 	
 	div6.id = "div6";
 	div6.style.position = "absolute";
@@ -174,7 +174,7 @@ function createBorder(e, target, sub_target){
 	div6.style.cursor = "sw-resize";
 	div6.style.zIndex = "50";
 	div6.onmousedown = $.proxy(this.startDiv6Resize, this, e, target, sub_target);
-	document.getElementById("doc").appendChild(div6);
+	document.getElementById("doc1").appendChild(div6);
 	
 	div7.id = "div7";
 	div7.style.position = "absolute";
@@ -187,7 +187,7 @@ function createBorder(e, target, sub_target){
 	div7.style.cursor = "s-resize";
 	div7.style.zIndex = "50";	
 	div7.onmousedown = $.proxy(this.startDiv7Resize, this, e, target, sub_target);	
-	document.getElementById("doc").appendChild(div7);
+	document.getElementById("doc1").appendChild(div7);
 	
 	div8.id = "div8";
 	div8.style.position = "absolute";
@@ -200,11 +200,11 @@ function createBorder(e, target, sub_target){
 	div8.style.cursor = "se-resize";
 	div8.style.zIndex = "50";
 	div8.onmousedown = $.proxy(this.startResize, this, e, target, sub_target);
-	document.getElementById("doc").appendChild(div8);
+	document.getElementById("doc1").appendChild(div8);
 }
 
 function applyToWindowCapture(){
-	var mainWindow = $("#doc").get(0);
+	var mainWindow = $("#doc1").get(0);
 	html2canvas(mainWindow, {
 		onrendered: function(canvas){
 			$(canvas).attr("style","width:114px; height:85px");
