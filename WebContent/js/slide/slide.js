@@ -10,14 +10,14 @@ function createSlide(e){
 	for(var i=1;i<thum_number;i++){
 		$("#doc"+i).css("display","none");
 	}
-	
-	$(".thumbWrap").delegate("#thum"+thum_number, "click",$.proxy( this.mainSlideSelect, this, e, this));
+
+	$(".thumbWrap").delegate("#thum"+thum_number, "click",$.proxy( this.mainSlideSelect, this, e,thum_number));
 }
 function mainSlideSelect(e, target){
 	console.log(target);
 	for(var i=1;i<thum_number+1;i++){
 		$("#doc"+i).css("display","none");
 	}
-	$(target).css("display","inline");
+	$("#doc"+target).css("display","inline");
 }
 
