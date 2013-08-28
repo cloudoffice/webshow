@@ -4,7 +4,7 @@
 .figures {height:62px;}
 .figuresTitle {height:26px; font-size:13px; color:#666; font-weight:bold; text-decoration:none; line-height:20px;}
 .figurePositionTitle {height:26px; font-size:13px; color:#666; font-weight:bold; text-align:center; text-decoration:none; line-height:20px;}
-.figureColorTitle {height:26px; font-size:13px; color:#666; font-weight:bold; text-align:center; text-decoration:none; line-height:20px; }
+.figureColorTitle {height:26px; font-size:13px; color:#666; font-weight:bold; text-align:center; text-decoration:none; line-height:20px;}
 .figurePosition {height:62px;}
 .figureFontIcon {cursor:pointer; float:left; margin:8px 10px 6px 25px; padding:4px; width:44px; height:44px; background:url(../images/front.png) no-repeat 4px 4px;}
 .figureBackIcon {cursor:pointer; float:left; margin:8px 25px 6px 10px; padding:4px; width:44px; height:44px; background:url(../images/back.png) no-repeat 4px 4px;}
@@ -17,7 +17,7 @@
 .figures > div { margin:6px 20px;}
 #circleBox {width:56px; height:56px; float:left;}
 .circle {
-   cursor:pointer;
+ /*  cursor:pointer;*/
    width: 56px;
    height: 56px;
    background: red; 
@@ -28,7 +28,7 @@
 
 #squareBox {width:56px; height:56px; float:left;}
 .square {
-   cursor:pointer;
+ /*  cursor:pointer;*/
    width: 56px; 
    height: 56px; 
    background: blue; 
@@ -36,7 +36,7 @@
 
 #triangleBox {width:60px; height:56px; float:left;}
 .triangle {
-   cursor:pointer;
+   /*cursor:pointer;*/
    width: 0; 
    height: 0; 
    border-bottom: 56px solid green; 
@@ -46,7 +46,7 @@
 
 #twelve-point-starBox {width:41px; height:41px; float:left; padding:7px;}
 .twelve-point-star {
-   cursor:pointer;
+   /*cursor:pointer;*/
    height: 41px;
    width: 41px;
    background: orange;
@@ -81,7 +81,7 @@
 
 #six-point-starBox {width:50px; height:55px; float:left;}
 .six-point-star {
-   cursor:pointer;
+  /* cursor:pointer;*/
    position: absolute;
    width: 0; 
    height: 0; 
@@ -102,7 +102,7 @@
 
 #pacmanBox {width:50px; height:55px; float:left;}
 .pacman {
-  cursor:pointer;
+  /*cursor:pointer;*/
   width: 0px;
   height: 0px;
   border-right: 28px solid transparent;
@@ -117,7 +117,7 @@
 
 #heartBox {width:64px; height:55px; float:left;}
 .heart {
-    cursor:pointer;
+  /*  cursor:pointer;*/
 	margin-left:13px; 
 	position: relative;
 }
@@ -163,10 +163,6 @@
 	-o-transform-origin: 100% 100%;
 	transform-origin :100% 100%;
 }
-	
-
-
-/* 2depth paragraph */
 
 .buttonBar > .figure3 > .figureColor > .figureColorIcon:hover .subTextColor {display:block;}
 

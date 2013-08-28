@@ -17,8 +17,8 @@ function moveDrag(e, target){
 	createBorder(e, target);
 //	createText();		
 
-	$(target).css("left", e.clientX + x - $("#doc").offset().left);
-	$(target).css("top", e.clientY + y - $("#doc").offset().top);
+	$(target).css("left", e.clientX + x );
+	$(target).css("top", e.clientY + y );
 	
 	applyToWindowCapture();
 }
