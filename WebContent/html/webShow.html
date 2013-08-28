@@ -3,10 +3,21 @@
 <head>
 	<title>webShow</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<link rel="stylesheet" type="text/css" href="../css/common.css" />
+	<link rel="stylesheet" type="text/css" href="../css/layout.css" />
 	<link rel="stylesheet" type="text/css" href="../css/figure.css" />
 	<link rel="stylesheet" type="text/css" href="../css/animation.css" />
+	<link rel="stylesheet" type="text/css" href="../css/menu.css" />
+	
+	<script type="text/javascript" src="../js/libs/jquery/jquery.js"></script>
 	<script type="text/javascript" data-main="../js/main" src="../js/require.js"></script>
+	<script src="../js/animation.js"></script>
+	
+	<script>
+		$(document).ready(function(){
+			new Animation();
+		});
+	</script>
+
 	
 </head>
 <body>
@@ -346,6 +357,7 @@
 			</div>
 			<div class="buttonBar">
 				<div class="figure1">
+					<div class="figures">
 					<div id="circleBox" value="circle">
                     	<div class="circle">&nbsp;</div>	
                     </div>
@@ -366,10 +378,24 @@
                     </div>
 					<div id="heartBox" value="heart">
                     	<div class="heart">&nbsp;</div>
-                    </div>
+                   	</div>
+                    <div class="figuresTitle">도형 삽입</div>
 				</div>
-				<div class="figure2"></div>
-				<div class="figure3"></div>
+				<div class="line"></div>
+				<div class="figure2">
+					<div class="figurePosition">
+						<div class="figureFontIcon"></div>
+						<div class="figureBackIcon"></div>
+					</div>
+					<div class="figurePositionTitle">도형 정렬</div>
+				</div>
+				<div class="line"></div>
+				<div class="figure3">
+					<div class="figureColor">
+						<div class="figureColorIcon"></div>
+					</div>
+					<div class="figureColorTitle">도형 색</div>
+				</div>
 				<a class="animation" href="#">animation</a>
 			</div>
 		</div>
@@ -382,11 +408,11 @@
 				<div class="thumbnails">
                     <div class="thumbnail">
                         <span class="thumbName">1</span>
-                        <div id="thum1" class="thumbnail1">&nbsp;</div>
+                        <a class="thumbnail1" href="#"></a>
                     </div>
                     <div class="thumbnail">
                         <span class="thumbName">2</span>
-                        <div class="thumbnail1"></div>
+                        <a class="thumbnail1" href="#"></a>
                     </div>
                     <div class="thumbnail">
                         <span class="thumbName">3</span>
@@ -411,7 +437,7 @@
                 </div>
 			</div>
 			<div class="docWrap">
-				<div id="docu" class="doc">&nbsp;</div>
+				<div id="doc"></div>
 			</div>
 			<div class="aniWarp">
 				<div class="aniContents">
@@ -427,13 +453,11 @@
 					</div>
 				</div>
 				<div class="aniList">
-					<div class="ani1">
-                    	<a class="ani01">
-                            <div class="num"></div>
-                            <span class="text">애니메니션1</span>
-                            <div class="aniDelete" href="#"></div>
-                    	</a>
-                    </div>
+					<div class="aniListWrap"></div>
+					<div class="aniPosition">
+						<div class="aniUp">▲</div>
+						<div class="aniDown">▼</div>						
+					</div>
                    	<div class="aniPlay">재생</div>
 				</div>
 			</div>
