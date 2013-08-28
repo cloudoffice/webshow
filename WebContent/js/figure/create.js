@@ -10,7 +10,6 @@ function createFigure(e, target){
 	width = $(target).width();
 	height = $(target).height();
 	$("<div id="+n+"></div>").appendTo("#doc");
-	console.log(n);
 	var f=document.getElementById(n);
 	f.style.width = width+"px";
 	f.style.height = height+"px";

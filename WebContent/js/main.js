@@ -4,13 +4,14 @@ require.config({
         canvas : 'libs/html2canvas',
         figure : 'figure/create',
         drag : 'figure/drag',
-        resize : 'figure/resize'
+        resize : 'figure/resize',
+        slide : 'slide/slide'
     }
 });
 
 
 require([
-    'jquery', 'canvas', 'figure', 'drag', 'resize'
+    'jquery', 'canvas', 'figure', 'drag', 'resize', 'slide'
 ], function($){
 	console.log("dddd");
 	//$("#contents").append($("<img>").attr("src", "http://www.google.co.kr/webhp?hl=ko&tab=ww"));
@@ -42,4 +43,6 @@ require([
 		createFigure(e, this);
 		$(document).unbind("click");
 	});	
+	$(".slideInsert").on("click", $.proxy(this.createSlide, this));
+	
 });
