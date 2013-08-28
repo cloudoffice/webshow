@@ -1,6 +1,6 @@
 var n=0;
-var figureLeft=100;
-var figureTop=50;
+var figureLeft=200;
+var figureTop=250;
 var classvalue;
 var width, height;
 function createFigure(e, target){
@@ -14,7 +14,7 @@ function createFigure(e, target){
 	var f=document.getElementById(n);
 	f.style.width = width+"px";
 	f.style.height = height+"px";
-	f.style.position="relative";
+	f.style.position="absolute";
 	f.style.left=figureLeft+"px";
 	f.style.top= figureTop+"px";
 	f.style.cursor = "move";
@@ -63,7 +63,8 @@ function createFigure(e, target){
 			$("#div7").remove();
 			$("#div8").remove();
 			$(document).unbind("click");
-	//		$("#box").unbind("click");							
+	//		$("#box").unbind("click");	
+			applyToWindowCapture();
 		});
 	});	
 	
