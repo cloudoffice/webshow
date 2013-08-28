@@ -7,13 +7,18 @@
 	<link rel="stylesheet" type="text/css" href="../css/figure.css" />
 	<link rel="stylesheet" type="text/css" href="../css/animation.css" />
 	<link rel="stylesheet" type="text/css" href="../css/menu.css" />
-	<script src="../js/animation.js"></script>
+	
 	<script type="text/javascript" src="../js/libs/jquery/jquery.js"></script>
+	<script type="text/javascript" data-main="../js/main" src="../js/require.js"></script>
+	<script src="../js/animation.js"></script>
+	
 	<script>
 		$(document).ready(function(){
 			new Animation();
 		});
 	</script>
+
+	
 </head>
 <body>
 	 <div id="wrap">
@@ -353,28 +358,27 @@
 			<div class="buttonBar">
 				<div class="figure1">
 					<div class="figures">
-						<div class="circleBox">
-	                    	<div class="circle"></div>	
-	                    </div>
-						<div class="squareBox">
-	                    	<div class="square"></div>
-	                    </div>
-						<div class="triangleBox">
-	                    	<div class="triangle"></div>
-	                    </div>
-						<div class="twelve-point-starBox">
-	                    	<div class="twelve-point-star"></div>
-	                    </div>
-						<div class="six-point-starBox">
-	                    	<div class="six-point-star"></div>
-	                    </div>
-						<div class="pacmanBox">
-	                    	<div class="pacman"></div>
-	                    </div>
-						<div class="heartBox">
-	                    	<div class="heart"></div>
-	                    </div>
+					<div id="circleBox" value="circle">
+                    	<div class="circle">&nbsp;</div>	
                     </div>
+					<div id="squareBox" value="square">
+                    	<div class="square">&nbsp;</div>
+                    </div>
+					<div id="triangleBox" value="triangle">
+                    	<div class="triangle">&nbsp;</div>
+                    </div>
+					<div id="twelve-point-starBox" value="twelve-point-star">
+                    	<div class="twelve-point-star">&nbsp;</div>
+                    </div>
+					<div id="six-point-starBox" value="six-point-star">
+                    	<div class="six-point-star">&nbsp;</div>
+                    </div>
+					<div id="pacmanBox" value="pacman">
+                    	<div class="pacman">&nbsp;</div>
+                    </div>
+					<div id="heartBox" value="heart">
+                    	<div class="heart">&nbsp;</div>
+                   	</div>
                     <div class="figuresTitle">도형 삽입</div>
 				</div>
 				<div class="line"></div>
@@ -388,7 +392,43 @@
 				<div class="line"></div>
 				<div class="figure3">
 					<div class="figureColor">
-						<div class="figureColorIcon"></div>
+						<div class="figureColorIcon">
+							<div class="subTextColor" href="#">
+								<div class="standardText"><span>Standard Color</span></div>
+								<ul class="standardColorPalette">
+									<li>
+										<a class="s1" href="#"></a>
+									</li>
+									<li>
+										<a class="s2" href="#"></a>
+									</li>
+									<li>
+										<a class="s3" href="#"></a>
+									</li>
+									<li>
+										<a class="s4" href="#"></a>
+									</li>
+									<li>
+										<a class="s5" href="#"></a>
+									</li>
+									<li>
+										<a class="s6" href="#"></a>
+									</li>
+									<li>
+										<a class="s7" href="#"></a>
+									</li>
+									<li>
+										<a class="s8" href="#"></a>
+									</li>
+									<li>
+										<a class="s9" href="#"></a>
+									</li>
+									<li>
+										<a class="s10" href="#"></a>
+									</li>		
+								</ul>
+							</div>
+						</div>
 					</div>
 					<div class="figureColorTitle">도형 색</div>
 				</div>
@@ -404,7 +444,7 @@
 				<div class="thumbnails">
                     <div class="thumbnail">
                         <span class="thumbName">1</span>
-                        <a class="thumbnail1" href="#"></a>
+                        <div id="thum1" class="thumbnail1">&nbsp;</div>
                     </div>
                     <div class="thumbnail">
                         <span class="thumbName">2</span>
@@ -433,18 +473,17 @@
                 </div>
 			</div>
 			<div class="docWrap">
-				<div class="doc"><div class="square" id="square1"></div><div class="circle" id="circle1"></div></div>
+				<div id="doc" class='doc'></div>
 			</div>
 			<div class="aniWarp">
 				<div class="aniContents">
 					<div class="title">애니메이션</div>
 					<div class="contents">
 						<div class="show">나타내기</div>
-						<div class="fly">날아오기</div>
-						<div class="flyUp">-위</div>
-						<div class="flyDown">-아래</div>
-						<div class="flyLeft">-왼쪽</div>
-						<div class="flyRight">-오른쪽</div>
+						<div class="flyUp">낭아오기 (위)</div>
+						<div class="flyDown">날아오기 (아래)</div>
+						<div class="flyLeft">날아오기 (왼쪽)</div>
+						<div class="flyRight">날아오기 (오른쪽)</div>
 						<div class="fade">사라지기</div>
 					</div>
 				</div>

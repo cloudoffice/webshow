@@ -4,18 +4,18 @@
 .figures {height:62px;}
 .figuresTitle {height:26px; font-size:13px; color:#666; font-weight:bold; text-decoration:none; line-height:20px;}
 .figurePositionTitle {height:26px; font-size:13px; color:#666; font-weight:bold; text-align:center; text-decoration:none; line-height:20px;}
-.figureColorTitle {height:26px; font-size:13px; color:#666; font-weight:bold; text-align:center; text-decoration:none; line-height:20px;}
+.figureColorTitle {height:26px; font-size:13px; color:#666; font-weight:bold; text-align:center; text-decoration:none; line-height:20px; }
 .figurePosition {height:62px;}
 .figureFontIcon {cursor:pointer; float:left; margin:8px 10px 6px 25px; padding:4px; width:44px; height:44px; background:url(../images/front.png) no-repeat 4px 4px;}
 .figureBackIcon {cursor:pointer; float:left; margin:8px 25px 6px 10px; padding:4px; width:44px; height:44px; background:url(../images/back.png) no-repeat 4px 4px;}
 .figureColorIcon {cursor:pointer; float:left; margin:8px 25px 6px 25px; padding:4px; width:44px; height:44px; background:url(../images/backColor.png) no-repeat 4px 4px;}
 
-.figure1 > div > div:hover {background-color:#ffdbd2;}
+/*.figure1 > div > div:hover {background-color:#ffdbd2;}*/
 .figure2 > div > div:hover {background-color:#ffdbd2;}
 .figure3 > div > div:hover {background-color:#ffdbd2;}
 
 .figures > div { margin:6px 20px;}
-.circleBox {width:56px; height:56px; float:left;}
+#circleBox {width:56px; height:56px; float:left;}
 .circle {
    cursor:pointer;
    width: 56px;
@@ -26,7 +26,7 @@
    border-radius: 28px;
 }
 
-.squareBox {width:56px; height:56px; float:left;}
+#squareBox {width:56px; height:56px; float:left;}
 .square {
    cursor:pointer;
    width: 56px; 
@@ -34,7 +34,7 @@
    background: blue; 
 }
 
-.triangleBox {width:60px; height:56px; float:left;}
+#triangleBox {width:60px; height:56px; float:left;}
 .triangle {
    cursor:pointer;
    width: 0; 
@@ -44,7 +44,7 @@
    border-right: 30px solid transparent; 
 }
 
-.twelve-point-starBox {width:41px; height:41px; float:left; padding:7px;}
+#twelve-point-starBox {width:41px; height:41px; float:left; padding:7px;}
 .twelve-point-star {
    cursor:pointer;
    height: 41px;
@@ -79,7 +79,7 @@
    transform: rotate(-30deg);
 }
 
-.six-point-starBox {width:50px; height:55px; float:left;}
+#six-point-starBox {width:50px; height:55px; float:left;}
 .six-point-star {
    cursor:pointer;
    position: absolute;
@@ -100,7 +100,7 @@
    margin: 15px 0 0 -25px;
 }
 
-.pacmanBox {width:50px; height:55px; float:left;}
+#pacmanBox {width:50px; height:55px; float:left;}
 .pacman {
   cursor:pointer;
   width: 0px;
@@ -115,7 +115,7 @@
   border-bottom-right-radius: 28px;
 }
 
-.heartBox {width:64px; height:55px; float:left;}
+#heartBox {width:64px; height:55px; float:left;}
 .heart {
     cursor:pointer;
 	margin-left:13px; 
@@ -162,3 +162,35 @@
 	-ms-transform-origin: 100% 100%;
 	-o-transform-origin: 100% 100%;
 	transform-origin :100% 100%;
+}
+	
+
+
+/* 2depth paragraph */
+
+.buttonBar > .figure3 > .figureColor > .figureColorIcon:hover .subTextColor {display:block;}
+
+.subTextColor {display:none; width:188px; background-color:#fff; margin:48px 0 0 -4px; padding:0; border:1px solid #b9b9b9; box-shadow: 0 3px 5px 1px rgba(0,0,0,.30) z-index:100;}
+.subTextColor > a {display:block; margin:6px; padding:0; width:178px; height:25px; color:#2e2e2e; text-align:middle; text-decoration:none; border:1px solid #b9b9b9;}
+
+.subTextColor > a:hover {border:1px solid #ff0000;}
+.standardText {display:block; margin:0; padding:0; width:188px; height:20px; background-color:#ededed;}
+.standardText span {margin:0 0 0 6px; line-height:20px; font-size:13px; font-weight:bold;}
+
+.standardColorPalette {display:block; margin:3px 6px 6px 6px; padding:0; height:15px; width:193px;}
+.standardColorPalette > li {float:left; height:12px; list-style-type:none; padding:0;}
+.standardColorPalette > li > a {display:block; float:left; padding:0; margin:2px; width:12px; height:12px; border:1px solid #b9b9b9;}
+
+.subTextColor > ul > li > a:hover {border:1px solid #ff0000;}
+
+.subTextColor > ul > li > a.s1 {background-color:rgb(192, 0, 0); margin-left:0px;}
+.subTextColor > ul > li > a.s2 {background-color:rgb(255, 0, 0);}
+.subTextColor > ul > li > a.s3 {background-color:rgb(255, 192, 0);}
+.subTextColor > ul > li > a.s4 {background-color:rgb(255, 255, 0);}
+.subTextColor > ul > li > a.s5 {background-color:rgb(146, 208, 80);}
+.subTextColor > ul > li > a.s6 {background-color:rgb(0, 176, 80);}
+.subTextColor > ul > li > a.s7 {background-color:rgb(0, 176, 240);}
+.subTextColor > ul > li > a.s8 {background-color:rgb(0, 112, 192);}
+.subTextColor > ul > li > a.s9 {background-color:rgb(0, 32, 96);}
+.subTextColor > ul > li > a.s10 {background-color:rgb(112, 48, 160); margin-right:0px;}
+	
