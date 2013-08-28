@@ -25,22 +25,15 @@ Animation.prototype = {
 	},
 	
 	deleteAnimationList : function(e) {
-		console.log(e);
 		var aniId = e.currentTarget.parentElement.id;
 		var order = $("#" + aniId).children(".num").text();
 		
 		$("#" + aniId).remove();
-//		if (order != this.orderArray.length) {
-			this.deleteMappingObjectNAnimation(order-1);
-//		}
+		this.deleteMappingObjectNAnimation(order-1);
 	},
 	
-	deleteMappingObjectNAnimation : function(order) {	
-		console.log(this.orderArray);
-
+	deleteMappingObjectNAnimation : function(order) {
 		var array = this.orderArray.splice(order, 1);
-		console.log(array);
-		console.log(this.orderArray);
 	},
 	
 	getSelectedObjectId : function(e) {
