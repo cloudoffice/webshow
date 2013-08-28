@@ -26,6 +26,21 @@ Animation.prototype = {
 	
 	deleteAnimationList : function(e) {
 		console.log(e);
+		var aniId = e.currentTarget.parentElement.id;
+		var order = $("#" + aniId).children(".num").text();
+		
+		$("#" + aniId).remove();
+//		if (order != this.orderArray.length) {
+			this.deleteMappingObjectNAnimation(order-1);
+//		}
+	},
+	
+	deleteMappingObjectNAnimation : function(order) {	
+		console.log(this.orderArray);
+
+		var array = this.orderArray.splice(order, 1);
+		console.log(array);
+		console.log(this.orderArray);
 	},
 	
 	getSelectedObjectId : function(e) {
@@ -53,10 +68,10 @@ Animation.prototype = {
 		$(".fade").on("click", $.proxy(this.mappingObjectNAnimation, this));
 		
 		//애니메이션 순서 변경
-		$(".aniUp").on("click", $.proxy(this.changeAnimationOrder(), this));
-		$(".aniDown").on("click", $.proxy(this.changeAnimationOrder(), this));
+		$(".aniUp").on("click", $.proxy(this.changeAnimationOrder, this));
+		$(".aniDown").on("click", $.proxy(this.changeAnimationOrder, this));
 		
 		//애니메이션 list에서 삭제
-		$(".aniDelete").live("click", this.deleteAnimationList());
+		$(".aniListWrap").delegate(".aniDelete", "click", $.proxy(this.deleteAnimationList, this));
 	}, 
 };
