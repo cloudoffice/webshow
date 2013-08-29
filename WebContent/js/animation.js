@@ -43,7 +43,7 @@ Animation.prototype = {
 	
 	//클릭한 도형의 object ID 얻기
 	getSelectedObjectId : function(e) {
-		this.objectId = e.currentTarget.id;
+		this.objectId = e.target.id;
 	},
 	
 	getSelectedAniListId : function(e) {
@@ -74,7 +74,13 @@ Animation.prototype = {
 		
 		//aniDown
 		if (e.target.className == "aniDown") {
-			$("#" + this.aniListId).insertAfter('#ani' + (order + 1));
+			$("#" + this.aniListId).remove();
+			$("<div class='ani1' id='ani" + (order) + "'>" + 
+					"<div class='num'>" + (order + 1) + "</div>" + 
+					"<span class='text'>" + aniText + "</span>" + 
+					"<div class='aniDelete' href='#'></div>" +
+					"</div>").insertAfter('#ani' + (order + 1));
+//			$("#" + this.aniListId).insertAfter('#ani' + (order + 1));
 //			$("#ani" + (order)).children(".num").html(order + 1);
 //			
 //			$("#ani"+(order)).attr("id", "ani" + (order + 1));
@@ -82,8 +88,36 @@ Animation.prototype = {
 		}
 	},
 	
-	playAnimation : function() {
-		
+	playAnimation : function(e) {
+		var ani = new AnimationCSS();
+		var oName, aName;
+
+		for (var i = 0; i < this.orderArray.length; i++) {
+			oName = this.orderArray[i].oName;
+			aName = this.orderArray[i].aName;
+			
+			switch (aName) {
+			case "show":
+				ani.show(oName, 1000 * i);
+				break;
+			case "flyUp":
+				
+				break;
+			case "flyDown":
+				
+				break;
+			case "flyLeft":
+				
+				break;
+			case "flyRight":
+				
+				break;
+			case "fade":
+				ani.fade(oName, 1000 * i);
+				break;
+			}
+			console.log($("#" + oName).css("opacity"));
+		}
 	}, 
 	
 	//event
@@ -108,5 +142,53 @@ Animation.prototype = {
 		
 		//애니메이션 list 선택
 		$(".aniListWrap").delegate(".ani1", "click", $.proxy(this.getSelectedAniListId, this));
+		
+		//애니메이션 play
+		$(".aniPlay").on("click", $.proxy(this.playAnimation, this));
 	}, 
+};
+
+function AnimationCSS() {
+	
+};
+
+AnimationCSS.prototype = {
+		show : function(oName, timeout) {
+//			console.log(oName);
+			var start = {
+					opacity : "0",
+//					transition : "opacity 1s",
+//					-webkit-transition : "opacity 1s" /* Safari */
+			};
+			
+			var end = {
+					opacity : "1",
+					transition : "opacity 1s",
+			};
+			
+			setTimeout(function() {$("#" + oName).css(start);}, timeout);
+			setTimeout(function() {$("#" + oName).css(end);}, timeout + 500);			
+		},
+		
+		fade : function(oName, timeout) {
+			var start = {
+					opacity : "1",
+					transition : "opacity 0.5s",
+//					-webkit-transition : "opacity 1s" /* Safari */
+			};
+			
+			var end = {
+					opacity : "0",
+//					transition : "opacity 1s",
+			};
+			
+			var back = {
+					opacity : "1",
+			};
+			
+			setTimeout(function() {$("#" + oName).css(start);}, timeout);
+			setTimeout(function() {$("#" + oName).css(end);}, timeout + 500);	
+//			setTimeout(function() {$("#" + oName).css(back);}, timeout + 1000);
+		}	
+		
 };

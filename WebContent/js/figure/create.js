@@ -9,6 +9,7 @@ function mainSlideSearch(){
 
 	for(var i=1; i<count+1; i++){
 		if($("#doc"+i).css('display') == 'block'){
+		//	console.log($("#doc"+i).css('display'));
 			return i;
 		}		
 	}
@@ -105,7 +106,7 @@ function createBorder(e, target, sub_target){
 	div.style.top = t-2+"px";
 	div.style.border = "3px solid rgba(0,0,0,.2)";
 	div.style.cursor = "move";
-	div.style.zIndex = "9";
+	div.style.zIndex = "1000";
 		
 	document.getElementById("doc"+mainNum).appendChild(div);
 	
@@ -118,7 +119,7 @@ function createBorder(e, target, sub_target){
 	div1.style.background ="rgba(0,0,0,.4)";
 	div1.style.border ="0px";
 	div1.style.cursor = "nw-resize";
-	div1.style.zIndex = "11";
+	div1.style.zIndex = "1000";
 	div1.onmousedown = $.proxy(this.startDiv1Resize, this, e, target, sub_target);
 	document.getElementById("doc"+mainNum).appendChild(div1);
 	
@@ -131,7 +132,7 @@ function createBorder(e, target, sub_target){
 	div2.style.background ="rgba(0,0,0,.4)";
 	div2.style.border ="0px";
 	div2.style.cursor = "n-resize";
-	div2.style.zIndex = "11";
+	div2.style.zIndex = "1000";
 	div2.onmousedown = $.proxy(this.startDiv2Resize, this, e, target, sub_target);
 	document.getElementById("doc"+mainNum).appendChild(div2);
 	
@@ -144,7 +145,7 @@ function createBorder(e, target, sub_target){
 	div3.style.background ="rgba(0,0,0,.4)";
 	div3.style.border ="0px";
 	div3.style.cursor = "ne-resize";
-	div3.style.zIndex = "11";
+	div3.style.zIndex = "1000";
 	div3.onmousedown = $.proxy(this.startDiv3Resize, this, e, target, sub_target);
 	document.getElementById("doc"+mainNum).appendChild(div3);
 	
@@ -157,7 +158,7 @@ function createBorder(e, target, sub_target){
 	div4.style.background ="rgba(0,0,0,.4)";
 	div4.style.border ="0px";
 	div4.style.cursor = "e-resize";
-	div4.style.zIndex = "11";
+	div4.style.zIndex = "1000";
 	div4.onmousedown = $.proxy(this.startDiv4Resize, this, e, target, sub_target);	
 	document.getElementById("doc"+mainNum).appendChild(div4);
 	
@@ -170,7 +171,7 @@ function createBorder(e, target, sub_target){
 	div5.style.background ="rgba(0,0,0,.4)";
 	div5.style.border ="0px";
 	div5.style.cursor = "w-resize";
-	div5.style.zIndex = "11";
+	div5.style.zIndex = "1000";
 	div5.onmousedown = $.proxy(this.startDiv5Resize, this, e, target, sub_target);	
 	document.getElementById("doc"+mainNum).appendChild(div5);
 	
@@ -183,7 +184,7 @@ function createBorder(e, target, sub_target){
 	div6.style.background ="rgba(0,0,0,.4)";
 	div6.style.border ="0px";
 	div6.style.cursor = "sw-resize";
-	div6.style.zIndex = "11";
+	div6.style.zIndex = "1000";
 	div6.onmousedown = $.proxy(this.startDiv6Resize, this, e, target, sub_target);
 	document.getElementById("doc"+mainNum).appendChild(div6);
 	
@@ -196,7 +197,7 @@ function createBorder(e, target, sub_target){
 	div7.style.background ="rgba(0,0,0,.4)";
 	div7.style.border ="0px";
 	div7.style.cursor = "s-resize";
-	div7.style.zIndex = "11";	
+	div7.style.zIndex = "1000";	
 	div7.onmousedown = $.proxy(this.startDiv7Resize, this, e, target, sub_target);	
 	document.getElementById("doc"+mainNum).appendChild(div7);
 	
@@ -209,7 +210,7 @@ function createBorder(e, target, sub_target){
 	div8.style.background ="rgba(0,0,0,.4)";
 	div8.style.border ="0px";
 	div8.style.cursor = "se-resize";
-	div8.style.zIndex = "11";
+	div8.style.zIndex = "1000";
 	div8.onmousedown = $.proxy(this.startResize, this, e, target, sub_target);
 	document.getElementById("doc"+mainNum).appendChild(div8);
 }
