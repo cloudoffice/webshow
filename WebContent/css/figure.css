@@ -3,11 +3,11 @@
 .figures {height:62px;}
 .figuresTitle {height:26px; font-size:13px; color:#666; font-weight:bold; text-decoration:none; line-height:20px;}
 .figurePositionTitle {height:26px; font-size:13px; color:#666; font-weight:bold; text-align:center; text-decoration:none; line-height:20px;}
-.figureColorTitle {height:26px; font-size:13px; color:#666; font-weight:bold; text-align:center; text-decoration:none; line-height:20px;}
+.figureColorTitle {position:height:26px; margin-top:66px; font-size:13px; color:#666; font-weight:bold; text-align:center; text-decoration:none; line-height:20px; z-index:1;}
 .figurePosition {height:62px;}
 .figureFontIcon {cursor:pointer; float:left; margin:8px 10px 6px 25px; padding:4px; width:44px; height:44px; background:url(../images/front.png) no-repeat 4px 4px;}
 .figureBackIcon {cursor:pointer; float:left; margin:8px 25px 6px 10px; padding:4px; width:44px; height:44px; background:url(../images/back.png) no-repeat 4px 4px;}
-.figureColorIcon {cursor:pointer; float:left; margin:8px 25px 6px 25px; padding:4px; width:44px; height:44px; background:url(../images/backColor.png) no-repeat 4px 4px;}
+.figureColorIcon {position:absolute; cursor:pointer; float:left; margin:8px 25px 6px 25px; padding:4px; width:44px; height:44px; background:url(../images/backColor.png) no-repeat 4px 4px;  z-index:100;}
 
 /*.figure1 > div > div:hover {background-color:#ffdbd2;}*/
 .figure2 > div > div:hover {background-color:#ffdbd2;}
@@ -143,7 +143,7 @@
 
 .buttonBar > .figure3 > .figureColor > .figureColorIcon:hover .subTextColor {display:block;}
 
-.subTextColor {display:none; width:188px; background-color:#fff; margin:48px 0 0 -4px; padding:0; border:1px solid #b9b9b9; box-shadow: 0 3px 5px 1px rgba(0,0,0,.30) z-index:100;}
+.subTextColor {position:absolute; display:none; width:188px; background-color:#fff; margin:48px 0 0 -4px; padding:0; border:1px solid #b9b9b9; box-shadow: 0 3px 5px 1px rgba(0,0,0,.30) z-index:100;}
 .subTextColor > a {display:block; margin:6px; padding:0; width:178px; height:25px; color:#2e2e2e; text-align:middle; text-decoration:none; border:1px solid #b9b9b9;}
 
 .subTextColor > a:hover {border:1px solid #ff0000;}
