@@ -143,7 +143,11 @@
 
 .buttonBar > .figure3 > .figureColor > .figureColorIcon:hover .subTextColor {display:block;}
 
+<<<<<<< HEAD
 .subTextColor {position:absolute; display:none; width:188px; background-color:#fff; margin:48px 0 0 -4px; padding:0; border:1px solid #b9b9b9; box-shadow: 0 3px 5px 1px rgba(0,0,0,.30) z-index:100;}
+=======
+.subTextColor {display:none; width:188px; background-color:#fff; margin:48px 0 0 -4px; padding:0; border:1px solid #b9b9b9; box-shadow: 0 3px 5px 1px rgba(0,0,0,.30); z-index:100;}
+>>>>>>> 413b1f65a92fb7c073673d2317de314ccf20fe72
 .subTextColor > a {display:block; margin:6px; padding:0; width:178px; height:25px; color:#2e2e2e; text-align:middle; text-decoration:none; border:1px solid #b9b9b9;}
 
 .subTextColor > a:hover {border:1px solid #ff0000;}

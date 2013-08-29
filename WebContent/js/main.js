@@ -5,13 +5,14 @@ require.config({
         figure : 'figure/create',
         drag : 'figure/drag',
         resize : 'figure/resize',
+        position : 'figure/position',
         slide : 'slide/slide'
     }
 });
 
 
 require([
-    'jquery', 'canvas', 'figure', 'drag', 'resize', 'slide'
+    'jquery', 'canvas', 'figure', 'drag', 'resize', 'position', 'slide'
 ], function($){
 	console.log("dddd");
 	//$("#contents").append($("<img>").attr("src", "http://www.google.co.kr/webhp?hl=ko&tab=ww"));
@@ -43,6 +44,9 @@ require([
 		createFigure(e, this);
 		$(document).unbind("click");
 	});	
-	$(".slideInsert").on("click", $.proxy(this.createSlide, this));
 	
+	$(".slideInsert").on("click", $.proxy(this.createSlide, this));
+	$(".slideDelete").on("click", $.proxy(this.deleteSlide,this));
+	
+	$(".figureFontIcon").on("click", $.proxy(this.frontPosition, this));
 });
