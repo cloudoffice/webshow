@@ -44,5 +44,6 @@ require([
 		$(document).unbind("click");
 	});	
 	$(".slideInsert").on("click", $.proxy(this.createSlide, this));
+	$(".slideDelete").on("click", $.proxy(this.deleteSlide,this));
 	
 });

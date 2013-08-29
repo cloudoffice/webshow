@@ -1,5 +1,5 @@
 var n=0;
-var figureLeft=200;
+var figureLeft=500;
 var figureTop=250;
 var classvalue;
 var width, height;
@@ -9,8 +9,8 @@ function mainSlideSearch(){
 
 	for(var i=1; i<count+1; i++){
 		if($("#doc"+i).css('display') == 'block'){
+		//	console.log($("#doc"+i).css('display'));
 			return i;
-			console.log(i);
 		}		
 	}
 }
