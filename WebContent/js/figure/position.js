@@ -10,7 +10,8 @@ function backPosition(e){
 	zIndexNum = zIndexNum-5;
 }
 function findFigure(e){
-	SelectedFigureId = e.currentTarget.id;
+//	SelectedFigureId = e.currentTarget.id;
+	SelectedFigureId = e.target.id;
 	console.log(SelectedFigureId);
 }
 
