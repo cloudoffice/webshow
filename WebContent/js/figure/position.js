@@ -1,4 +1,5 @@
 var SelectedFigureId;
+var objectId;
 var zIndexNum = 10;
 function frontPosition(e){
 	zIndexNum = zIndexNum+5;
@@ -10,8 +11,8 @@ function backPosition(e){
 	zIndexNum = zIndexNum-5;
 }
 function findFigure(e){
-//	SelectedFigureId = e.currentTarget.id;
-	SelectedFigureId = e.target.id;
+	SelectedFigureId = e.currentTarget.id;
+	objectId = e.target.id;
 	console.log(SelectedFigureId);
 }
 
