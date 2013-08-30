@@ -16,34 +16,13 @@ require([
 ], function($){
 	console.log("dddd");
 	//$("#contents").append($("<img>").attr("src", "http://www.google.co.kr/webhp?hl=ko&tab=ww"));
-	$("#circleBox").click(function(e){
-			createFigure(e, this);
-			$(document).unbind("click");
-	});
-	$("#squareBox").click(function(e){
-		createFigure(e, this);
-		$(document).unbind("click");
-	});	
-	$("#triangleBox").click(function(e){
-		createFigure(e, this);
-		$(document).unbind("click");
-	});	
-	$("#twelve-point-starBox").click(function(e){
-		createFigure(e, this);
-		$(document).unbind("click");
-	});	
-	$("#six-point-starBox").click(function(e){
-		createFigure(e, this);
-		$(document).unbind("click");
-	});	
-	$("#pacmanBox").click(function(e){
-		createFigure(e, this);
-		$(document).unbind("click");
-	});	
-	$("#heartBox").click(function(e){
-		createFigure(e, this);
-		$(document).unbind("click");
-	});	
+	$("#circleBox").on("click", $.proxy(this.createFigure, this));
+	$("#squareBox").on("click", $.proxy(this.createFigure, this));
+	$("#triangleBox").on("click", $.proxy(this.createFigure, this));
+	$("#twelve-point-starBox").on("click", $.proxy(this.createFigure, this));
+	$("#six-point-starBox").on("click", $.proxy(this.createFigure, this));
+	$("#pacmanBox").on("click", $.proxy(this.createFigure, this));
+	$("#heartBox").on("click", $.proxy(this.createFigure, this));
 	
 	$(".slideInsert").on("click", $.proxy(this.createSlide, this));
 	$(".slideDelete").on("click", $.proxy(this.deleteSlide,this));

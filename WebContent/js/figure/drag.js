@@ -13,7 +13,7 @@ function startDrag(e, target){
 	applyToWindowCapture();
 }
 function moveDrag(e, target){
-//	console.log(e);
+	console.log(e);
 	createBorder(e, target);
 //	createText();		
 
