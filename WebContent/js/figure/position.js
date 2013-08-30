@@ -1,6 +1,8 @@
 var SelectedFigureId;
 var zIndexFrontNum = 100;
 var zIndexBackNum = 100;
+var objectId;
+var zIndexNum = 10;
 function frontPosition(e){
 	zIndexFrontNum = zIndexFrontNum+5;
 //	$("#"+1).css('z-index', zIndexNum);
@@ -12,13 +14,9 @@ function backPosition(e){
 	$("#"+SelectedFigureId).css('z-index', zIndexBackNum);
 }
 function findFigure(e){
-
-//	SelectedFigureId = e.currentTarget.id;
-//	console.log(SelectedFigureId);
-
 	SelectedFigureId = e.currentTarget.id;
-	//SelectedFigureId = e.target.id;
-	console.log(SelectedFigureId);
+	objectId = e.target.id;
 
+	console.log(SelectedFigureId);
 }
 

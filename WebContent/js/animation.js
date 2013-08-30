@@ -14,7 +14,7 @@ Animation.prototype = {
 		var len = this.orderArray.length;
 		
 		var className = $(e.target).attr("class");
-		this.orderArray[len] = {oName : SelectedFigureId, aName : className};
+		this.orderArray[len] = {oName : objectId, aName : className};
 		this.addAnimationList(this.orderArray[len], len);
 	},
 	
@@ -39,12 +39,6 @@ Animation.prototype = {
 	//orderArray에서 해당 object&Animation 삭제
 	deleteMappingObjectNAnimation : function(order) {
 		var array = this.orderArray.splice(order, 1);
-	},
-	
-	//클릭한 도형의 object ID 얻기
-	getSelectedObjectId : function(e) {
-		console.log();
-		this.objectId = e.target.id;
 	},
 	
 	getSelectedAniListId : function(e) {
@@ -96,8 +90,6 @@ Animation.prototype = {
 		for (var i = 0; i < this.orderArray.length; i++) {
 			oName = this.orderArray[i].oName;
 			aName = this.orderArray[i].aName;
-			
-			console.log(this.orderArray[i].oName);
 			
 			switch (aName) {
 			case "show":
@@ -156,7 +148,6 @@ function AnimationCSS() {
 
 AnimationCSS.prototype = {
 		show : function(oName, timeout) {
-			console.log(oName);
 			var start = {
 					opacity : "0",
 //					transition : "opacity 1s",
@@ -175,7 +166,7 @@ AnimationCSS.prototype = {
 		fade : function(oName, timeout) {
 			var start = {
 					opacity : "1",
-					transition : "opacity 0.5s",
+					transition : "opacity 0.8s",
 //					-webkit-transition : "opacity 1s" /* Safari */
 			};
 			
@@ -190,7 +181,7 @@ AnimationCSS.prototype = {
 			};
 			
 			setTimeout(function() {$("#" + oName).css(start);}, timeout);
-			setTimeout(function() {$("#" + oName).css(end);}, timeout + 400);	
+			setTimeout(function() {$("#" + oName).css(end);}, timeout);	
 			setTimeout(function() {$("#" + oName).css(back);}, timeout + 800);
 		}	
 		
