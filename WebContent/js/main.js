@@ -48,5 +48,9 @@ require([
 	$(".slideInsert").on("click", $.proxy(this.createSlide, this));
 	$(".slideDelete").on("click", $.proxy(this.deleteSlide,this));
 	
+	$(".doc").delegate("div","mousedown", $.proxy(this.findFigure,this));
+	
+//	$(".doc").delegate("click", "div", $.proxy(this.findFigure, this));
 	$(".figureFontIcon").on("click", $.proxy(this.frontPosition, this));
+	$(".figureBackIcon").on("click", $.proxy(this.backPosition, this));
 });
