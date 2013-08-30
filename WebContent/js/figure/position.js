@@ -12,7 +12,13 @@ function backPosition(e){
 	$("#"+SelectedFigureId).css('z-index', zIndexBackNum);
 }
 function findFigure(e){
-	SelectedFigureId = e.currentTarget.id;
+
+//	SelectedFigureId = e.currentTarget.id;
 //	console.log(SelectedFigureId);
+
+	SelectedFigureId = e.currentTarget.id;
+	//SelectedFigureId = e.target.id;
+	console.log(SelectedFigureId);
+
 }
 
