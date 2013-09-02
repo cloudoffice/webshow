@@ -46,5 +46,27 @@ require([
 	$(".s8").on("click", $.proxy(this.setColorFigure, this));
 	$(".s9").on("click", $.proxy(this.setColorFigure, this));
 	$(".s10").on("click", $.proxy(this.setColorFigure, this));
+	/*
+	var windowWidth = $(window).width();
+	var windowHeight =  $(window).height();
+	$(window).resize(function(e){	
+	   changeLeft = (windowWidth - $(window).width())/5;
+	   changeTop = windowHeight - $(window).height();
+
+	   var count = $(".doc div").length/2;
+	   for(var i=1;i<count+1;i++){
+		   originalLeft = $("#"+i).offset().left;
+		   originalTop = $("#"+i).offset().top;
+		   
+		   changedLeft = originalLeft-changeLeft;
+		   changedTop = originalTop-changeTop;
 	
+		   $("#"+i).css("left",changedLeft);
+		 //  $("#"+i).css("top",changedTop);
+	   }
+	   
+	   windowWidth = $(window).width();
+	   windowHeight = $(window).height();
+	});
+	*/
 });
