@@ -29,7 +29,7 @@ require([
 	$(".slideInsert").on("click", $.proxy(this.createSlide, this));
 	$(".slideDelete").on("click", $.proxy(this.deleteSlide,this));
 	
-	$(".doc").delegate("div","mousedown", $.proxy(this.findFigure,this));
+//	$(".doc").delegate("div","mousedown", $.proxy(this.findFigure,this));
 	$("body").on("keydown", $.proxy(this.figureDelete,this));
 	
 //	$(".doc").delegate("click", "div", $.proxy(this.findFigure, this));
