@@ -1,27 +1,27 @@
 var x, y;
-function startDrag(e, target){
+var target;
+function startDrag(e){
 	e.originalEvent.preventDefault();
-	createBorder(e,target);
+	createBorder(e);
 //	createText();		
 
-	x = $(target).offset().left - e.clientX;
-	y = $(target).offset().top - e.clientY;
-
-	$(document).mousemove(function(e){moveDrag(e,target);});
-	$(document).mouseup(function(e){stopDrag(e,target);});
+	target = e.currentTarget.id;
+	x = $("#"+target).offset().left - e.clientX;
+	y = $("#"+target).offset().top - e.clientY;
+	
+	$(document).mousemove(moveDrag);
+	$(document).mouseup(stopDrag);
 	
 }
-function moveDrag(e, target){
-	console.log(e);
-	createBorder(e, target);
+function moveDrag(e){
+	createBorder(e);
 //	createText();		
+	$("#"+target).css("left", e.clientX + x );
+	$("#"+target).css("top", e.clientY + y );
 
-	$(target).css("left", e.clientX + x );
-	$(target).css("top", e.clientY + y );
-	
 }
 function stopDrag(e,target){
-	createBorder(e,target);
+	createBorder(e);
 //	createText();		
 
 	$(document).unbind("mousemove");

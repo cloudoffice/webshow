@@ -2,11 +2,13 @@ var SelectedFigureId;
 var zIndexFrontNum = 100;
 var zIndexBackNum = 100;
 var objectId;
+function findFigure(e){
+	SelectedFigureId = e.currentTarget.id;
+	objectId = e.target.id;
+}
 function frontPosition(e){
 	zIndexFrontNum = zIndexFrontNum+5;
-//	$("#"+1).css('z-index', zIndexNum);
 	$("#"+SelectedFigureId).css('z-index', zIndexFrontNum);
-//	console.log($("#"+SelectedFigureId).css('z-index'));
 }
 function backPosition(e){
 	zIndexBackNum = zIndexBackNum-5;
@@ -16,7 +18,6 @@ function backPosition(e){
 function figureDelete(e){
 //	console.log(e);
 	if(e.which == 46){
-		console.log("dd");
 		$("#"+SelectedFigureId).remove();
 		
 		$("#b_border").remove();
@@ -29,17 +30,8 @@ function figureDelete(e){
 		$("#div7").remove();
 		$("#div8").remove();
 		$("#rotation_div").remove();
-		$("#rotation_div").remove();
-		$("#rotation_div").remove();
+		$("#divLine").remove();
 		
 		applyToWindowCapture();
-	}
-	
+	}	
 }
-function findFigure(e){
-	SelectedFigureId = e.currentTarget.id;
-	objectId = e.target.id;
-
-	console.log(SelectedFigureId);
-}
-
