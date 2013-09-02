@@ -15,7 +15,6 @@ function createSlide(e){
 	}
 
 	$("<div id='thumbnailbox"+_target+"'class='thumbnail'></div>").appendTo(".thumbnails");
-	
 	$("<span id='thumbName"+_target+"'class='thumbName'>"+_target+"</span>").appendTo("#thumbnailbox"+_target);
 	$("<div id='thum"+_target+"' class='thumbnail1'>&nbsp;</div>").appendTo("#thumbnailbox"+_target);
 	
@@ -23,6 +22,7 @@ function createSlide(e){
 	
 	for(var i=_target;i<_count;i++){
 		$("#thumbnailbox"+i).insertBefore("#thumbnailbox"+_count);
+		
 		$("#doc"+i).insertBefore("#doc"+_count);
 	}
 	
@@ -36,6 +36,8 @@ function createSlide(e){
 	for(var i=1;i<_count+1;i++){
 		$(".thumbWrap").delegate("#thum"+i,"click", $.proxy(this.mainSlideSelect,this,e,i));
 	}	
+	
+	applyToWindowCapture();
 }
 
 function deleteSlide(e){
@@ -63,6 +65,8 @@ function deleteSlide(e){
 			$("#doc"+i).attr("id","doc"+_num);
 		}
 	}
+	
+	applyToWindowCapture();
 }
 
 function mainSlideSelect(e, target){
