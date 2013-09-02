@@ -12,8 +12,9 @@ Animation.prototype = {
 	//Object, Animation 순서에 맞는 배열에 삽입
 	mappingObjectNAnimation : function(e) {
 		var len = this.orderArray.length;
+		console.log(e);
 		
-		var className = $(e.target).attr("class");
+		var className = $(e.currentTarget).attr("class");
 		this.orderArray[len] = {oName : objectId, aName : className};
 		this.addAnimationList(this.orderArray[len], len);
 	},
@@ -22,7 +23,8 @@ Animation.prototype = {
 	addAnimationList : function(newAnimation, order) {
 		$(".aniListWrap").append("<div class='ani1' id='ani" + (order+1) + "'>" + 
 				"<div class='num'>" + (order+1) + "</div>" + 
-				"<span class='text'>" + $("." + newAnimation.aName).text() + "</span>" + 
+				"<div class='" + newAnimation.aName + "Img'></div>" +
+				"<span class='text'>" + newAnimation.oName + "</span>" + 
 				"<div class='aniDelete' href='#'></div>" +
 				"</div>");
 	},
@@ -44,7 +46,8 @@ Animation.prototype = {
 		for (var i = 0 ; i < this.orderArray.length; i++) {
 			$(".aniListWrap").append("<div class='ani1' id='ani" + (i + 1) + "'>" + 
 					"<div class='num'>" + (i + 1) + "</div>" + 
-					"<span class='text'>" + $("." + this.orderArray[i].aName).text() + "</span>" + 
+					"<div class='" + this.orderArray[i].aName + "Img'></div>" + 
+					"<span class='text'>" + this.orderArray[i].oName + "</span>" + 
 					"<div class='aniDelete' href='#'></div>" +
 					"</div>");
 		}	
