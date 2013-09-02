@@ -12,7 +12,6 @@ Animation.prototype = {
 	//Object, Animation 순서에 맞는 배열에 삽입
 	mappingObjectNAnimation : function(e) {
 		var len = this.orderArray.length;
-		console.log(e);
 		
 		var className = $(e.currentTarget).attr("class");
 		this.orderArray[len] = {oName : objectId, aName : className};
@@ -21,6 +20,7 @@ Animation.prototype = {
 	
 	//Animation list html에 추가
 	addAnimationList : function(newAnimation, order) {
+		console.log(newAnimation.aName);
 		$(".aniListWrap").append("<div class='ani1' id='ani" + (order+1) + "'>" + 
 				"<div class='num'>" + (order+1) + "</div>" + 
 				"<div class='" + newAnimation.aName + "Img'></div>" +
@@ -70,7 +70,6 @@ Animation.prototype = {
 		var order = $("#" + this.aniListId).children(".num").text();
 		var aniText = $("#" + this.aniListId).children(".text").text();
 		
-		console.log(this.aniListId);
 		//aniUp
 		if (e.target.className == "aniUp") {			
 			if ((order-2) >= 0) {
@@ -125,16 +124,16 @@ Animation.prototype = {
 				ani.show(oName, 1000 * i);
 				break;
 			case "flyUp":
-				
+				ani.flyUp(oName, 1000 * i);
 				break;
 			case "flyDown":
-				
+				ani.flyDown(oName, 1000 * i);
 				break;
 			case "flyLeft":
-				
+				ani.flyLeft(oName, 1000 * i);
 				break;
 			case "flyRight":
-				
+				ani.flyRight(oName, 1000 * i);
 				break;
 			case "fade":
 				ani.fade(oName, 1000 * i);
@@ -195,7 +194,7 @@ AnimationCSS.prototype = {
 		fade : function(oName, timeout) {
 			var start = {
 					opacity : "1",
-					transition : "opacity 0.8s",
+					transition : "opacity 0.8s"
 //					-webkit-transition : "opacity 1s" /* Safari */
 			};
 			
@@ -212,6 +211,41 @@ AnimationCSS.prototype = {
 			setTimeout(function() {$("#" + oName).css(start);}, timeout);
 			setTimeout(function() {$("#" + oName).css(end);}, timeout);	
 			setTimeout(function() {$("#" + oName).css(back);}, timeout + 800);
-		}	
+		},
 		
+		flyUp : function(oName, timeout) {			
+			setTimeout(function() {
+				$("#" + oName).css("left", "0px");
+				$("#" + oName).css("top", "-500px");
+				$("#" + oName).css("position", "relative");
+				}, timeout);
+			setTimeout(function() {$("#" + oName).animate({"top": "0px"}, 400);}, timeout);
+		},
+		
+		flyDown : function(oName, timeout) {			
+			setTimeout(function() {
+				$("#" + oName).css("left", "0px");
+				$("#" + oName).css("top", "1000px");
+				$("#" + oName).css("position", "relative");
+				}, timeout);
+			setTimeout(function() {$("#" + oName).animate({"top": "0px"}, 400);}, timeout);
+		},
+		
+		flyLeft : function(oName, timeout) {			
+			setTimeout(function() {
+				$("#" + oName).css("left", "-2000px");
+				$("#" + oName).css("top", "0px");
+				$("#" + oName).css("position", "relative");
+				}, timeout);
+			setTimeout(function() {$("#" + oName).animate({"left": "0px"}, 400);}, timeout);
+		},
+		
+		flyRight : function(oName, timeout) {			
+			setTimeout(function() {
+				$("#" + oName).css("left", "2000px");
+				$("#" + oName).css("top", "0px");
+				$("#" + oName).css("position", "relative");
+				}, timeout);
+			setTimeout(function() {$("#" + oName).animate({"left": "0px"}, 400);}, timeout);
+		}
 };
