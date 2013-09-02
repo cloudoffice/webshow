@@ -121,22 +121,22 @@ Animation.prototype = {
 			
 			switch (aName) {
 			case "show":
-				ani.show(oName, 1000 * i);
+				ani.show(oName, 2000 * i);
 				break;
 			case "flyUp":
-				ani.flyUp(oName, 1000 * i);
+				ani.flyUp(oName, 2000 * i);
 				break;
 			case "flyDown":
-				ani.flyDown(oName, 1000 * i);
+				ani.flyDown(oName, 2000 * i);
 				break;
 			case "flyLeft":
-				ani.flyLeft(oName, 1000 * i);
+				ani.flyLeft(oName, 2000 * i);
 				break;
 			case "flyRight":
-				ani.flyRight(oName, 1000 * i);
+				ani.flyRight(oName, 2000 * i);
 				break;
 			case "fade":
-				ani.fade(oName, 1000 * i);
+				ani.fade(oName, 2000 * i);
 				break;
 			}
 		}
@@ -178,13 +178,11 @@ AnimationCSS.prototype = {
 		show : function(oName, timeout) {
 			var start = {
 					opacity : "0",
-//					transition : "opacity 1s",
-//					-webkit-transition : "opacity 1s" /* Safari */
 			};
 			
 			var end = {
 					opacity : "1",
-					transition : "opacity 1s",
+					transition : "opacity 1.5s",
 			};
 			
 			setTimeout(function() {$("#" + oName).css(start);}, timeout);
@@ -194,13 +192,11 @@ AnimationCSS.prototype = {
 		fade : function(oName, timeout) {
 			var start = {
 					opacity : "1",
-					transition : "opacity 0.8s"
-//					-webkit-transition : "opacity 1s" /* Safari */
+					transition : "opacity 1.5s"
 			};
 			
 			var end = {
 					opacity : "0",
-//					transition : "opacity 1s",
 			};
 			
 			var back = {
@@ -219,7 +215,7 @@ AnimationCSS.prototype = {
 				$("#" + oName).css("top", "-500px");
 				$("#" + oName).css("position", "relative");
 				}, timeout);
-			setTimeout(function() {$("#" + oName).animate({"top": "0px"}, 400);}, timeout);
+			setTimeout(function() {$("#" + oName).animate({"top": "0px"}, 800);}, timeout);
 		},
 		
 		flyDown : function(oName, timeout) {			
@@ -228,7 +224,7 @@ AnimationCSS.prototype = {
 				$("#" + oName).css("top", "1000px");
 				$("#" + oName).css("position", "relative");
 				}, timeout);
-			setTimeout(function() {$("#" + oName).animate({"top": "0px"}, 400);}, timeout);
+			setTimeout(function() {$("#" + oName).animate({"top": "0px"}, 800);}, timeout);
 		},
 		
 		flyLeft : function(oName, timeout) {			
@@ -237,7 +233,7 @@ AnimationCSS.prototype = {
 				$("#" + oName).css("top", "0px");
 				$("#" + oName).css("position", "relative");
 				}, timeout);
-			setTimeout(function() {$("#" + oName).animate({"left": "0px"}, 400);}, timeout);
+			setTimeout(function() {$("#" + oName).animate({"left": "0px"}, 800);}, timeout);
 		},
 		
 		flyRight : function(oName, timeout) {			
@@ -246,6 +242,6 @@ AnimationCSS.prototype = {
 				$("#" + oName).css("top", "0px");
 				$("#" + oName).css("position", "relative");
 				}, timeout);
-			setTimeout(function() {$("#" + oName).animate({"left": "0px"}, 400);}, timeout);
+			setTimeout(function() {$("#" + oName).animate({"left": "0px"}, 800);}, timeout);
 		}
 };
