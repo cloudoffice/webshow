@@ -5,52 +5,46 @@ require.config({
         figure : 'figure/create',
         drag : 'figure/drag',
         resize : 'figure/resize',
+        rotation : 'figure/rotation',
         position : 'figure/position',
+        color : 'figure/color',
         slide : 'slide/slide'
     }
 });
 
 
 require([
-    'jquery', 'canvas', 'figure', 'drag', 'resize', 'position', 'slide'
+    'jquery', 'canvas', 'figure', 'drag', 'resize', 'rotation', 'position', 'color', 'slide'
 ], function($){
 	console.log("dddd");
 	//$("#contents").append($("<img>").attr("src", "http://www.google.co.kr/webhp?hl=ko&tab=ww"));
-	$("#circleBox").click(function(e){
-			createFigure(e, this);
-			$(document).unbind("click");
-	});
-	$("#squareBox").click(function(e){
-		createFigure(e, this);
-		$(document).unbind("click");
-	});	
-	$("#triangleBox").click(function(e){
-		createFigure(e, this);
-		$(document).unbind("click");
-	});	
-	$("#twelve-point-starBox").click(function(e){
-		createFigure(e, this);
-		$(document).unbind("click");
-	});	
-	$("#six-point-starBox").click(function(e){
-		createFigure(e, this);
-		$(document).unbind("click");
-	});	
-	$("#pacmanBox").click(function(e){
-		createFigure(e, this);
-		$(document).unbind("click");
-	});	
-	$("#heartBox").click(function(e){
-		createFigure(e, this);
-		$(document).unbind("click");
-	});	
+	$("#circleBox").on("click", $.proxy(this.createFigure, this));
+	$("#squareBox").on("click", $.proxy(this.createFigure, this));
+	$("#triangleBox").on("click", $.proxy(this.createFigure, this));
+	$("#twelve-point-starBox").on("click", $.proxy(this.createFigure, this));
+	$("#six-point-starBox").on("click", $.proxy(this.createFigure, this));
+	$("#pacmanBox").on("click", $.proxy(this.createFigure, this));
+	$("#heartBox").on("click", $.proxy(this.createFigure, this));
 	
 	$(".slideInsert").on("click", $.proxy(this.createSlide, this));
 	$(".slideDelete").on("click", $.proxy(this.deleteSlide,this));
 	
 	$(".doc").delegate("div","mousedown", $.proxy(this.findFigure,this));
+	$("body").on("keydown", $.proxy(this.figureDelete,this));
 	
 //	$(".doc").delegate("click", "div", $.proxy(this.findFigure, this));
 	$(".figureFontIcon").on("click", $.proxy(this.frontPosition, this));
 	$(".figureBackIcon").on("click", $.proxy(this.backPosition, this));
+	
+	$(".s1").on("click", $.proxy(this.setColorFigure, this));
+	$(".s2").on("click", $.proxy(this.setColorFigure, this));
+	$(".s3").on("click", $.proxy(this.setColorFigure, this));
+	$(".s4").on("click", $.proxy(this.setColorFigure, this));
+	$(".s5").on("click", $.proxy(this.setColorFigure, this));
+	$(".s6").on("click", $.proxy(this.setColorFigure, this));
+	$(".s7").on("click", $.proxy(this.setColorFigure, this));
+	$(".s8").on("click", $.proxy(this.setColorFigure, this));
+	$(".s9").on("click", $.proxy(this.setColorFigure, this));
+	$(".s10").on("click", $.proxy(this.setColorFigure, this));
+	
 });

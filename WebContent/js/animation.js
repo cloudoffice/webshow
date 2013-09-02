@@ -14,7 +14,7 @@ Animation.prototype = {
 		var len = this.orderArray.length;
 		
 		var className = $(e.target).attr("class");
-		this.orderArray[len] = {oName : this.objectId, aName : className};
+		this.orderArray[len] = {oName : objectId, aName : className};
 		this.addAnimationList(this.orderArray[len], len);
 	},
 	
@@ -39,11 +39,6 @@ Animation.prototype = {
 	//orderArray에서 해당 object&Animation 삭제
 	deleteMappingObjectNAnimation : function(order) {
 		var array = this.orderArray.splice(order, 1);
-	},
-	
-	//클릭한 도형의 object ID 얻기
-	getSelectedObjectId : function(e) {
-		this.objectId = e.target.id;
 	},
 	
 	getSelectedAniListId : function(e) {
@@ -116,14 +111,13 @@ Animation.prototype = {
 				ani.fade(oName, 1000 * i);
 				break;
 			}
-			console.log($("#" + oName).css("opacity"));
 		}
 	}, 
 	
 	//event
 	event : function() {
 		//도형선택 시 도형 id받아옴
-		$(".doc").on("click", "div", $.proxy(this.getSelectedObjectId, this));
+//		$(".doc").on("click", "div", $.proxy(this.getSelectedObjectId, this));
 		
 		//애니메이션 선택 시 도형+애니매이션 mapping 배열에 추가
 		$(".show").on("click", $.proxy(this.mappingObjectNAnimation, this));
@@ -154,7 +148,6 @@ function AnimationCSS() {
 
 AnimationCSS.prototype = {
 		show : function(oName, timeout) {
-//			console.log(oName);
 			var start = {
 					opacity : "0",
 //					transition : "opacity 1s",
@@ -167,13 +160,13 @@ AnimationCSS.prototype = {
 			};
 			
 			setTimeout(function() {$("#" + oName).css(start);}, timeout);
-			setTimeout(function() {$("#" + oName).css(end);}, timeout + 500);			
+			setTimeout(function() {$("#" + oName).css(end);}, timeout + 400);			
 		},
 		
 		fade : function(oName, timeout) {
 			var start = {
 					opacity : "1",
-					transition : "opacity 0.5s",
+					transition : "opacity 0.8s",
 //					-webkit-transition : "opacity 1s" /* Safari */
 			};
 			
@@ -184,11 +177,12 @@ AnimationCSS.prototype = {
 			
 			var back = {
 					opacity : "1",
+					transition : "opacity 0s",
 			};
 			
 			setTimeout(function() {$("#" + oName).css(start);}, timeout);
-			setTimeout(function() {$("#" + oName).css(end);}, timeout + 500);	
-//			setTimeout(function() {$("#" + oName).css(back);}, timeout + 1000);
+			setTimeout(function() {$("#" + oName).css(end);}, timeout);	
+			setTimeout(function() {$("#" + oName).css(back);}, timeout + 800);
 		}	
 		
 };
