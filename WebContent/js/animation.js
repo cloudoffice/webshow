@@ -32,13 +32,28 @@ Animation.prototype = {
 		var aniId = e.currentTarget.parentElement.id;
 		var order = $("#" + aniId).children(".num").text();
 		
-		$("#" + aniId).remove();
+		for (var i = 0 ; i < this.orderArray.length; i++) {
+			$("#ani" + (i + 1)).remove();
+		}
+		
 		this.deleteMappingObjectNAnimation(order-1);
+		this.sortingAniList();
+	},
+	
+	sortingAniList : function() { 
+		for (var i = 0 ; i < this.orderArray.length; i++) {
+			$(".aniListWrap").append("<div class='ani1' id='ani" + (i + 1) + "'>" + 
+					"<div class='num'>" + (i + 1) + "</div>" + 
+					"<span class='text'>" + $("." + this.orderArray[i].aName).text() + "</span>" + 
+					"<div class='aniDelete' href='#'></div>" +
+					"</div>");
+		}	
 	},
 	
 	//orderArray에서 해당 object&Animation 삭제
 	deleteMappingObjectNAnimation : function(order) {
 		var array = this.orderArray.splice(order, 1);
+		console.log(array);
 	},
 	
 	getSelectedAniListId : function(e) {
@@ -54,32 +69,43 @@ Animation.prototype = {
 		
 		console.log(this.aniListId);
 		//aniUp
-		if (e.target.className == "aniUp") {
-			$("#" + this.aniListId).remove();
-			$("<div class='ani1' id='ani" + (order) + "'>" + 
-					"<div class='num'>" + (order - 1) + "</div>" + 
-					"<span class='text'>" + aniText + "</span>" + 
-					"<div class='aniDelete' href='#'></div>" +
-					"</div>").insertBefore("#ani" + (order - 1));
-			$("#ani" + (order - 1)).children(".num").html(order);
+		if (e.target.className == "aniUp") {			
+			if ((order-2) >= 0) {
+				//순서변경하기 원하는 list 위의 값 받기
+				var array = this.orderArray.splice(order-2, 1);
+				//해당 배열 property 가져오기
+				var pro = array[0];
+				//property 붙여넣기
+				this.orderArray.splice((order-1), 0, pro);
+
+			} else {
+				window.alert("맨 처음 list 입니다.");
+			}
 			
-			$("#ani"+(order - 1)).attr("id", "ani" + order);
-			$("#ani"+(order)).attr("id", "ani" + (order - 1));
+			for (var i = 0 ; i < this.orderArray.length; i++) {
+				$("#ani" + (i + 1)).remove();
+			}
+			this.sortingAniList();
 		}
 		
 		//aniDown
 		if (e.target.className == "aniDown") {
-			$("#" + this.aniListId).remove();
-			$("<div class='ani1' id='ani" + (order) + "'>" + 
-					"<div class='num'>" + (order + 1) + "</div>" + 
-					"<span class='text'>" + aniText + "</span>" + 
-					"<div class='aniDelete' href='#'></div>" +
-					"</div>").insertAfter('#ani' + (order + 1));
-//			$("#" + this.aniListId).insertAfter('#ani' + (order + 1));
-//			$("#ani" + (order)).children(".num").html(order + 1);
-//			
-//			$("#ani"+(order)).attr("id", "ani" + (order + 1));
-//			$("#ani"+(order + 1)).attr("id", "ani" + (order));
+			if (order < this.orderArray.length) {
+				//순서변경하기 원하는 list 아래 값 받기
+				var array = this.orderArray.splice(order-1, 1);
+				//해당 배열 property 가져오기
+				var pro = array[0];
+				//property 붙여넣기
+				this.orderArray.splice(order, 0, pro);
+
+			} else {
+				window.alert("맨 마지막 list 입니다.");
+			}
+			
+			for (var i = 0 ; i < this.orderArray.length; i++) {
+				$("#ani" + (i + 1)).remove();
+			}
+			this.sortingAniList();
 		}
 	},
 	
@@ -160,7 +186,7 @@ AnimationCSS.prototype = {
 			};
 			
 			setTimeout(function() {$("#" + oName).css(start);}, timeout);
-			setTimeout(function() {$("#" + oName).css(end);}, timeout + 400);			
+			setTimeout(function() {$("#" + oName).css(end);}, timeout + 800);			
 		},
 		
 		fade : function(oName, timeout) {
