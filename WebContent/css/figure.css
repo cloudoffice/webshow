@@ -1,6 +1,6 @@
 .figure1, .figure2, .figure3 {float:left;}
 .line {float:left; width:1px; height:80px; margin:5px 0; border-right:1px solid #b1b1b1;}
-.figures {height:62px;}
+.figures {height:62px; vertical-align:top;}
 .figuresTitle {height:26px; font-size:13px; color:#666; font-weight:bold; text-decoration:none; line-height:20px;}
 .figurePositionTitle {height:26px; font-size:13px; color:#666; font-weight:bold; text-align:center; text-decoration:none; line-height:20px;}
 .figureColorTitle {position:height:26px; margin-top:66px; font-size:13px; color:#666; font-weight:bold; text-align:center; text-decoration:none; line-height:20px; z-index:1;}
@@ -19,11 +19,11 @@
  /*  cursor:pointer;*/
    width: 46px;
    height: 46px;
-   background:#fff; 
-   border:2px solid #777;
-   -moz-border-radius: 23px; 
-   -webkit-border-radius: 23px; 
-   border-radius: 23px;
+   background:#dcdcdc; 
+   border:2px solid #797979;
+   -moz-border-radius: 24px; 
+   -webkit-border-radius: 24px; 
+   border-radius: 24px;
 }
 
 #squareBox {width:50px; height:50px; float:left;}
@@ -31,16 +31,16 @@
  /*  cursor:pointer;*/
    width: 46px; 
    height: 46px; 
-   background:#fff;
-   border:2px solid #777;  
+   background:#dcdcdc;
+   border:2px solid #797979;  
 }
 
 #triangleBox {width:60px; height:50px; float:left; padding-left:8px;}
 .triangle {
      width:46px; 
      height:46px; 
-     border:2px solid #777; 
-     background:#fff;
+     border:2px solid #797979; 
+     background:#dcdcdc;
      transform: skew(-20deg); 
      -o-transform: skew(-20deg); 
      -moz-transform: skew(-20deg); 
@@ -51,8 +51,8 @@
 .twelve-point-star {
      width:36px; 
      height:36px; 
-     border:2px solid #777; 
-     background:#fff;
+     border:2px solid #797979; 
+     background:#dcdcdc;
    	 margin:16px 0 0 28px;
      -webkit-transform: rotate(-45deg);
      -moz-transform: rotate(-45deg);
@@ -70,76 +70,25 @@
 .six-point-star {
      height:31px;
      width:64px;
-     border:2px solid #777; 
+     border:2px solid #797979; 
+     background-color:#dcdcdc;
      border-radius: 90px 90px 0 0;
      -moz-border-radius: 90px 90px 0 0;
      -webkit-border-radius: 90px 90px 0 0;
-     background:#fff;
 }
 
 #pacmanBox {width:50px; height:55px; float:left;}
 .pacman {
-  /*cursor:pointer;*/
-  width: 0px;
-  height: 0px;
-  border-right: 28px solid transparent;
-  border-top: 28px solid #ffd630;
-  border-left: 28px solid #ffd630;
-  border-bottom: 28px solid #ffd630;
-  border-top-left-radius: 28px;
-  border-top-right-radius: 28px;
-  border-bottom-left-radius: 28px;
-  border-bottom-right-radius: 28px;
+   display:block;
+   width: 40px;
+   height: 50px;
+   border:2px solid #797979; 
+   background-color:#dcdcdc;
+   -webkit-border-radius: 20px 20px 20px 20px / 35px 35px 20px 20px;
+   border-radius:         50%  50%  50%  50%  / 60%   60%   40%  40%;
 }
 
-#heartBox {width:64px; height:55px; float:left;}
-.heart {
-  /*  cursor:pointer;*/
-	margin-left:13px; 
-	position: relative;
-}
-.heart:before {
-	position: absolute;
-    content: "";
-	left:19px;
-	top: 1px;
-	width:32px;
-	height: 54px;
-	background: red;
-	-moz-border-radius: 50px 50px 0 0;
-	border-radius: 50px 50px 0 0;
-	-webkit-transform: rotate(-45deg);
-	-moz-transform: rotate(-45deg);
-	-ms-transform: rotate(-45deg);
-	-o-transform: rotate(-45deg);
-	transform: rotate(-45deg);
-	-webkit-transform-origin: 0 100%;
-	-moz-transform-origin: 0 100%;
-	-ms-transform-origin: 0 100%;
-	-o-transform-origin: 0 100%;
-	transform-origin: 0 100%;
-}
-.heart:after { 
-	position: absolute;
-    content: "";
-	left:-13px;
-	top: 1px;
-	width: 32px;
-	height: 54px;
-	background: red; 
-	-moz-border-radius: 50px 50px 0 0;
-	border-radius: 50px 50px 0 0;
-	-webkit-transform: rotate(45deg); 
-	-moz-transform: rotate(45deg); 
-	-ms-transform: rotate(45deg); 
-	-o-transform: rotate(45deg);
-	transform: rotate(45deg);
-	-webkit-transform-origin: 100% 100%;
-	-moz-transform-origin: 100% 100%;
-	-ms-transform-origin: 100% 100%;
-	-o-transform-origin: 100% 100%;
-	transform-origin :100% 100%;
-}
+
 
 .buttonBar > .figure3 > .figureColor > .figureColorIcon:hover .subTextColor {display:block;}
 
