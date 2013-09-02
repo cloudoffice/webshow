@@ -77,6 +77,9 @@ function createFigure(e){
 			$("#div6").remove();
 			$("#div7").remove();
 			$("#div8").remove();
+			$("#rotation_div").remove();
+			$("#rotation_div").remove();
+			$("#rotation_div").remove();
 			$(".doc").unbind("click");
 			//$("#"+n).unbind("click");	
 			applyToWindowCapture();
@@ -139,6 +142,31 @@ function createBorder(e, target, sub_target){
 	div2.style.zIndex = "1";
 	div2.onmousedown = $.proxy(this.startDiv2Resize, this, e, target, sub_target);
 	document.getElementById("doc"+mainNum).appendChild(div2);
+	
+	var lineLeft = l+(w/2);
+	var lineTop = t-15;
+	$("<div id='line'></div> ").appendTo("#doc"+mainNum);
+	$("#line").css("position","absolute");
+	$("#line").css("left", lineLeft);
+	$("#line").css("top", lineTop);
+	$("#line").css("width","1px");
+	$("#line").css("height","20px");
+	$("#line").css("border", "1px solid rgba(0,0,0,.4)");
+	$("#line").css("background-color","rgba(0,0,0,.4)");
+	
+	var rotationDivLeft =  l+(w/2)-5;
+	var rotationDivTop = t-20;
+	$("<div id='rotation_div'></div>").appendTo("#doc"+mainNum);
+	$("#rotation_div").css("position","absolute");
+	$("#rotation_div").css("background-color","rgba(0,0,0,.4)");
+	$("#rotation_div").css("cursor", "crosshair");
+	$("#rotation_div").css("z-index", "1");
+	$("#rotation_div").css("width","10px");
+	$("#rotation_div").css("height","10px");
+	$("#rotation_div").css("left",rotationDivLeft);
+	$("#rotation_div").css("top",rotationDivTop);
+	$(".doc").delegate("#rotation_div","mousedown", $.proxy(this.startRotation,this));
+//	$("#rotation_div").mousedown($.proxy(this.startRotation,this));
 	
 	div3.id = "div3";
 	div3.style.position = "absolute";
@@ -217,6 +245,8 @@ function createBorder(e, target, sub_target){
 	div8.style.zIndex = "1";
 	div8.onmousedown = $.proxy(this.startResize, this, e, target, sub_target);
 	document.getElementById("doc"+mainNum).appendChild(div8);
+	
+//	applyToWindowCapture();
 }
 
 function applyToWindowCapture(){

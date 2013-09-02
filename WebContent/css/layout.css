@@ -12,7 +12,7 @@ body {background-color:transparent; overflow: hidden;}
 .thumbWrap {float:left; width:170px; height:627px; background-color:#eee; border-bottom:1px solid #b1b1b1; border-right:1px solid #b1b1b1; vertical-align:top;}
 .thumbnails {display:block; height:596px; overflow-y:scroll;}
 .thumbnail {width:120px; height:85px; margin:32px auto; font-size:12px; color:#868686;}
-.thumbnail1 {display:block; width:114px; height:85px; background-color:#fff; border:1px solid #b1b1b1;}
+.thumbnail1 {display:block; width:120px; height:90px; background-color:#fff; border:1px solid #b1b1b1;}
 .thumbName {padding:2px}
 
 .docWrap {width:850px; margin:0 auto;}
