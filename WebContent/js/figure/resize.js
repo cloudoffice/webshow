@@ -1,8 +1,4 @@
-var startX, startY, startWidth, startHeight, divtarget, _divtarget, classname;
-function findFigure(e){
-	SelectedFigureId = e.currentTarget.id;
-	objectId = e.target.id;
-}
+var startX, startY, startWidth, startHeight,sub_startWidth, sub_startHeight, divtarget, _divtarget, classname;
 function startResize(e){
 	createBorder(e);
 	
@@ -13,20 +9,21 @@ function startResize(e){
 	
 	startWidth = $("#"+divtarget).width();
 	startHeight = $("#"+divtarget).height();
-	
+	sub_startWidth = $("#"+_divtarget).width();
+	sub_startHeight = $("#"+_divtarget).height();
 	$(document).mousemove(moveResize);
 	$(document).mouseup(stopResize);	
 }
 function moveResize(e){	
-	createBorder(e, divtarget);
+	createBorder(e);
 	
 	$("#"+divtarget).css("width",startWidth + e.clientX - startX);
 	$("#"+divtarget).css("height",startHeight + e.clientY - startY);
-	$("#"+_divtarget).css("width",startWidth + e.clientX - startX);
-	$("#"+_divtarget).css("height",startHeight + e.clientY - startY);
+	$("#"+_divtarget).css("width",sub_startWidth + e.clientX - startX);
+	$("#"+_divtarget).css("height",sub_startHeight + e.clientY - startY);
 	
-	radius = $("#"+divtarget).width()/2;
 	classname = $("#"+_divtarget).attr('class');
+	radius = $("#"+divtarget).width()/2;
 	if(classname =='circle'){
 		$("#"+_divtarget).css("border-radius", radius);
 	}
@@ -48,7 +45,8 @@ function startDiv7Resize(e){
 	
 	startY = e.clientY;
 	startHeight = $("#"+divtarget).height();
-
+	sub_startHeight = $("#"+_divtarget).height();
+	
 	$(document).mousemove(moveDiv7Resize);
 	$(document).mouseup(stopDiv7Resize);
 	
@@ -57,7 +55,7 @@ function moveDiv7Resize(e){
 	createBorder(e);
 
 	$("#"+divtarget).css("height", e.clientY - startY + startHeight);
-	$("#"+_divtarget).css("height", e.clientY - startY + startHeight);
+	$("#"+_divtarget).css("height", e.clientY - startY + sub_startHeight);
 	
 }
 function stopDiv7Resize(e){
@@ -79,6 +77,8 @@ function startDiv6Resize(e){
 	startY = e.clientY;
 	startWidth = $("#"+divtarget).width();
 	startHeight = $("#"+divtarget).height();
+	sub_startWidth = $("#"+_divtarget).width();
+	sub_startHeight = $("#"+_divtarget).height();
 
 	$(document).mousemove(moveDiv6Resize);
 	$(document).mouseup(stopDiv6Resize);
@@ -92,8 +92,14 @@ function moveDiv6Resize(e){
 	$("#"+divtarget).css("height", e.clientY - startY + startHeight);
 	
 	$("#"+_divtarget).css("left", e.clientX);
-	$("#"+_divtarget).css("width", startX-e.clientX + startWidth);
-	$("#"+_divtarget).css("height", e.clientY - startY + startHeight);
+	$("#"+_divtarget).css("width", startX-e.clientX + sub_startWidth);
+	$("#"+_divtarget).css("height", e.clientY - startY + sub_startHeight);
+	
+	classname = $("#"+_divtarget).attr('class');
+	radius = $("#"+divtarget).width()/2;
+	if(classname =='circle'){
+		$("#"+_divtarget).css("border-radius", radius);
+	}
 	
 }
 function stopDiv6Resize(e){
@@ -113,6 +119,7 @@ function startDiv5Resize(e){
 	
 	startX = e.clientX;
 	startWidth = $("#"+divtarget).width();
+	sub_startWidth = $("#"+_divtarget).width();
 	
 	$(document).mousemove(moveDiv5Resize);
 	$(document).mouseup(stopDiv5Resize);
@@ -122,7 +129,7 @@ function moveDiv5Resize(e){
 	createBorder(e);
 
 	$("#"+divtarget).css("width", e.clientX-startX + startWidth);
-	$("#"+_divtarget).css("width", e.clientX-startX+startWidth);
+	$("#"+_divtarget).css("width", e.clientX-startX+sub_startWidth);
 	
 }
 function stopDiv5Resize(e){
@@ -154,7 +161,7 @@ function moveDiv4Resize(e){
 	$("#"+divtarget).css("left", e.clientX);
 	$("#"+divtarget).css("width", startX-e.clientX + startWidth);
 	$("#"+_divtarget).css("left",e.clientX);
-	$("#"+_divtarget).css("width", startX-e.clientX + startWidth);
+	$("#"+_divtarget).css("width", startX-e.clientX + sub_startWidth);
 	
 }
 function stopDiv4Resize(e){
@@ -176,6 +183,8 @@ function startDiv3Resize(e){
 	startY = e.clientY;
 	startWidth = $("#"+divtarget).width();
 	startHeight = $("#"+divtarget).height();
+	sub_startWidth = $("#"+_divtarget).width();
+	sub_startHeight = $("#"+_divtarget).height();
 	
 	$(document).mousemove(moveDiv3Resize);
 	$(document).mouseup(stopDiv3Resize);	
@@ -187,9 +196,14 @@ function moveDiv3Resize(e){
 	$("#"+divtarget).css("width",startWidth + e.clientX - startX);
 	$("#"+divtarget).css("height",startHeight + startY- e.clientY);
 	$("#"+_divtarget).css("top", e.clientY);
-	$("#"+_divtarget).css("width",startWidth + e.clientX - startX);
-	$("#"+_divtarget).css("height",startHeight + startY- e.clientY);
+	$("#"+_divtarget).css("width",sub_startWidth + e.clientX - startX);
+	$("#"+_divtarget).css("height",sub_startHeight + startY- e.clientY);
 	
+	classname = $("#"+_divtarget).attr('class');
+	radius = $("#"+divtarget).width()/2;
+	if(classname =='circle'){
+		$("#"+_divtarget).css("border-radius", radius);
+	}	
 }
 function stopDiv3Resize(e){
 	createBorder(e);
@@ -208,7 +222,8 @@ function startDiv2Resize(e){
 	
 	startY = e.clientY;
 	startHeight = $("#"+divtarget).height();
-	
+	sub_startHeight = $("#"+_divtarget).height();
+
 	$(document).mousemove(moveDiv2Resize);
 	$(document).mouseup(stopDiv2Resize);	
 	
@@ -218,7 +233,7 @@ function moveDiv2Resize(e){
 	$("#"+divtarget).css("top", e.clientY);
 	$("#"+divtarget).css("height",startHeight + startY- e.clientY);
 	$("#"+_divtarget).css("top", e.clientY);
-	$("#"+_divtarget).css("height",startHeight + startY- e.clientY);
+	$("#"+_divtarget).css("height",sub_startHeight + startY- e.clientY);
 	
 }
 function stopDiv2Resize(e){
@@ -240,6 +255,8 @@ function startDiv1Resize(e){
 	startY = e.clientY;
 	startWidth = $("#"+divtarget).width();
 	startHeight = $("#"+divtarget).height();
+	sub_startWidth = $("#"+_divtarget).width();
+	sub_startHeight = $("#"+_divtarget).height();
 	
 	$(document).mousemove(moveDiv1Resize);
 	$(document).mouseup(stopDiv1Resize);	
@@ -255,9 +272,14 @@ function moveDiv1Resize(e){
 	
 	$("#"+_divtarget).css("left", e.clientX);
 	$("#"+_divtarget).css("top", e.clientY);
-	$("#"+_divtarget).css("width", startWidth + startX - e.clientX);
-	$("#"+_divtarget).css("height",startHeight + startY- e.clientY);
+	$("#"+_divtarget).css("width", sub_startWidth + startX - e.clientX);
+	$("#"+_divtarget).css("height",sub_startHeight + startY- e.clientY);
 	
+	classname = $("#"+_divtarget).attr('class');
+	radius = $("#"+divtarget).width()/2;
+	if(classname =='circle'){
+		$("#"+_divtarget).css("border-radius", radius);
+	}	
 }
 function stopDiv1Resize(e){
 	createBorder(e);

@@ -20,7 +20,7 @@ function moveDrag(e){
 	$("#"+target).css("top", e.clientY + y );
 
 }
-function stopDrag(e,target){
+function stopDrag(e){
 	createBorder(e);
 //	createText();		
 

@@ -28,16 +28,15 @@ function createSlide(e){
 	
 	for(var i=1;i<_count;i++){
 		$("#doc"+i).css("display","none");
+		$("#thumbnailbox"+i).css("background-color","rgba(0,0,0,0)");
 	}
 	$("#doc"+_target).css("display","inline");
-	
+	$("#thumbnailbox"+_target).css("background-color","rgba(248,149,135,0.5)");
 
 	$("#thum1").on("click",$.proxy( this.mainSlideSelect, this, e, 1));
 	for(var i=1;i<_count+1;i++){
 		$(".thumbWrap").delegate("#thum"+i,"click", $.proxy(this.mainSlideSelect,this,e,i));
 	}	
-	
-	applyToWindowCapture();
 }
 
 function deleteSlide(e){
@@ -49,11 +48,13 @@ function deleteSlide(e){
 		_target = target-1;
 		$("#doc"+target).remove();	
 		$("#doc"+_target).css("display","inline");	
+		$("#thumbnailbox"+_target).css("background-color","rgba(248,149,135,0.5)");
 		$("#thumbnailbox"+target).remove();	
 	}else{
 		_target = target+1;
 		$("#doc"+target).remove();
 		$("#doc"+_target).css("display", "inline");
+		$("#thumbnailbox"+_target).css("background-color","rgba(248,149,135,0.5)");
 		$("#thumbnailbox"+target).remove();
 		
 		for(var i=_target;i<count+1;i++){
@@ -65,16 +66,17 @@ function deleteSlide(e){
 			$("#doc"+i).attr("id","doc"+_num);
 		}
 	}
-	
-	applyToWindowCapture();
 }
 
 function mainSlideSelect(e, target){
 	var count = $(".docWrap div").length;
 	for(var i=1;i<count+1;i++){
 		$("#doc"+i).css("display","none");
+		$("#thumbnailbox"+i).css("background-color","rgba(0,0,0,0)");
 	}
 	$("#doc"+target).css("display","inline");
+	$("#thumbnailbox"+target).css("background-color","rgba(248,149,135,0.5)");
+	
 }
 function mainSlideSearch(){
 	var count = $(".docWrap div").length;

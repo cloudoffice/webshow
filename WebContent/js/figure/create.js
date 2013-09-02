@@ -4,15 +4,6 @@ var figureTop=250;
 var classvalue;
 var width, height;
 var mainNum;
-function mainSlideSearch(){
-	var count = $(".docWrap div").length;
-
-	for(var i=1; i<count+1; i++){
-		if($("#doc"+i).css('display') == 'block'){
-			return i;
-		}		
-	}
-}
 function createFigure(e){
 	n++;
 	classvalue = $(e.currentTarget).attr("value");
@@ -51,7 +42,7 @@ function createFigure(e){
 	figureTop = figureTop + 25;
 	
 	$(".doc").delegate("#"+n,"mousedown", $.proxy(this.findFigure,this));
-	$(".doc").delegate("#"+n,"click", $.proxy(this.createBorder,this));
+//	$(".doc").delegate("#"+n,"click", $.proxy(this.createBorder,this));
 	$(".doc").delegate("#"+n,"mousedown", $.proxy(this.startDrag,this));
 	$(".doc").delegate("#"+n,"mouseout",function(){
 		$(".doc").click(function(e){
@@ -69,24 +60,25 @@ function createFigure(e){
 			$(".doc").unbind("click");
 			applyToWindowCapture();
 		});
-	});
+	});	
 };
-function findFigure(e){
-	SelectedFigureId = e.currentTarget.id;
-	objectId = e.target.id;
-}
 var div = document.createElement("div"); var div1 = document.createElement("div"); var div2 = document.createElement("div"); var div3 = document.createElement("div");
 var div4 = document.createElement("div"); var div5 = document.createElement("div"); var div6 = document.createElement("div"); var div7 = document.createElement("div");
 var div8 = document.createElement("div"); var divRotation = document.createElement("div"); var divLine = document.createElement("div");
 var w, h, l, t; 
-var SelectedFigureId;
 function createBorder(e){		
-//	console.log(SelectedFigureId);
-	w = $("#"+SelectedFigureId).width();
-	h = $("#"+SelectedFigureId).height();
+	w = $("#"+SelectedFigureId).width()-1;
+	h = $("#"+SelectedFigureId).height()-1;
 	l = $("#"+SelectedFigureId).offset().left;	
 	t = $("#"+SelectedFigureId).offset().top;
-	
+	/*if($("#"+objectId).attr('class') == 'triangle'){
+		l = l-12;
+		w = w+9;
+	}*/
+	if($("#"+objectId).attr('class') =='pacman'){
+		w=w-7;
+		h=h-2;
+	}
 	div.id= "b_border";
 	div.style.width= w+"px";
 	div.style.height= h+"px";
@@ -135,8 +127,8 @@ function createBorder(e){
 	divRotation.style.cursor = "crosshair";
 	divRotation.style.zIndex = "1";
 	document.getElementById("doc"+mainNum).appendChild(divRotation);
-	$(".doc").delegate("#divRotation","mousedown", $.proxy(this.startRotation,this));
-//	$("#rotation_div").mousedown($.proxy(this.startRotation,this));
+//	$(".doc").delegate("#divRotation","mousedown", $.proxy(this.startRotation,this));
+	$("#divRotation").mousedown($.proxy(this.startRotation,this));
 	
 	divLine.id = "divLine";
 	divLine.style.position = "absolute";
