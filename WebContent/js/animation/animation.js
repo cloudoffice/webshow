@@ -14,6 +14,8 @@ Animation.prototype = {
 	},
 	
 	createNewArray : function(target) {
+		objectId = undefined;
+		console.log(this.aniListId);
 		var orderArray = new Array();
 		index = target;
 		this.arrayList[index] = orderArray;
@@ -31,11 +33,13 @@ Animation.prototype = {
 	
 	//Object, Animation 순서에 맞는 배열에 삽입
 	mappingObjectNAnimation : function(e) {
-		var len = this.orderArray.length;
-		
-		var className = $(e.currentTarget).attr("class");
-		this.orderArray[len] = {oName : objectId, aName : className};
-		this.addAnimationList(this.orderArray[len], len);
+		if (objectId != undefined) {
+			var len = this.orderArray.length;
+			
+			var className = $(e.currentTarget).attr("class");
+			this.orderArray[len] = {oName : objectId, aName : className};
+			this.addAnimationList(this.orderArray[len], len);
+		}	
 	},
 	
 	//Animation list html에 추가
@@ -72,7 +76,7 @@ Animation.prototype = {
 	sortingAniList : function() { 
 		console.log(this.orderArray);
 		if (this.orderArray.length != 0) {
-			for (var i = 0 ; i < this.orderArray.length; i++) {
+			for (var i = 0 ; i < 20; i++) {
 				$("#ani" + (i + 1)).remove();
 			}
 		} else {
@@ -250,7 +254,7 @@ AnimationCSS.prototype = {
 			
 			var end = {
 					opacity : "1",
-					transition : "opacity 1.5s",
+					transition : "opacity 0.7s",
 			};
 			
 			setTimeout(function() {$("#" + oName).css(start);}, timeout);
@@ -274,7 +278,7 @@ AnimationCSS.prototype = {
 			
 			setTimeout(function() {$("#" + oName).css(start);}, timeout);
 			setTimeout(function() {$("#" + oName).css(end);}, timeout);	
-			setTimeout(function() {$("#" + oName).css(back);}, timeout + 800);
+			setTimeout(function() {$("#" + oName).css(back);}, timeout + 1500);
 		},
 		
 		flyUp : function(oName, timeout) {			
