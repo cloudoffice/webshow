@@ -44,15 +44,16 @@ function createFigure(e){
 	$(".doc").delegate("#"+n,"mousedown", $.proxy(this.findFigure,this));
 //	$(".doc").delegate("#"+n,"click", $.proxy(this.createBorder,this));
 	$(".doc").delegate("#"+n,"mousedown", $.proxy(this.startDrag,this));
-	$(".doc").delegate("#"+n,"mouseout",$.proxy(this.remove,this));	
+	
 };
-function remove(e){
+/*function remove(e){
 //	console.log(e);
+	console.log("a");
 	$(".doc").on("click",$.proxy(this.borderRemove,this));
+//	$(".doc").on("click",$.proxy(this.borderRemove,this));
 //	$(".docWrap").delegate(".doc","click", $.proxy(this.borderRemove,this));
-}
-function borderRemove(e){
-//	console.log(e);
+}*/
+function borderRemove(){
 	$("#b_border").remove();
 	$("#div1").remove();
 	$("#div2").remove();
@@ -71,7 +72,7 @@ var div = document.createElement("div"); var div1 = document.createElement("div"
 var div4 = document.createElement("div"); var div5 = document.createElement("div"); var div6 = document.createElement("div"); var div7 = document.createElement("div");
 var div8 = document.createElement("div"); var divRotation = document.createElement("div"); var divLine = document.createElement("div");
 var w, h, l, t; 
-function createBorder(e){		
+function createBorder(e){			
 	w = $("#"+SelectedFigureId).width()-1;
 	h = $("#"+SelectedFigureId).height()-1;
 	l = $("#"+SelectedFigureId).offset().left;	

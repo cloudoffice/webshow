@@ -56,7 +56,6 @@ function deleteSlide(e){
 		}else{
 			_target = target-1;
 			$("#doc"+target).remove();	
-			console.log("Zz");
 			$("#doc"+_target).css("display","inline");	
 			$("#thumbnailbox"+_target).css("background-color","rgba(248,149,135,0.5)");
 			$("#thumbnailbox"+target).remove();	
