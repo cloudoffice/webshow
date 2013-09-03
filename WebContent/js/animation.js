@@ -9,12 +9,20 @@ Animation.prototype = {
 		this.event();
 	},
 	
+	displayAniList : function() {
+		if($(".aniWrap").css("display") == "none") {
+			$(".aniWrap").css("display", "block");
+		} else if($(".aniWrap").css("display") == "block") {
+			$(".aniWrap").css("display", "none");
+		}
+	},
+	
 	//Object, Animation 순서에 맞는 배열에 삽입
 	mappingObjectNAnimation : function(e) {
 		var len = this.orderArray.length;
 		
 		var className = $(e.currentTarget).attr("class");
-		this.orderArray[len] = {oName : objectId, aName : className};
+		this.orderArray[len] = {oName : objectId, aName : className, targetDoc: this.target};
 		this.addAnimationList(this.orderArray[len], len);
 	},
 	
@@ -27,6 +35,9 @@ Animation.prototype = {
 				"<span class='text'>" + newAnimation.oName + "</span>" + 
 				"<div class='aniDelete' href='#'></div>" +
 				"</div>");
+		for (var i = 0; i < this.orderArray.length; i++) {
+			$("#ani" + (i+1)).css("background-color", "");
+		}
 	},
 	
 	//Animation list 삭제
@@ -40,6 +51,17 @@ Animation.prototype = {
 		
 		this.deleteMappingObjectNAnimation(order-1);
 		this.sortingAniList();
+		
+		this.aniListId = e.currentTarget.id;
+		
+		console.log(this.orderArray.length);
+		console.log(order);
+
+//		if (this.orderArray.length == (order-1)) {
+//			$("#ani" + (order-1)).css("background-color", "#ffd0c5");
+//		} else {
+//			$("#ani" + (order-1)).css("background-color", "#ffd0c5");
+//		}		
 	},
 	
 	sortingAniList : function() { 
@@ -60,7 +82,18 @@ Animation.prototype = {
 	},
 	
 	getSelectedAniListId : function(e) {
+		for (var i = 0; i < this.orderArray.length; i++) {
+			$("#ani" + (i+1)).css("background-color", "");
+		}
+		
 		this.aniListId = e.currentTarget.id;
+		console.log($("#"+this.aniListId).children(".num").text());
+		if ($("#"+this.aniListId).children(".num").text() == "") {
+			$("#ani"+this.orderArray.length).css("background-color", "#ffd0c5");
+		} else {
+			$("#"+this.aniListId).css("background-color", "#ffd0c5");
+		}
+		
 	},
 	
 	//Animation list 순서 변경
@@ -147,6 +180,9 @@ Animation.prototype = {
 		//도형선택 시 도형 id받아옴
 //		$(".doc").on("click", "div", $.proxy(this.getSelectedObjectId, this));
 		
+		//애니메이션 메뉴 보이기/안보이기
+		$(".animation").on("click", $.proxy(this.displayAniList, this));
+		
 		//애니메이션 선택 시 도형+애니매이션 mapping 배열에 추가
 		$(".show").on("click", $.proxy(this.mappingObjectNAnimation, this));
 		$(".flyUp").on("click", $.proxy(this.mappingObjectNAnimation, this));
@@ -166,7 +202,7 @@ Animation.prototype = {
 		$(".aniListWrap").delegate(".ani1", "click", $.proxy(this.getSelectedAniListId, this));
 		
 		//애니메이션 play
-		$(".aniPlay").on("click", $.proxy(this.playAnimation, this));
+		$(".aniPlay").on("click", $.proxy(this.playAnimation, this));		
 	}, 
 };
 
