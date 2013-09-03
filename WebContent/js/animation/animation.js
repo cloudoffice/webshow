@@ -1,32 +1,58 @@
 function Animation() {
 	this.init();
+	
 };
 
 Animation.prototype = {
 	//Animation Class 초기화
 	init : function() {
-		this.orderArray = new Array();
+		this.arrayList = new Array();
+//		var orderArray = new Array();
+		this.orderArray = new Array();		
 		this.event();
+		this.arrayList[1] = this.orderArray;
+	},
+	
+	createNewArray : function(target) {
+		objectId = undefined;
+		console.log(this.aniListId);
+		var orderArray = new Array();
+		index = target;
+		this.arrayList[index] = orderArray;
+		this.orderArray = orderArray;
+		this.sortingAniList();
+	},
+	
+	displayAniList : function() {
+		if($(".aniWrap").css("display") == "none") {
+			$(".aniWrap").css("display", "block");
+		} else if($(".aniWrap").css("display") == "block") {
+			$(".aniWrap").css("display", "none");
+		}
 	},
 	
 	//Object, Animation 순서에 맞는 배열에 삽입
 	mappingObjectNAnimation : function(e) {
-		var len = this.orderArray.length;
-		
-		var className = $(e.currentTarget).attr("class");
-		this.orderArray[len] = {oName : objectId, aName : className};
-		this.addAnimationList(this.orderArray[len], len);
+		if (objectId != undefined) {
+			var len = this.orderArray.length;
+			
+			var className = $(e.currentTarget).attr("class");
+			this.orderArray[len] = {oName : objectId, aName : className};
+			this.addAnimationList(this.orderArray[len], len);
+		}	
 	},
 	
 	//Animation list html에 추가
 	addAnimationList : function(newAnimation, order) {
-		console.log(newAnimation.aName);
 		$(".aniListWrap").append("<div class='ani1' id='ani" + (order+1) + "'>" + 
 				"<div class='num'>" + (order+1) + "</div>" + 
 				"<div class='" + newAnimation.aName + "Img'></div>" +
 				"<span class='text'>" + newAnimation.oName + "</span>" + 
 				"<div class='aniDelete' href='#'></div>" +
 				"</div>");
+		for (var i = 0; i < this.orderArray.length; i++) {
+			$("#ani" + (i+1)).css("background-color", "");
+		}
 	},
 	
 	//Animation list 삭제
@@ -40,9 +66,25 @@ Animation.prototype = {
 		
 		this.deleteMappingObjectNAnimation(order-1);
 		this.sortingAniList();
+		
+		this.aniListId = e.currentTarget.id;
+		
+//		console.log(this.orderArray.length);
+//		console.log(order);
 	},
 	
 	sortingAniList : function() { 
+		console.log(this.orderArray);
+		if (this.orderArray.length != 0) {
+			for (var i = 0 ; i < 20; i++) {
+				$("#ani" + (i + 1)).remove();
+			}
+		} else {
+			for (var i = 0 ; i < 20; i++) {
+				$("#ani" + (i + 1)).remove();
+			}
+		}
+		
 		for (var i = 0 ; i < this.orderArray.length; i++) {
 			$(".aniListWrap").append("<div class='ani1' id='ani" + (i + 1) + "'>" + 
 					"<div class='num'>" + (i + 1) + "</div>" + 
@@ -60,7 +102,26 @@ Animation.prototype = {
 	},
 	
 	getSelectedAniListId : function(e) {
+		for (var i = 0; i < this.orderArray.length; i++) {
+			$("#ani" + (i+1)).css("background-color", "");
+		}
+		
 		this.aniListId = e.currentTarget.id;
+		console.log($("#"+this.aniListId).children(".num").text());
+		if ($("#"+this.aniListId).children(".num").text() == "") {
+			$("#ani"+this.orderArray.length).css("background-color", "#ffd0c5");
+		} else {
+			$("#"+this.aniListId).css("background-color", "#ffd0c5");
+		}
+		
+	},
+	
+	changeAniList : function(target) {
+		index = target;
+		this.orderArray = this.arrayList[index];
+		console.log(this.orderArray);
+		console.log(index);
+		this.sortingAniList();
 	},
 	
 	//Animation list 순서 변경
@@ -88,6 +149,9 @@ Animation.prototype = {
 				$("#ani" + (i + 1)).remove();
 			}
 			this.sortingAniList();
+			$("#ani"+(order-1)).focus();
+			$("#ani"+(order-1)).css("background-color", "#ffd0c5");
+			this.aniListId = "ani"+(order-1);
 		}
 		
 		//aniDown
@@ -107,7 +171,12 @@ Animation.prototype = {
 			for (var i = 0 ; i < this.orderArray.length; i++) {
 				$("#ani" + (i + 1)).remove();
 			}
+			order++;
 			this.sortingAniList();
+			console.log($("#ani"+order));
+			$("#ani"+order).focus();
+			$("#ani"+order).css("background-color", "#ffd0c5");
+			this.aniListId = "ani"+order;
 		}
 	},
 	
@@ -121,22 +190,22 @@ Animation.prototype = {
 			
 			switch (aName) {
 			case "show":
-				ani.show(oName, 1000 * i);
+				ani.show(oName, 2000 * i);
 				break;
 			case "flyUp":
-				ani.flyUp(oName, 1000 * i);
+				ani.flyUp(oName, 2000 * i);
 				break;
 			case "flyDown":
-				ani.flyDown(oName, 1000 * i);
+				ani.flyDown(oName, 2000 * i);
 				break;
 			case "flyLeft":
-				ani.flyLeft(oName, 1000 * i);
+				ani.flyLeft(oName, 2000 * i);
 				break;
 			case "flyRight":
-				ani.flyRight(oName, 1000 * i);
+				ani.flyRight(oName, 2000 * i);
 				break;
 			case "fade":
-				ani.fade(oName, 1000 * i);
+				ani.fade(oName, 2000 * i);
 				break;
 			}
 		}
@@ -146,6 +215,9 @@ Animation.prototype = {
 	event : function() {
 		//도형선택 시 도형 id받아옴
 //		$(".doc").on("click", "div", $.proxy(this.getSelectedObjectId, this));
+		
+		//애니메이션 메뉴 보이기/안보이기
+		$(".animation").on("click", $.proxy(this.displayAniList, this));
 		
 		//애니메이션 선택 시 도형+애니매이션 mapping 배열에 추가
 		$(".show").on("click", $.proxy(this.mappingObjectNAnimation, this));
@@ -166,7 +238,7 @@ Animation.prototype = {
 		$(".aniListWrap").delegate(".ani1", "click", $.proxy(this.getSelectedAniListId, this));
 		
 		//애니메이션 play
-		$(".aniPlay").on("click", $.proxy(this.playAnimation, this));
+		$(".aniPlay").on("click", $.proxy(this.playAnimation, this));		
 	}, 
 };
 
@@ -178,13 +250,11 @@ AnimationCSS.prototype = {
 		show : function(oName, timeout) {
 			var start = {
 					opacity : "0",
-//					transition : "opacity 1s",
-//					-webkit-transition : "opacity 1s" /* Safari */
 			};
 			
 			var end = {
 					opacity : "1",
-					transition : "opacity 1s",
+					transition : "opacity 0.7s",
 			};
 			
 			setTimeout(function() {$("#" + oName).css(start);}, timeout);
@@ -194,13 +264,11 @@ AnimationCSS.prototype = {
 		fade : function(oName, timeout) {
 			var start = {
 					opacity : "1",
-					transition : "opacity 0.8s"
-//					-webkit-transition : "opacity 1s" /* Safari */
+					transition : "opacity 1.5s"
 			};
 			
 			var end = {
 					opacity : "0",
-//					transition : "opacity 1s",
 			};
 			
 			var back = {
@@ -210,7 +278,7 @@ AnimationCSS.prototype = {
 			
 			setTimeout(function() {$("#" + oName).css(start);}, timeout);
 			setTimeout(function() {$("#" + oName).css(end);}, timeout);	
-			setTimeout(function() {$("#" + oName).css(back);}, timeout + 800);
+			setTimeout(function() {$("#" + oName).css(back);}, timeout + 1500);
 		},
 		
 		flyUp : function(oName, timeout) {			
@@ -219,7 +287,7 @@ AnimationCSS.prototype = {
 				$("#" + oName).css("top", "-500px");
 				$("#" + oName).css("position", "relative");
 				}, timeout);
-			setTimeout(function() {$("#" + oName).animate({"top": "0px"}, 400);}, timeout);
+			setTimeout(function() {$("#" + oName).animate({"top": "0px"}, 800);}, timeout);
 		},
 		
 		flyDown : function(oName, timeout) {			
@@ -228,7 +296,7 @@ AnimationCSS.prototype = {
 				$("#" + oName).css("top", "1000px");
 				$("#" + oName).css("position", "relative");
 				}, timeout);
-			setTimeout(function() {$("#" + oName).animate({"top": "0px"}, 400);}, timeout);
+			setTimeout(function() {$("#" + oName).animate({"top": "0px"}, 800);}, timeout);
 		},
 		
 		flyLeft : function(oName, timeout) {			
@@ -237,7 +305,7 @@ AnimationCSS.prototype = {
 				$("#" + oName).css("top", "0px");
 				$("#" + oName).css("position", "relative");
 				}, timeout);
-			setTimeout(function() {$("#" + oName).animate({"left": "0px"}, 400);}, timeout);
+			setTimeout(function() {$("#" + oName).animate({"left": "0px"}, 800);}, timeout);
 		},
 		
 		flyRight : function(oName, timeout) {			
@@ -246,6 +314,6 @@ AnimationCSS.prototype = {
 				$("#" + oName).css("top", "0px");
 				$("#" + oName).css("position", "relative");
 				}, timeout);
-			setTimeout(function() {$("#" + oName).animate({"left": "0px"}, 400);}, timeout);
+			setTimeout(function() {$("#" + oName).animate({"left": "0px"}, 800);}, timeout);
 		}
 };

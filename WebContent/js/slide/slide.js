@@ -1,7 +1,7 @@
 function createSlide(e){
 	var target = mainSlideSearch();
 	var _target = target+1;
-	var count = $(".docWrap div").length;
+	var count = $(".docWrap .doc").length;
 	var _count = count+1;
 	
 	for(var i=count;i>target;i--){
@@ -21,11 +21,15 @@ function createSlide(e){
 	$("<div id='doc"+_target+"' class='doc'></div>").appendTo(".docWrap");
 	
 	for(var i=_target;i<_count;i++){
+	//	$("#thumbnailbox"+i).before($("#thumbnailbox"+_count));
 		$("#thumbnailbox"+i).insertBefore("#thumbnailbox"+_count);
 		
 		$("#doc"+i).insertBefore("#doc"+_count);
 	}
-	
+	/*
+	$("#thumbnailbox"+_target).insertAfter("#thumbnailbox"+target);
+	$("#doc"+_target).insertAfter("#doc"+target);
+	*/
 	for(var i=1;i<_count;i++){
 		$("#doc"+i).css("display","none");
 		$("#thumbnailbox"+i).css("background-color","rgba(0,0,0,0)");
@@ -37,19 +41,28 @@ function createSlide(e){
 	for(var i=1;i<_count+1;i++){
 		$(".thumbWrap").delegate("#thum"+i,"click", $.proxy(this.mainSlideSelect,this,e,i));
 	}	
+	
+	ani.createNewArray(_target);
 }
 
 function deleteSlide(e){
 	var target = mainSlideSearch();
 	var _target;
-	var count = $(".docWrap div").length;
-	
+	var count = $(".docWrap .doc").length;
+
 	if(target==count){
-		_target = target-1;
-		$("#doc"+target).remove();	
-		$("#doc"+_target).css("display","inline");	
-		$("#thumbnailbox"+_target).css("background-color","rgba(248,149,135,0.5)");
-		$("#thumbnailbox"+target).remove();	
+		if(count == 1){
+		//	window.alert("ddd");
+		//	$("#doc1").css("display","inline");	
+		//	$("#thumbnailbox1").css("background-color","rgba(248,149,135,0.5)");
+		}else{
+			_target = target-1;
+			$("#doc"+target).remove();	
+			console.log("Zz");
+			$("#doc"+_target).css("display","inline");	
+			$("#thumbnailbox"+_target).css("background-color","rgba(248,149,135,0.5)");
+			$("#thumbnailbox"+target).remove();	
+		}
 	}else{
 		_target = target+1;
 		$("#doc"+target).remove();
@@ -69,7 +82,7 @@ function deleteSlide(e){
 }
 
 function mainSlideSelect(e, target){
-	var count = $(".docWrap div").length;
+	var count = $(".docWrap .doc").length;
 	for(var i=1;i<count+1;i++){
 		$("#doc"+i).css("display","none");
 		$("#thumbnailbox"+i).css("background-color","rgba(0,0,0,0)");
@@ -77,9 +90,10 @@ function mainSlideSelect(e, target){
 	$("#doc"+target).css("display","inline");
 	$("#thumbnailbox"+target).css("background-color","rgba(248,149,135,0.5)");
 	
+	ani.changeAniList(target);
 }
 function mainSlideSearch(){
-	var count = $(".docWrap div").length;
+	var count = $(".docWrap .doc").length;
 
 	for(var i=1; i<count+1; i++){
 		if($("#doc"+i).css('display') == 'block'){
