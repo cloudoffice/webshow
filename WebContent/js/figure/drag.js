@@ -16,9 +16,17 @@ function startDrag(e){
 function moveDrag(e){
 	createBorder(e);
 //	createText();		
-	$("#"+target).css("left", e.clientX + x );
-	$("#"+target).css("top", e.clientY + y );
-
+	var dragLeft = e.clientX + x;
+	var dragTop = e.clientY + y;
+	
+	if($(".doc").offset().left >= dragLeft || $(".doc").offset().top >= dragTop){
+		
+	}else if($(".doc").offset().left+$(".doc").width() <= dragLeft+$("#"+target).width() || $(".doc").offset().top+$(".doc").height() <= dragTop+$("#"+target).height() ){
+	
+	}else{	
+		$("#"+target).css("left", dragLeft);
+		$("#"+target).css("top", dragTop );
+	}
 }
 function stopDrag(e){
 	createBorder(e);

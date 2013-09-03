@@ -21,10 +21,12 @@ function createSlide(e){
 	$("<div id='doc"+_target+"' class='doc'></div>").appendTo(".docWrap");
 	
 	for(var i=_target;i<_count;i++){
+	//	$("#thumbnailbox"+i).before($("#thumbnailbox"+_count));
 		$("#thumbnailbox"+i).insertBefore("#thumbnailbox"+_count);
 		
 		$("#doc"+i).insertBefore("#doc"+_count);
 	}
+	$("#thumbnailbox"+_target).insertAfter("#thumbnailbox"+target);
 	
 	for(var i=1;i<_count;i++){
 		$("#doc"+i).css("display","none");
@@ -45,11 +47,15 @@ function deleteSlide(e){
 	var count = $(".docWrap div").length;
 	
 	if(target==count){
-		_target = target-1;
-		$("#doc"+target).remove();	
-		$("#doc"+_target).css("display","inline");	
-		$("#thumbnailbox"+_target).css("background-color","rgba(248,149,135,0.5)");
-		$("#thumbnailbox"+target).remove();	
+		if(target == 1){
+		//	window.alert("ddd");
+		}else{
+			_target = target-1;
+			$("#doc"+target).remove();	
+			$("#doc"+_target).css("display","inline");	
+			$("#thumbnailbox"+_target).css("background-color","rgba(248,149,135,0.5)");
+			$("#thumbnailbox"+target).remove();	
+		}
 	}else{
 		_target = target+1;
 		$("#doc"+target).remove();
