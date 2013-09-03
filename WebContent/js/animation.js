@@ -121,6 +121,9 @@ Animation.prototype = {
 				$("#ani" + (i + 1)).remove();
 			}
 			this.sortingAniList();
+			$("#ani"+(order-1)).focus();
+			$("#ani"+(order-1)).css("background-color", "#ffd0c5");
+			this.aniListId = "ani"+(order-1);
 		}
 		
 		//aniDown
@@ -140,7 +143,12 @@ Animation.prototype = {
 			for (var i = 0 ; i < this.orderArray.length; i++) {
 				$("#ani" + (i + 1)).remove();
 			}
+			order++;
 			this.sortingAniList();
+			console.log($("#ani"+order));
+			$("#ani"+order).focus();
+			$("#ani"+order).css("background-color", "#ffd0c5");
+			this.aniListId = "ani"+order;
 		}
 	},
 	
