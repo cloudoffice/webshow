@@ -3,8 +3,8 @@
 .aniContents {height:280px; width:180px; border-bottom:1px solid #b1b1b1; font-size:14px; font-family:Dotum;}
 .title {background-color:#eee; border-bottom:1px solid #b1b1b1; width:180px; height:30px; line-height:30px; font-weight:bold; text-align:center; color:#666;}
 .contents {margin:20px 0 0 10px; font-size:13px; color:#666; font-weight:bold; line-height:26px;}
-.contents > div {cursor:pointer; margin-bottom:8px; width:160px; height:24px; background-color:#fff; border:2px solid #ccc;}
-.contents > div:hover {background-color:#ccc; border:2px solid #ccc; color:#fff;}
+.contents > div {cursor:pointer; margin-bottom:8px; width:160px; height:24px; background-color:#ccc; color:#fff; border:2px solid #ccc;}
+.contents > div:hover {background-color:#ffd0c5 ; border:2px solid #dfa89c; color:#898989;}
 .contents > div > div {display:inline-block; margin:2px 0 0 1px; }
 .contents > div > span {display:inline-block; margin-left:5px; vertical-align:top;}
 .showImg {float:left; width:30px; height:20px; background:url(../images/show.png);}
