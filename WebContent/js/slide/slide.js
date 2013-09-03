@@ -41,6 +41,8 @@ function createSlide(e){
 	for(var i=1;i<_count+1;i++){
 		$(".thumbWrap").delegate("#thum"+i,"click", $.proxy(this.mainSlideSelect,this,e,i));
 	}	
+	
+	ani.createNewArray(_target);
 }
 
 function deleteSlide(e){
@@ -87,6 +89,7 @@ function mainSlideSelect(e, target){
 	$("#doc"+target).css("display","inline");
 	$("#thumbnailbox"+target).css("background-color","rgba(248,149,135,0.5)");
 	
+	ani.changeAniList(target);
 }
 function mainSlideSearch(){
 	var count = $(".docWrap .doc").length;

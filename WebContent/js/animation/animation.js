@@ -1,12 +1,26 @@
 function Animation() {
 	this.init();
+	
 };
 
 Animation.prototype = {
 	//Animation Class 초기화
 	init : function() {
-		this.orderArray = new Array();
+		this.arrayList = new Array();
+//		var orderArray = new Array();
+		this.orderArray = new Array();		
 		this.event();
+		this.arrayList[1] = this.orderArray;
+	},
+	
+	createNewArray : function(target) {
+		objectId = undefined;
+		console.log(this.aniListId);
+		var orderArray = new Array();
+		index = target;
+		this.arrayList[index] = orderArray;
+		this.orderArray = orderArray;
+		this.sortingAniList();
 	},
 	
 	displayAniList : function() {
@@ -19,16 +33,17 @@ Animation.prototype = {
 	
 	//Object, Animation 순서에 맞는 배열에 삽입
 	mappingObjectNAnimation : function(e) {
-		var len = this.orderArray.length;
-		
-		var className = $(e.currentTarget).attr("class");
-		this.orderArray[len] = {oName : objectId, aName : className, targetDoc: this.target};
-		this.addAnimationList(this.orderArray[len], len);
+		if (objectId != undefined) {
+			var len = this.orderArray.length;
+			
+			var className = $(e.currentTarget).attr("class");
+			this.orderArray[len] = {oName : objectId, aName : className};
+			this.addAnimationList(this.orderArray[len], len);
+		}	
 	},
 	
 	//Animation list html에 추가
 	addAnimationList : function(newAnimation, order) {
-		console.log(newAnimation.aName);
 		$(".aniListWrap").append("<div class='ani1' id='ani" + (order+1) + "'>" + 
 				"<div class='num'>" + (order+1) + "</div>" + 
 				"<div class='" + newAnimation.aName + "Img'></div>" +
@@ -54,17 +69,22 @@ Animation.prototype = {
 		
 		this.aniListId = e.currentTarget.id;
 		
-		console.log(this.orderArray.length);
-		console.log(order);
-
-//		if (this.orderArray.length == (order-1)) {
-//			$("#ani" + (order-1)).css("background-color", "#ffd0c5");
-//		} else {
-//			$("#ani" + (order-1)).css("background-color", "#ffd0c5");
-//		}		
+//		console.log(this.orderArray.length);
+//		console.log(order);
 	},
 	
 	sortingAniList : function() { 
+		console.log(this.orderArray);
+		if (this.orderArray.length != 0) {
+			for (var i = 0 ; i < 20; i++) {
+				$("#ani" + (i + 1)).remove();
+			}
+		} else {
+			for (var i = 0 ; i < 20; i++) {
+				$("#ani" + (i + 1)).remove();
+			}
+		}
+		
 		for (var i = 0 ; i < this.orderArray.length; i++) {
 			$(".aniListWrap").append("<div class='ani1' id='ani" + (i + 1) + "'>" + 
 					"<div class='num'>" + (i + 1) + "</div>" + 
@@ -94,6 +114,14 @@ Animation.prototype = {
 			$("#"+this.aniListId).css("background-color", "#ffd0c5");
 		}
 		
+	},
+	
+	changeAniList : function(target) {
+		index = target;
+		this.orderArray = this.arrayList[index];
+		console.log(this.orderArray);
+		console.log(index);
+		this.sortingAniList();
 	},
 	
 	//Animation list 순서 변경
@@ -226,7 +254,7 @@ AnimationCSS.prototype = {
 			
 			var end = {
 					opacity : "1",
-					transition : "opacity 1.5s",
+					transition : "opacity 0.7s",
 			};
 			
 			setTimeout(function() {$("#" + oName).css(start);}, timeout);
@@ -250,7 +278,7 @@ AnimationCSS.prototype = {
 			
 			setTimeout(function() {$("#" + oName).css(start);}, timeout);
 			setTimeout(function() {$("#" + oName).css(end);}, timeout);	
-			setTimeout(function() {$("#" + oName).css(back);}, timeout + 800);
+			setTimeout(function() {$("#" + oName).css(back);}, timeout + 1500);
 		},
 		
 		flyUp : function(oName, timeout) {			

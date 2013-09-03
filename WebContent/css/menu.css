@@ -1,5 +1,5 @@
 
-#toolBar {position:relative; min-width:1024px; height:141px; padding:0px; margin:0px; font-family:Dotum;}
+#toolBar {position:relative; height:141px; padding:0px; margin:0px; font-family:Dotum; z-index:1002;}
 #toolBar .titleBar {height:26px; color:#fff; font-weight:bold; background-color:#f56d49; line-height:40px;}
 #toolBar .logo {float:left; display:block; margin-left:30px; margin-top:3px; width:20px; height:20px; background:url(../images/logo.png) repeat 0 0;}
 #toolBar .documentTitle {float:left; display:block; margin-left:16px; font-weight:bold; line-height:26px; color:#fff; font-size:14px;}
