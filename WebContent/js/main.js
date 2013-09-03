@@ -34,6 +34,26 @@ require([
 //	$(".doc").delegate("div","mousedown", $.proxy(this.findFigure,this));
 	$("body").on("keydown", $.proxy(this.figureDelete,this));
 	
+	$(".doc").delegate("#b_border","mouseout",function(e){
+	//	$("#b_border").unbind("mouseout");
+	//	$(".doc").unbind("click");
+		$(".doc").on("click",function(){
+			$("#b_border").remove();
+			$("#div1").remove();
+			$("#div2").remove();
+			$("#div3").remove();
+			$("#div4").remove();
+			$("#div5").remove();
+			$("#div6").remove();
+			$("#div7").remove();
+			$("#div8").remove();
+			$("#divRotation").remove();
+			$("#divLine").remove();
+			$(".doc").unbind("click");
+			applyToWindowCapture();
+		});
+	});	
+	
 //	$(".doc").delegate("click", "div", $.proxy(this.findFigure, this));
 	$(".figureFontIcon").on("click", $.proxy(this.frontPosition, this));
 	$(".figureBackIcon").on("click", $.proxy(this.backPosition, this));
