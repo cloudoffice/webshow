@@ -52,7 +52,7 @@ require([
 	var windowWidth = $(window).width();
 	var windowHeight =  $(window).height();
 	$(window).resize(function(e){	
-	   changeLeft = (windowWidth - $(window).width())/5;
+	   changeLeft = (windowWidth - $(window).width())/10;
 	   changeTop = windowHeight - $(window).height();
 
 	   var count = $(".doc div").length/2;

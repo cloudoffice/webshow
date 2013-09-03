@@ -35,6 +35,7 @@ function figureDelete(e){
 		
 		applyToWindowCapture();
 	}else{
+		/*
 		var _x=$("#"+SelectedFigureId).offset().left + ($("#"+SelectedFigureId).width()/4);
 		var _y=$("#"+SelectedFigureId).offset().top + ($("#"+SelectedFigureId).height()/4);
 		
