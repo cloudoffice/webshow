@@ -8,14 +8,16 @@ require.config({
         rotation : 'figure/rotation',
         position : 'figure/position',
         color : 'figure/color',
-        slide : 'slide/slide'
+        slide : 'slide/slide',
+        animation : 'animation/animation'
     }
 });
 
 
 require([
-    'jquery', 'canvas', 'figure', 'drag', 'resize', 'rotation', 'position', 'color', 'slide'
+    'jquery', 'canvas', 'figure', 'drag', 'resize', 'rotation', 'position', 'color', 'slide', 'animation'
 ], function($){
+	ani = new Animation();
 	console.log("dddd");
 	//$("#contents").append($("<img>").attr("src", "http://www.google.co.kr/webhp?hl=ko&tab=ww"));
 	$("#circleBox").on("click", $.proxy(this.createFigure, this));
