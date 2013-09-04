@@ -4,7 +4,7 @@
 #toolBar .logo {float:left; display:block; margin-left:30px; margin-top:3px; width:20px; height:20px; background:url(../images/logo.png) repeat 0 0;}
 #toolBar .documentTitle {float:left; display:block; margin-left:16px; font-weight:bold; line-height:26px; color:#fff; font-size:14px;}
 
-#toolBar .menuBar {height:27px; border-bottom:1px solid #9d9d9d;}
+#toolBar .menuBar {height:27px; border-bottom:1px solid #9d9d9d; background:#fff;}
 .menuBar .mainMenu {float:left; position:relative; padding-left:10px;}
 	.menuBar .mainMenu > ul {list-style-type:none; position:relative;}
 
@@ -144,5 +144,5 @@
 	.subMenuTable li.menuLine {border-bottom:1px solid #d8d8d8; margin:3px 5px; width:190px; height:0px;}
 	.subMenuShare li.menuLine {border-bottom:1px solid #d8d8d8; margin:3px 5px; width:190px; height:0px;}
 
-#toolBar .buttonBar {height:88px; border-bottom:2px solid #f56d49;]
+#toolBar .buttonBar {height:88px; border-bottom:2px solid #f56d49; background:#fff;]
 
