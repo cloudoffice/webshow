@@ -5,3 +5,8 @@ function setColorFigure(e){
 	
 	applyToWindowCapture();
 }
+
+function selectedColorSetFigure(e){
+	$("#"+objectId).css("background-color", $( e.target).css('background-color'));
+	applyToWindowCapture();
+}

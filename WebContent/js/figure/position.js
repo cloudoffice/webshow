@@ -20,20 +20,7 @@ function backPosition(e){
 function figureDelete(e){
 	if(e.which == 46){
 		$("#"+SelectedFigureId).remove();
-		
-		$("#b_border").remove();
-		$("#div1").remove();
-		$("#div2").remove();
-		$("#div3").remove();
-		$("#div4").remove();
-		$("#div5").remove();
-		$("#div6").remove();
-		$("#div7").remove();
-		$("#div8").remove();
-		$("#divRotation").remove();
-		$("#divLine").remove();
-		
-		applyToWindowCapture();
+		borderRemove();
 	}else{
 		/*
 		var _x=$("#"+SelectedFigureId).offset().left + ($("#"+SelectedFigureId).width()/4);

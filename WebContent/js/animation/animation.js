@@ -44,10 +44,19 @@ Animation.prototype = {
 	
 	//Animation list html에 추가
 	addAnimationList : function(newAnimation, order) {
+		var kor = "";
+		var getClass = $("#" + newAnimation.oName).attr("class");
+		console.log(getClass);
+		if (getClass == "circle") {
+			kor = "원";
+		} else if (getClass == "square") {
+			kor = "정사각형";
+		}
+		
 		$(".aniListWrap").append("<div class='ani1' id='ani" + (order+1) + "'>" + 
 				"<div class='num'>" + (order+1) + "</div>" + 
 				"<div class='" + newAnimation.aName + "Img'></div>" +
-				"<span class='text'>" + newAnimation.oName + "</span>" + 
+				"<span class='text'>" + kor + "</span>" + 
 				"<div class='aniDelete' href='#'></div>" +
 				"</div>");
 		for (var i = 0; i < this.orderArray.length; i++) {
