@@ -77,7 +77,6 @@
 }
 
 .buttonBar > .figure3 > .figureColor > .figureColorIcon:hover .subTextColor {display:block;}
-.buttonBar > .figure3 > .figureColor > #selectedColor:hover .subTextColor {display:block;}
 
 .subTextColor {position:absolute; display:none; width:85px; background-color:#fff; margin:48px 0 0 -4px; padding:0; border:1px solid #b9b9b9; box-shadow: 0 3px 5px 1px rgba(0,0,0,.30) z-index:100;}
 .subTextColor > a {display:block; margin:6px; padding:0; width:74px; height:74px; color:#2e2e2e; text-align:middle; text-decoration:none; border:1px solid #b9b9b9;}
