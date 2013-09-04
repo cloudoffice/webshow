@@ -3,8 +3,8 @@
 .aniContents {height:280px; width:180px; border-bottom:1px solid #b1b1b1; font-size:14px; font-family:Dotum;}
 .title {background-color:#eee; border-bottom:1px solid #b1b1b1; width:180px; height:30px; line-height:30px; font-weight:bold; text-align:center; color:#666;}
 .contents {margin:20px 0 0 10px; font-size:13px; color:#666; font-weight:bold; line-height:26px;}
-.contents > div {cursor:pointer; margin-bottom:8px; width:160px; height:24px; background-color:#fff; border:2px solid #ccc;}
-.contents > div:hover {background-color:#ccc; border:2px solid #ccc; color:#fff;}
+.contents > div {cursor:pointer; margin-bottom:8px; width:156px; height:24px; background-color:#ccc; color:#fff; border:2px solid #ccc;}
+.contents > div:hover {background-color:#ffd0c5 ; border:2px solid #ffbeaf; color:#898989;}
 .contents > div > div {display:inline-block; margin:2px 0 0 1px; }
 .contents > div > span {display:inline-block; margin-left:5px; vertical-align:top;}
 .showImg {float:left; width:30px; height:20px; background:url(../images/show.png);}
@@ -15,11 +15,10 @@
 .fadeImg {float:left; width:30px; height:20px; background:url(../images/fade.png);}
 
 .aniListWrap {position:absolute; padding-top:12px; overflow-y:scroll; bottom:52px; top:281px; width:100%;}
-.ani1 {display:block; margin:8px 0 0 15px; line-height:20px; width:136px; height:20px; font-size:13px; color:#666; vertical-align:top;}
-.num {float:left; width:20px; height:20px; line-height:22px; background-color:#f56d49; text-align:center; color:#fff;}
+.ani1 {display:block; margin:8px 0 0 10px; padding:2px 4px; line-height:20px; width:136px; height:20px; font-size:13px; color:#666; vertical-align:top;}
+.num {float:left; margin-top:1px; width:18px; height:18px; line-height:20px; background-color:#f56d49; text-align:center; color:#fff;}
 .text {float:left;}
-
-.aniDelete {cursor:pointer; float:right; width:20px; height:20px; background:url(../images/delete.png) repeat 1px 1px;}
+.aniDelete {cursor:pointer; margin-top:1px; float:right; width:18px; height:18px; background:url(../images/delete.png) repeat 1px 1px;}
 .aniPosition {position:absolute; width:180px; height:25px; bottom:25px; border-top:1px solid #969696; border-bottom:1px solid #969696;}
 .aniUp {cursor:pointer; float:left; width:89px; height:25px; background-color:#b6b6b6; text-decoration:none; border-right:1px solid #969696; font-size:16px; font-weight:bold; text-align:center; color:#fff; line-height:25px;}
 .aniDown {cursor:pointer; float:left; width:90px; height:25px; background-color:#b6b6b6; text-decoration:none; font-size:16px; font-weight:bold; text-align:center; color:#fff; line-height:25px;}
