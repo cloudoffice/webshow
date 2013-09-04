@@ -4,8 +4,8 @@ function Animation() {
 };
 
 Animation.prototype = {
-	//Animation Class 초기화
-	init : function() {
+	//Animation Class �ο옙由곤옙占�	
+		init : function() {
 		this.arrayList = new Array();
 //		var orderArray = new Array();
 		this.orderArray = new Array();		
@@ -31,7 +31,7 @@ Animation.prototype = {
 		}
 	},
 	
-	//Object, Animation 순서에 맞는 배열에 삽입
+	//Object, Animation 占쏙옙占쏙옙占쏙�占쏙옙 獄��占쏙옙占쏙옙��옙
 	mappingObjectNAnimation : function(e) {
 		if (objectId != undefined) {
 			var len = this.orderArray.length;
@@ -42,15 +42,15 @@ Animation.prototype = {
 		}	
 	},
 	
-	//Animation list html에 추가
+	//Animation list html占쏙옙�곤옙占�
 	addAnimationList : function(newAnimation, order) {
 		var kor = "";
 		var getClass = $("#" + newAnimation.oName).attr("class");
 		console.log(getClass);
 		if (getClass == "circle") {
-			kor = "원";
+			kor = "��";
 		} else if (getClass == "square") {
-			kor = "정사각형";
+			kor = "���媛��";
 		}
 		
 		$(".aniListWrap").append("<div class='ani1' id='ani" + (order+1) + "'>" + 
@@ -64,7 +64,7 @@ Animation.prototype = {
 		}
 	},
 	
-	//Animation list 삭제
+	//Animation list
 	deleteAnimationList : function(e) {
 		var aniId = e.currentTarget.parentElement.id;
 		var order = $("#" + aniId).children(".num").text();
@@ -104,7 +104,7 @@ Animation.prototype = {
 		}	
 	},
 	
-	//orderArray에서 해당 object&Animation 삭제
+	//orderArray占쏙옙占�占쎈�占�object&Animation 占쏙옙占�
 	deleteMappingObjectNAnimation : function(order) {
 		var array = this.orderArray.splice(order, 1);
 		console.log(array);
@@ -133,7 +133,7 @@ Animation.prototype = {
 		this.sortingAniList();
 	},
 	
-	//Animation list 순서 변경
+	//Animation list 占쏙옙占�癰�옙瑗�
 	changeAnimationOrder : function(e) {
 		console.log(e);
 		console.log(this.orderArray);
@@ -143,15 +143,15 @@ Animation.prototype = {
 		//aniUp
 		if (e.target.className == "aniUp") {			
 			if ((order-2) >= 0) {
-				//순서변경하기 원하는 list 위의 값 받기
+				//占쏙옙占썼�占쎄�占쏙옙由�占쏙옙占쏙옙占�ist 占쏙옙占�揶�옙獄�옙由�
 				var array = this.orderArray.splice(order-2, 1);
-				//해당 배열 property 가져오기
+				//占쎈�占�獄��占�property 揶�옙占쏙옙�븍┛
 				var pro = array[0];
-				//property 붙여넣기
+				//property �븝옙占쏙옙節�┛
 				this.orderArray.splice((order-1), 0, pro);
 
 			} else {
-				window.alert("맨 처음 list 입니다.");
+				window.alert("筌�옙筌ｏ옙占�list 占쏙옙占쏙옙占�");
 			}
 			
 			for (var i = 0 ; i < this.orderArray.length; i++) {
@@ -166,15 +166,15 @@ Animation.prototype = {
 		//aniDown
 		if (e.target.className == "aniDown") {
 			if (order < this.orderArray.length) {
-				//순서변경하기 원하는 list 아래 값 받기
+				//占쏙옙占썼�占쎄�占쏙옙由�占쏙옙占쏙옙占�ist 占쏙옙占�揶�옙獄�옙由�
 				var array = this.orderArray.splice(order-1, 1);
-				//해당 배열 property 가져오기
+				//占쎈�占�獄��占�property 揶�옙占쏙옙�븍┛
 				var pro = array[0];
-				//property 붙여넣기
+				//property �븝옙占쏙옙節�┛
 				this.orderArray.splice(order, 0, pro);
 
 			} else {
-				window.alert("맨 마지막 list 입니다.");
+				window.alert("筌�옙筌�옙占쏙�占�ist 占쏙옙占쏙옙占�");
 			}
 			
 			for (var i = 0 ; i < this.orderArray.length; i++) {
@@ -222,13 +222,12 @@ Animation.prototype = {
 	
 	//event
 	event : function() {
-		//도형선택 시 도형 id받아옴
-//		$(".doc").on("click", "div", $.proxy(this.getSelectedObjectId, this));
+		//占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙占�id獄�옙占쏙옙占�//		$(".doc").on("click", "div", $.proxy(this.getSelectedObjectId, this));
 		
-		//애니메이션 메뉴 보이기/안보이기
+		//占쏙옙占쏙�占쏙옙占쏙옙筌�옙占�癰��占썸묾占쏙옙占쎈�占쎈�由�
 		$(".animation").on("click", $.proxy(this.displayAniList, this));
 		
-		//애니메이션 선택 시 도형+애니매이션 mapping 배열에 추가
+		//占쏙옙占쏙�占쏙옙占쏙옙占쏙옙占�占쏙옙占쏙옙占�占쏙옙占쏙��쇽옙占쏙옙mapping 獄��占쏙옙占썹�占쏙옙
 		$(".show").on("click", $.proxy(this.mappingObjectNAnimation, this));
 		$(".flyUp").on("click", $.proxy(this.mappingObjectNAnimation, this));
 		$(".flyDown").on("click", $.proxy(this.mappingObjectNAnimation, this));
@@ -236,17 +235,17 @@ Animation.prototype = {
 		$(".flyRight").on("click", $.proxy(this.mappingObjectNAnimation, this));
 		$(".fade").on("click", $.proxy(this.mappingObjectNAnimation, this));
 		
-		//애니메이션 순서 변경
+		//占쏙옙占쏙�占쏙옙占쏙옙占쏙옙占�癰�옙瑗�
 		$(".aniUp").on("click", $.proxy(this.changeAnimationOrder, this));
 		$(".aniDown").on("click", $.proxy(this.changeAnimationOrder, this));
 		
-		//애니메이션 list에서 삭제
+		//占쏙옙占쏙�占쏙옙占쏙옙list占쏙옙占�占쏙옙占�
 		$(".aniListWrap").delegate(".aniDelete", "click", $.proxy(this.deleteAnimationList, this));
 		
-		//애니메이션 list 선택
+		//占쏙옙占쏙�占쏙옙占쏙옙list 占쏙옙占�
 		$(".aniListWrap").delegate(".ani1", "click", $.proxy(this.getSelectedAniListId, this));
 		
-		//애니메이션 play
+		//占쏙옙占쏙�占쏙옙占쏙옙play
 		$(".aniPlay").on("click", $.proxy(this.playAnimation, this));		
 	}, 
 };
