@@ -1,6 +1,6 @@
 var n=0;
-var figureLeft=500;
-var figureTop=250;
+var figureLeft=200;
+var figureTop=150;
 var classvalue;
 var width, height;
 var mainNum;
@@ -36,23 +36,24 @@ function createFigure(e){
 		height:f_canvas.height		
 	});
 	*/
+	SelectedFigureId = n;
+	objectId=classvalue+n;
+	createBorder();
+	$('#b_border').css('-webkit-transform', 'rotate(0deg)');
 	applyToWindowCapture();
 	
 	figureLeft = figureLeft + 25;
 	figureTop = figureTop + 25;
 	
-	$(".doc").delegate("#"+n,"mousedown", $.proxy(this.findFigure,this));
+//	$(".doc").delegate("#"+n,"mousedown", $.proxy(this.findFigure,this));
 //	$(".doc").delegate("#"+n,"click", $.proxy(this.createBorder,this));
 	$(".doc").delegate("#"+n,"mousedown", $.proxy(this.startDrag,this));
-	
+	$(".thumbWrap").on("click", borderRemove);
+	$(".docWrap").delegate("#"+classvalue+n,"mouseout",function(e){
+		$("#"+classvalue+n).unbind("mouseout");
+		$(".docWrap").on("click", borderRemove);
+	});		
 };
-/*function remove(e){
-//	console.log(e);
-	console.log("a");
-	$(".doc").on("click",$.proxy(this.borderRemove,this));
-//	$(".doc").on("click",$.proxy(this.borderRemove,this));
-//	$(".docWrap").delegate(".doc","click", $.proxy(this.borderRemove,this));
-}*/
 function borderRemove(){
 	$("#b_border").remove();
 	$("#div1").remove();
@@ -65,26 +66,36 @@ function borderRemove(){
 	$("#div8").remove();
 	$("#divRotation").remove();
 	$("#divLine").remove();
-	$(".doc").unbind("click");
+	$(".docWrap").unbind("click");
+	
+	SelectedFigureId = null;
+	objectId = null;
+	
 	applyToWindowCapture();
 }
 var div = document.createElement("div"); var div1 = document.createElement("div"); var div2 = document.createElement("div"); var div3 = document.createElement("div");
 var div4 = document.createElement("div"); var div5 = document.createElement("div"); var div6 = document.createElement("div"); var div7 = document.createElement("div");
 var div8 = document.createElement("div"); var divRotation = document.createElement("div"); var divLine = document.createElement("div");
 var w, h, l, t; 
-function createBorder(e){			
+function createBorder(){	
 	w = $("#"+SelectedFigureId).width()-1;
 	h = $("#"+SelectedFigureId).height()-1;
-	l = $("#"+SelectedFigureId).offset().left;	
-	t = $("#"+SelectedFigureId).offset().top;
-	/*if($("#"+objectId).attr('class') == 'triangle'){
-		l = l-12;
-		w = w+9;
-	}*/
+	l = $("#"+SelectedFigureId).position().left;	
+	t = $("#"+SelectedFigureId).position().top;
+	if($("#"+objectId).attr('class') == 'triangle'){
+		w = w+4;
+		h = h+3;
+	}
 	if($("#"+objectId).attr('class') =='pacman'){
 		w=w-7;
 		h=h-2;
 	}
+	if($("#"+objectId).attr('class') =='six-point-star'){
+		w=w+4;
+		h=h+8;
+	}
+	$('#b_border').css('-webkit-transform', 'rotate(0deg)');
+	
 	div.id= "b_border";
 	div.style.width= w+"px";
 	div.style.height= h+"px";

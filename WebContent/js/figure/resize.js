@@ -23,9 +23,16 @@ function moveResize(e){
 	$("#"+_divtarget).css("height",sub_startHeight + e.clientY - startY);
 	
 	classname = $("#"+_divtarget).attr('class');
-	radius = $("#"+divtarget).width()/2;
 	if(classname =='circle'){
+		radius = $("#"+divtarget).width()/2;
 		$("#"+_divtarget).css("border-radius", radius);
+	}else if(classname == 'six-point-star'){
+		radius = $("#"+divtarget).width()-10;
+		$("#"+_divtarget).css("border-top-left-radius",  radius);
+		$("#"+_divtarget).css("border-top-right-radius",  radius);
+	}else if(classname == 'twelve-point-star'){
+		radius = $("#"+divtarget).width();
+		$("#"+_divtarget).css("border-top-right-radius",  radius);
 	}
 }
 function stopResize(e){
@@ -86,12 +93,12 @@ function startDiv6Resize(e){
 }
 function moveDiv6Resize(e){
 	createBorder(e);
-
-	$("#"+divtarget).css("left", e.clientX);
+	var docLeft =$(".doc").offset().left;
+	$("#"+divtarget).css("left", e.clientX-docLeft);
 	$("#"+divtarget).css("width", startX-e.clientX + startWidth);
 	$("#"+divtarget).css("height", e.clientY - startY + startHeight);
 	
-	$("#"+_divtarget).css("left", e.clientX);
+	$("#"+_divtarget).css("left", e.clientX-docLeft);
 	$("#"+_divtarget).css("width", startX-e.clientX + sub_startWidth);
 	$("#"+_divtarget).css("height", e.clientY - startY + sub_startHeight);
 	
@@ -157,10 +164,10 @@ function startDiv4Resize(e){
 }
 function moveDiv4Resize(e){
 	createBorder(e);
-	
-	$("#"+divtarget).css("left", e.clientX);
+	var docLeft =$(".doc").offset().left;
+	$("#"+divtarget).css("left", e.clientX-docLeft);
 	$("#"+divtarget).css("width", startX-e.clientX + startWidth);
-	$("#"+_divtarget).css("left",e.clientX);
+	$("#"+_divtarget).css("left",e.clientX-docLeft);
 	$("#"+_divtarget).css("width", startX-e.clientX + sub_startWidth);
 	
 }
@@ -192,10 +199,11 @@ function startDiv3Resize(e){
 }
 function moveDiv3Resize(e){	
 	createBorder(e);
-	$("#"+divtarget).css("top", e.clientY);
+	var docTop =$(".doc").offset().top;
+	$("#"+divtarget).css("top", e.clientY-docTop);
 	$("#"+divtarget).css("width",startWidth + e.clientX - startX);
 	$("#"+divtarget).css("height",startHeight + startY- e.clientY);
-	$("#"+_divtarget).css("top", e.clientY);
+	$("#"+_divtarget).css("top", e.clientY-docTop);
 	$("#"+_divtarget).css("width",sub_startWidth + e.clientX - startX);
 	$("#"+_divtarget).css("height",sub_startHeight + startY- e.clientY);
 	
@@ -230,9 +238,10 @@ function startDiv2Resize(e){
 }
 function moveDiv2Resize(e){	
 	createBorder(e);
-	$("#"+divtarget).css("top", e.clientY);
+	var docTop =$(".doc").offset().top;
+	$("#"+divtarget).css("top", e.clientY-docTop);
 	$("#"+divtarget).css("height",startHeight + startY- e.clientY);
-	$("#"+_divtarget).css("top", e.clientY);
+	$("#"+_divtarget).css("top", e.clientY-docTop);
 	$("#"+_divtarget).css("height",sub_startHeight + startY- e.clientY);
 	
 }
@@ -264,14 +273,16 @@ function startDiv1Resize(e){
 }
 function moveDiv1Resize(e){	
 	createBorder(e);
-	
-	$("#"+divtarget).css("left", e.clientX);
-	$("#"+divtarget).css("top", e.clientY);
+	var docLeft =$(".doc").offset().left;
+	var docTop =$(".doc").offset().top;
+
+	$("#"+divtarget).css("left", e.clientX-docLeft);
+	$("#"+divtarget).css("top", e.clientY-docTop);
 	$("#"+divtarget).css("width", startWidth + startX - e.clientX);
 	$("#"+divtarget).css("height",startHeight + startY- e.clientY);
 	
-	$("#"+_divtarget).css("left", e.clientX);
-	$("#"+_divtarget).css("top", e.clientY);
+	$("#"+_divtarget).css("left", e.clientX-docLeft);
+	$("#"+_divtarget).css("top", e.clientY-docTop);
 	$("#"+_divtarget).css("width", sub_startWidth + startX - e.clientX);
 	$("#"+_divtarget).css("height",sub_startHeight + startY- e.clientY);
 	

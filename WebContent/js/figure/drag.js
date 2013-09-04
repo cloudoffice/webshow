@@ -1,13 +1,14 @@
 var x, y;
-var target;
+var dragTarget;
 function startDrag(e){
 	e.originalEvent.preventDefault();
-	createBorder(e);
+	findFigure(e);
+	createBorder();
 //	createText();		
 
-	target = e.currentTarget.id;
-	x = $("#"+target).offset().left - e.clientX;
-	y = $("#"+target).offset().top - e.clientY;
+	dragTarget = e.currentTarget.id;
+	x = $("#"+dragTarget).position().left - e.clientX;
+	y = $("#"+dragTarget).position().top - e.clientY;
 	
 	$(document).mousemove(moveDrag);
 	$(document).mouseup(stopDrag);
@@ -19,13 +20,13 @@ function moveDrag(e){
 	var dragLeft = e.clientX + x;
 	var dragTop = e.clientY + y;
 	
-	if($(".doc").offset().left >= dragLeft || $(".doc").offset().top >= dragTop){
-		
-	}else if($(".doc").offset().left+$(".doc").width() <= dragLeft+$("#"+target).width() || $(".doc").offset().top+$(".doc").height() <= dragTop+$("#"+target).height() ){
+	if($(".doc").offset().left - $(".doc").position().left >= dragLeft ||  $(".doc").position().top -$("#"+dragTarget).height()/2 -15 >= dragTop){
+		console.log($(".doc").position().top);
+	}else if($(".doc").offset().left - $(".doc").position().left +$(".doc").width() <= dragLeft+$("#"+dragTarget).width() ||$(".doc").position().top -$("#"+dragTarget).height()/2 -15+$(".doc").height() <= dragTop+$("#"+dragTarget).height() ){
 	
 	}else{	
-		$("#"+target).css("left", dragLeft);
-		$("#"+target).css("top", dragTop );
+		$("#"+dragTarget).css("left", dragLeft);
+		$("#"+dragTarget).css("top", dragTop );
 	}
 }
 function stopDrag(e){
