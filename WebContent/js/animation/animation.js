@@ -4,7 +4,7 @@ function Animation() {
 };
 
 Animation.prototype = {
-	//Animation Class ì´ˆê¸°í™”
+	//Animation Class ÃÊ±âÈ­
 	init : function() {
 		this.arrayList = new Array();
 //		var orderArray = new Array();
@@ -31,7 +31,7 @@ Animation.prototype = {
 		}
 	},
 	
-	//Object, Animation ìˆœì„œì— ë§ëŠ” ë°°ì—´ì— ì‚½ì…
+	//Object, Animation ¼ø¼­¿¡ ¸Â´Â ¹è¿­¿¡ »ğÀÔ
 	mappingObjectNAnimation : function(e) {
 		if (objectId != undefined) {
 			var len = this.orderArray.length;
@@ -42,15 +42,15 @@ Animation.prototype = {
 		}	
 	},
 	
-	//Animation list htmlì— ì¶”ê°€
+	//Animation list html¿¡ Ãß°¡
 	addAnimationList : function(newAnimation, order) {
 		var kor = "";
 		var getClass = $("#" + newAnimation.oName).attr("class");
 		console.log(getClass);
 		if (getClass == "circle") {
-			kor = "ì›";
+			kor = "¿ø";
 		} else if (getClass == "square") {
-			kor = "ì •ì‚¬ê°í˜•";
+			kor = "Á¤»ç°¢Çü";
 		}
 		
 		$(".aniListWrap").append("<div class='ani1' id='ani" + (order+1) + "'>" + 
@@ -64,7 +64,7 @@ Animation.prototype = {
 		}
 	},
 	
-	//Animation list ì‚­ì œ
+	//Animation list »èÁ¦
 	deleteAnimationList : function(e) {
 		var aniId = e.currentTarget.parentElement.id;
 		var order = $("#" + aniId).children(".num").text();
@@ -104,7 +104,7 @@ Animation.prototype = {
 		}	
 	},
 	
-	//orderArrayì—ì„œ í•´ë‹¹ object&Animation ì‚­ì œ
+	//orderArray¿¡¼­ ÇØ´ç object&Animation »èÁ¦
 	deleteMappingObjectNAnimation : function(order) {
 		var array = this.orderArray.splice(order, 1);
 		console.log(array);
@@ -133,7 +133,7 @@ Animation.prototype = {
 		this.sortingAniList();
 	},
 	
-	//Animation list ìˆœì„œ ë³€ê²½
+	//Animation list ¼ø¼­ º¯°æ
 	changeAnimationOrder : function(e) {
 		console.log(e);
 		console.log(this.orderArray);
@@ -143,15 +143,15 @@ Animation.prototype = {
 		//aniUp
 		if (e.target.className == "aniUp") {			
 			if ((order-2) >= 0) {
-				//ìˆœì„œë³€ê²½í•˜ê¸° ì›í•˜ëŠ” list ìœ„ì˜ ê°’ ë°›ê¸°
+				//¼ø¼­º¯°æÇÏ±â ¿øÇÏ´Â list À§ÀÇ °ª ¹Ş±â
 				var array = this.orderArray.splice(order-2, 1);
-				//í•´ë‹¹ ë°°ì—´ property ê°€ì ¸ì˜¤ê¸°
+				//ÇØ´ç ¹è¿­ property °¡Á®¿À±â
 				var pro = array[0];
-				//property ë¶™ì—¬ë„£ê¸°
+				//property ºÙ¿©³Ö±â
 				this.orderArray.splice((order-1), 0, pro);
 
 			} else {
-				window.alert("ë§¨ ì²˜ìŒ list ì…ë‹ˆë‹¤.");
+				window.alert("¸Ç Ã³À½ list ÀÔ´Ï´Ù.");
 			}
 			
 			for (var i = 0 ; i < this.orderArray.length; i++) {
@@ -166,15 +166,15 @@ Animation.prototype = {
 		//aniDown
 		if (e.target.className == "aniDown") {
 			if (order < this.orderArray.length) {
-				//ìˆœì„œë³€ê²½í•˜ê¸° ì›í•˜ëŠ” list ì•„ë˜ ê°’ ë°›ê¸°
+				//¼ø¼­º¯°æÇÏ±â ¿øÇÏ´Â list ¾Æ·¡ °ª ¹Ş±â
 				var array = this.orderArray.splice(order-1, 1);
-				//í•´ë‹¹ ë°°ì—´ property ê°€ì ¸ì˜¤ê¸°
+				//ÇØ´ç ¹è¿­ property °¡Á®¿À±â
 				var pro = array[0];
-				//property ë¶™ì—¬ë„£ê¸°
+				//property ºÙ¿©³Ö±â
 				this.orderArray.splice(order, 0, pro);
 
 			} else {
-				window.alert("ë§¨ ë§ˆì§€ë§‰ list ì…ë‹ˆë‹¤.");
+				window.alert("¸Ç ¸¶Áö¸· list ÀÔ´Ï´Ù.");
 			}
 			
 			for (var i = 0 ; i < this.orderArray.length; i++) {
@@ -222,13 +222,13 @@ Animation.prototype = {
 	
 	//event
 	event : function() {
-		//ë„í˜•ì„ íƒ ì‹œ ë„í˜• idë°›ì•„ì˜´
+		//µµÇü¼±ÅÃ ½Ã µµÇü id¹Ş¾Æ¿È
 //		$(".doc").on("click", "div", $.proxy(this.getSelectedObjectId, this));
 		
-		//ì• ë‹ˆë©”ì´ì…˜ ë©”ë‰´ ë³´ì´ê¸°/ì•ˆë³´ì´ê¸°
+		//¾Ö´Ï¸ŞÀÌ¼Ç ¸Ş´º º¸ÀÌ±â/¾Èº¸ÀÌ±â
 		$(".animation").on("click", $.proxy(this.displayAniList, this));
 		
-		//ì• ë‹ˆë©”ì´ì…˜ ì„ íƒ ì‹œ ë„í˜•+ì• ë‹ˆë§¤ì´ì…˜ mapping ë°°ì—´ì— ì¶”ê°€
+		//¾Ö´Ï¸ŞÀÌ¼Ç ¼±ÅÃ ½Ã µµÇü+¾Ö´Ï¸ÅÀÌ¼Ç mapping ¹è¿­¿¡ Ãß°¡
 		$(".show").on("click", $.proxy(this.mappingObjectNAnimation, this));
 		$(".flyUp").on("click", $.proxy(this.mappingObjectNAnimation, this));
 		$(".flyDown").on("click", $.proxy(this.mappingObjectNAnimation, this));
@@ -236,17 +236,17 @@ Animation.prototype = {
 		$(".flyRight").on("click", $.proxy(this.mappingObjectNAnimation, this));
 		$(".fade").on("click", $.proxy(this.mappingObjectNAnimation, this));
 		
-		//ì• ë‹ˆë©”ì´ì…˜ ìˆœì„œ ë³€ê²½
+		//¾Ö´Ï¸ŞÀÌ¼Ç ¼ø¼­ º¯°æ
 		$(".aniUp").on("click", $.proxy(this.changeAnimationOrder, this));
 		$(".aniDown").on("click", $.proxy(this.changeAnimationOrder, this));
 		
-		//ì• ë‹ˆë©”ì´ì…˜ listì—ì„œ ì‚­ì œ
+		//¾Ö´Ï¸ŞÀÌ¼Ç list¿¡¼­ »èÁ¦
 		$(".aniListWrap").delegate(".aniDelete", "click", $.proxy(this.deleteAnimationList, this));
 		
-		//ì• ë‹ˆë©”ì´ì…˜ list ì„ íƒ
+		//¾Ö´Ï¸ŞÀÌ¼Ç list ¼±ÅÃ
 		$(".aniListWrap").delegate(".ani1", "click", $.proxy(this.getSelectedAniListId, this));
 		
-		//ì• ë‹ˆë©”ì´ì…˜ play
+		//¾Ö´Ï¸ŞÀÌ¼Ç play
 		$(".aniPlay").on("click", $.proxy(this.playAnimation, this));		
 	}, 
 };
