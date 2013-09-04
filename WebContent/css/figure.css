@@ -76,27 +76,30 @@
    border-radius:         50%  50%  50%  50%  / 60%   60%   40%  40%;
 }
 
-.buttonBar > .figure3 > .figureColor > .figureColorIcon:hover .subTextColor {display:block;}
+/* .buttonBar > .figure3 > .figureColor > .figureColorIcon:hover .subFigureColor {display:block;}
+.buttonBar > .figure3 > .figureColor > .selectedColor:hover .subFigureColor {display:block;}
+ */
+.selectedColor:hover {background-color:none;}
 
-.subTextColor {position:absolute; display:none; width:85px; background-color:#fff; margin:48px 0 0 -4px; padding:0; border:1px solid #b9b9b9; box-shadow: 0 3px 5px 1px rgba(0,0,0,.30) z-index:100;}
-.subTextColor > a {display:block; margin:6px; padding:0; width:74px; height:74px; color:#2e2e2e; text-align:middle; text-decoration:none; border:1px solid #b9b9b9;}
+.subFigureColor {position:absolute; display:none; width:85px; background-color:#fff; margin:48px 0 0 -4px; padding:0; border:1px solid #b9b9b9; box-shadow: 0 3px 5px 1px rgba(0,0,0,.30) z-index:100;}
+.subFigureColor > a {display:block; margin:6px; padding:0; width:74px; height:74px; color:#2e2e2e; text-align:middle; text-decoration:none; border:1px solid #b9b9b9;}
 
-.subTextColor > a:hover {border:1px solid #ff0000;}
+.subFigureColor > a:hover {border:1px solid #ff0000;}
 
 
 .standardColorPalette {display:block; margin:3px 6px 6px 6px; padding:0; height:74px; width:85x;}
 .standardColorPalette > li {float:left; height:12px; list-style-type:none;  margin:1px; padding:0;}
 .standardColorPalette > li > a {display:block; float:left; padding:0; margin:3px; width:16px; height:16px; border:1px solid #898989;}
 
-.subTextColor > ul > li > a:hover {width:14px; height:14px; border:2px solid #bd4226;}
+.subFigureColor > ul > li > a:hover {width:14px; height:14px; border:2px solid #bd4226;}
 
-.subTextColor > ul > li > a.s2 {background-color:rgb(255, 0, 0); margin-left:0px;}
-.subTextColor > ul > li > a.s3 {background-color:rgb(255, 192, 0);}
-.subTextColor > ul > li > a.s4 {background-color:rgb(255, 255, 0); margin-right:0;}
-.subTextColor > ul > li > a.s5 {background-color:rgb(146, 208, 80); margin:14px 0 0 0;}
-.subTextColor > ul > li > a.s6 {background-color:rgb(0, 176, 80); margin:14px 0 0 6px;}
-.subTextColor > ul > li > a.s7 {background-color:rgb(0, 176, 240); margin:14px 0 0 6px;}
-.subTextColor > ul > li > a.s8 {background-color:rgb(0, 112, 192); margin:26px 0 0 0;}
-.subTextColor > ul > li > a.s9 {background-color:rgb(0, 32, 96); margin:26px 0 0 6px;}
-.subTextColor > ul > li > a.s10 {background-color:rgb(112, 48, 160); margin:26px 0 0 6px;}
+.subFigureColor > ul > li > a.s2 {background-color:rgb(255, 0, 0); margin-left:0px;}
+.subFigureColor > ul > li > a.s3 {background-color:rgb(255, 192, 0);}
+.subFigureColor > ul > li > a.s4 {background-color:rgb(255, 255, 0); margin-right:0;}
+.subFigureColor > ul > li > a.s5 {background-color:rgb(146, 208, 80); margin:14px 0 0 0;}
+.subFigureColor > ul > li > a.s6 {background-color:rgb(0, 176, 80); margin:14px 0 0 6px;}
+.subFigureColor > ul > li > a.s7 {background-color:rgb(0, 176, 240); margin:14px 0 0 6px;}
+.subFigureColor > ul > li > a.s8 {background-color:rgb(0, 112, 192); margin:26px 0 0 0;}
+.subFigureColor > ul > li > a.s9 {background-color:rgb(0, 32, 96); margin:26px 0 0 6px;}
+.subFigureColor > ul > li > a.s10 {background-color:rgb(112, 48, 160); margin:26px 0 0 6px;}
 	
