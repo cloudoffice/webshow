@@ -54,6 +54,14 @@ Animation.prototype = {
 			kor = "원";
 		} else if (getClass == "square") {
 			kor = "정사각형";
+		} else if (getClass == "rectangle") {
+			kor = "직사각형";
+		} else if (getClass == "a-quater-circle") {
+			kor = "부채꼴";
+		} else if (getClass == "semicircle") {
+			kor = "반원";
+		} else if (getClass == "egg-circle") {
+			kor = "달갈형";
 		}
 		
 		$(".aniListWrap").append("<div class='ani1' id='ani" + (order+1) + "'>" + 
@@ -86,7 +94,6 @@ Animation.prototype = {
 	},
 	
 	sortingAniList : function() { 
-		console.log(this.orderArray);
 		if (this.orderArray.length != 0) {
 			for (var i = 0 ; i < 20; i++) {
 				$("#ani" + (i + 1)).remove();
@@ -97,11 +104,29 @@ Animation.prototype = {
 			}
 		}
 		
+		var kor = "";
+		
 		for (var i = 0 ; i < this.orderArray.length; i++) {
+			var getClass = $("#" + this.orderArray[i].oName).attr("class");
+
+			if (getClass == "circle") {
+				kor = "원";
+			} else if (getClass == "square") {
+				kor = "정사각형";
+			} else if (getClass == "rectangle") {
+				kor = "직사각형";
+			} else if (getClass == "a-quater-circle") {
+				kor = "부채꼴";
+			} else if (getClass == "semicircle") {
+				kor = "반원";
+			} else if (getClass == "egg-circle") {
+				kor = "달갈형";
+			}
+			
 			$(".aniListWrap").append("<div class='ani1' id='ani" + (i + 1) + "'>" + 
 					"<div class='num'>" + (i + 1) + "</div>" + 
 					"<div class='" + this.orderArray[i].aName + "Img'></div>" + 
-					"<span class='text'>" + this.orderArray[i].oName + "</span>" + 
+					"<span class='text'>" + kor + "</span>" + 
 					"<div class='aniDelete' href='#'></div>" +
 					"</div>");
 		}	
@@ -251,7 +276,7 @@ Animation.prototype = {
 		
 		//�ִϸ��̼� play
 		$(".aniPlay").on("click", $.proxy(this.playAnimation, this));		
-	}, 
+	}
 };
 
 function AnimationCSS() {

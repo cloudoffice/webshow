@@ -4,9 +4,10 @@ define(['jquery', 'animation', 'simulate']
 		$.browser = {webkit : true};
 	console.log("A");
         asyncTest("animation Test", function() {
-        	$(".circle").simulate('click');
-        	$(".show").simulate('click');
         	setTimeout(function () { 
+        		$("#thum1").simulate('click');
+            	$(".circle").simulate('click');
+            	$(".show").simulate('click');
         		equal($(".aniWrap").css("display"), "block", "animation menu display status:block");
         		
             	var array = ani.getThisOrderArray();

@@ -9,8 +9,8 @@ define(['jquery', 'simulate']
         	setTimeout(function () { 
         		$(".slideInsert").simulate('click');
         		
-        		equal($("#doc3").css("display"), "inline", "created New slide");	
+        		equal($("#doc2").attr("style"), "display: inline;", "created New slide");	
             	start();
-        	}, 4000);
+        	}, 10);
         });
 });

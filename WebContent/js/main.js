@@ -86,8 +86,8 @@ require([
 
     var testModules = [
           "../js/figure/figureTest.js",
-          "../js/animation/animationTest.js",
-          "../js/slide/slideTest.js"
+          "../js/slide/slideTest.js",
+          "../js/animation/animationTest.js"
     ];
 
     require( testModules, function() {
