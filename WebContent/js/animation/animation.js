@@ -15,7 +15,7 @@ Animation.prototype = {
 	
 	createNewArray : function(target) {
 		objectId = undefined;
-		console.log(this.aniListId);
+//		console.log(this.aniListId);
 		var orderArray = new Array();
 		index = target;
 		this.arrayList[index] = orderArray;
@@ -83,7 +83,7 @@ Animation.prototype = {
 	},
 	
 	sortingAniList : function() { 
-		console.log(this.orderArray);
+//		console.log(this.orderArray);
 		if (this.orderArray.length != 0) {
 			for (var i = 0 ; i < 20; i++) {
 				$("#ani" + (i + 1)).remove();
@@ -128,8 +128,8 @@ Animation.prototype = {
 	changeAniList : function(target) {
 		index = target;
 		this.orderArray = this.arrayList[index];
-		console.log(this.orderArray);
-		console.log(index);
+//		console.log(this.orderArray);
+//		console.log(index);
 		this.sortingAniList();
 	},
 	

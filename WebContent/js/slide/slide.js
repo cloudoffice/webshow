@@ -41,7 +41,6 @@ function createSlide(e){
 	for(var i=1;i<_count+1;i++){
 		$(".thumbWrap").delegate("#thum"+i,"click", $.proxy(this.mainSlideSelect,this,e,i));
 	}	
-	
 	ani.createNewArray(_target);
 }
 

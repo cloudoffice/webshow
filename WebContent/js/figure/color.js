@@ -18,7 +18,6 @@ function showSubFigureColor(e){
 	$(document).on("mousedown", closedSubFigureColor);
 }
 function closedSubFigureColor(e){
-
 	$(".subFigureColor").css("display", "none");	
 	$(document).unbind("mousedown",closedSubFigureColor);
 }
