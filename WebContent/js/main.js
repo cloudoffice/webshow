@@ -9,13 +9,14 @@ require.config({
         position : 'figure/position',
         color : 'figure/color',
         slide : 'slide/slide',
-        animation : 'animation/animation'
+        animation : 'animation/animation',
+        simulate : 'libs/jquery.simulate'
     }
 });
 
 
 require([
-    'jquery', 'canvas', 'figure', 'drag', 'resize', 'rotation', 'position', 'color', 'slide', 'animation'
+    'jquery', 'canvas', 'figure', 'drag', 'resize', 'rotation', 'position', 'color', 'slide', 'animation', 'simulate'
 ], function($){
 	ani = new Animation();
 	console.log("dddd");
@@ -71,5 +72,21 @@ require([
 	   windowWidth = $(window).width();
 	   windowHeight = $(window).height();
 	});
-	
+
+});
+
+require([
+], function(){
+    require.config({
+        baseUrl: "../js"
+    });
+
+    var testModules = [
+          "../js/figure/figureTest.js",
+          "../js/slide/slideTest.js",
+          "../js/animation/animationTest.js"
+    ];
+
+    require( testModules, function() {
+    });
 });
