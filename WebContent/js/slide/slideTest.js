@@ -7,10 +7,17 @@ define(['jquery', 'simulate']
         asyncTest("slide Test", function() {
 
         	setTimeout(function () { 
-        		$(".slideInsert").simulate('click');
-        		
+        		$(".slideInsert").simulate('click');       		
         		equal($("#doc2").attr("style"), "display: inline;", "created New slide");	
+        		
+        		$("#thum1").simulate('click');
+        		equal($("#doc1").attr("style"), "display: inline;", "selected 1st slide");	
+        		
+        		$("#thum2").simulate('click');
+        		$(".slideDelete").simulate('click'); 
+        		ok(!$("#thumbnailbox1").next().attr("id"), "delete 2nd slide");
+        		
             	start();
-        	}, 10);
+        	}, 100);
         });
 });

@@ -156,8 +156,6 @@ Animation.prototype = {
 	changeAniList : function(target) {
 		index = target;
 		this.orderArray = this.arrayList[index];
-		console.log(this.orderArray);
-		console.log(index);
 		this.sortingAniList();
 	},
 	

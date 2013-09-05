@@ -190,17 +190,17 @@
 						<div id="squareBox" value="square">
 	                    	<div class="square">&nbsp;</div>
 	                    </div>
-						<div id="triangleBox" value="triangle">
-	                    	<div class="triangle">&nbsp;</div>
+						<div id="rectangleBox" value="rectangle">
+	                    	<div class="rectangle">&nbsp;</div>
 	                    </div>
-						<div id="twelve-point-starBox" value="twelve-point-star">
-	                    	<div class="twelve-point-star">&nbsp;</div>
+						<div id="a-quater-circleBox" value="a-quater-circle">
+	                    	<div class="a-quater-circle">&nbsp;</div>
 	                    </div>
-						<div id="six-point-starBox" value="six-point-star">
-	                    	<div class="six-point-star">&nbsp;</div>
+						<div id="semicircleBox" value="semicircle">
+	                    	<div class="semicircle">&nbsp;</div>
 	                    </div>
-						<div id="pacmanBox" value="pacman">
-	                    	<div class="pacman">&nbsp;</div>
+						<div id="egg-circleBox" value="egg-circle">
+	                    	<div class="egg-circle">&nbsp;</div>
 	                    </div>
                    	</div>
                     <div class="figuresTitle">도형 삽입</div>
@@ -214,41 +214,39 @@
 					<div class="figurePositionTitle">도형 정렬</div>
 				</div>
 				<div class="line"></div>
+				<div id="selectedColor" style="border: 2px solid rgb(102, 102, 102); width: 30px; height: 3px; left: 780px; top: 103px; position: absolute; z-index: 150; background-color: rgb(255, 192, 0);">&nbsp;</div>
 				<div class="figure3">
 					<div class="figureColor">
-						<div id="selectedColor" class="figureColorIcon" style="border: 2px solid rgb(102, 102, 102); width: 30px; height: 3px; left: 780px; top: 103px; position: absolute; z-index: 150; background-color: rgb(146, 208, 80);">&nbsp;</div>
 						<div class="figureColorIcon">
-							<div class="subTextColor" href="#">
-								<ul class="standardColorPalette">
-									<li>
-										<a class="s2" href="#"></a>
-									</li>
-									<li>
-										<a class="s3" href="#"></a>
-									</li>
-									<li>
-										<a class="s4" href="#"></a>
-									</li>
-									<li>
-										<a class="s5" href="#"></a>
-									</li>
-									<li>
-										<a class="s6" href="#"></a>
-									</li>
-									<li>
-										<a class="s7" href="#"></a>
-									</li>
-									<li>
-										<a class="s8" href="#"></a>
-									</li>
-									<li>
-										<a class="s9" href="#"></a>
-									</li>
-									<li>
-										<a class="s10" href="#"></a>
-									</li>		
-								</ul>
-							</div>
+							<ul class="subFigureColor" href="#" style="display: none;">
+								<li>
+									<a class="s2" href="#"></a>
+								</li>
+								<li>
+									<a class="s3" href="#"></a>
+								</li>
+								<li>
+									<a class="s4" href="#"></a>
+								</li>
+								<li>
+									<a class="s5" href="#"></a>
+								</li>
+								<li>
+									<a class="s6" href="#"></a>
+								</li>
+								<li>
+									<a class="s7" href="#"></a>
+								</li>
+								<li>
+									<a class="s8" href="#"></a>
+								</li>
+								<li>
+									<a class="s9" href="#"></a>
+								</li>
+								<li>
+									<a class="s10" href="#"></a>
+								</li>		
+							</ul>
 						</div>
 					</div>
 					<div class="figureColorTitle">도형 색</div>
@@ -265,12 +263,20 @@
 				<div class="thumbnails">
                     <div id="thumbnailbox1" class="thumbnail" style="background-color:rgba(248,149,135,0.5);">
                         <span class="thumbName">1</span>
-                        <div id="thum1" class="thumbnail1"><canvas width="1035" height="522" style="width:114px; height:85px"></canvas></div>
+                        <div id="thum1" class="thumbnail1"><canvas width="1035" height="498" style="width:114px; height:85px"></canvas></div>
                     </div>
                 </div>
 			</div>
 			<div class="docWrap">
-				<div id="doc1" class="doc" style="display:inline;">&nbsp;<div id="1" style="width: 50px; height: 50px; position: absolute; left: 200px; top: 150px; cursor: move; z-index: 100;"><div id="circle1" class="circle" style="background-color: rgb(146, 208, 80);"></div></div><div id="b_border" style="width: 49px; height: 49px; position: absolute; left: 198px; top: 148px; border: 3px solid rgba(0, 0, 0, 0.2); cursor: move; z-index: 1; -webkit-transform: rotate(0deg);"></div><div id="div1" style="position: absolute; left: 195px; top: 145px; width: 10px; height: 10px; background-color: rgba(0, 0, 0, 0.4); border: 0px; cursor: nw-resize; z-index: 1; background-position: initial initial; background-repeat: initial initial;"></div><div id="div2" style="position: absolute; left: 219.5px; top: 145px; width: 10px; height: 10px; background-color: rgba(0, 0, 0, 0.4); border: 0px; cursor: n-resize; z-index: 1; background-position: initial initial; background-repeat: initial initial;"></div><div id="divRotation" style="position: absolute; left: 219.5px; top: 130px; width: 10px; height: 10px; background-color: rgba(0, 0, 0, 0.4); border: 0px; cursor: crosshair; z-index: 1; background-position: initial initial; background-repeat: initial initial;"></div><div id="divLine" style="position: absolute; left: 224.5px; top: 135px; width: 1px; height: 20px; background-color: rgba(0, 0, 0, 0.4); border: 0px; z-index: 1; background-position: initial initial; background-repeat: initial initial;"></div><div id="div3" style="position: absolute; left: 245px; top: 145px; width: 10px; height: 10px; background-color: rgba(0, 0, 0, 0.4); border: 0px; cursor: ne-resize; z-index: 1; background-position: initial initial; background-repeat: initial initial;"></div><div id="div4" style="position: absolute; left: 195px; top: 169.5px; width: 10px; height: 10px; background-color: rgba(0, 0, 0, 0.4); border: 0px; cursor: e-resize; z-index: 1; background-position: initial initial; background-repeat: initial initial;"></div><div id="div5" style="position: absolute; left: 245px; top: 169.5px; width: 10px; height: 10px; background-color: rgba(0, 0, 0, 0.4); border: 0px; cursor: w-resize; z-index: 1; background-position: initial initial; background-repeat: initial initial;"></div><div id="div6" style="position: absolute; left: 195px; top: 195px; width: 10px; height: 10px; background-color: rgba(0, 0, 0, 0.4); border: 0px; cursor: sw-resize; z-index: 1; background-position: initial initial; background-repeat: initial initial;"></div><div id="div7" style="position: absolute; left: 219.5px; top: 195px; width: 10px; height: 10px; background-color: rgba(0, 0, 0, 0.4); border: 0px; cursor: s-resize; z-index: 1; background-position: initial initial; background-repeat: initial initial;"></div><div id="div8" style="position: absolute; left: 245px; top: 195px; width: 10px; height: 10px; background-color: rgba(0, 0, 0, 0.4); border: 0px; cursor: se-resize; z-index: 1; background-position: initial initial; background-repeat: initial initial;"></div></div>
+				<div id="doc1" class="doc" style="display:inline;">
+					&nbsp;
+					<div id="1" style="width: 50px; height: 50px; position: absolute; left: 200px; top: 150px; cursor: move; z-index: 100;">
+						<div id="circle1" class="circle" style="background-color: rgb(255, 192, 0);"></div>
+					</div>
+					<div id="2" style="width: 50px; height: 50px; position: absolute; left: 302px; top: 174px; cursor: move; z-index: 100;">
+						<div id="square2" class="square"></div>
+					</div>
+				</div>
 			</div>
 			<div class="aniWrap">
 				<div class="aniContents">
@@ -294,6 +300,7 @@
 				</div>
 			</div>
 		</div>
+	</div>	
 	</div>
 </body>
 </html>
