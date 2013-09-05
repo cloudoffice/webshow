@@ -9,30 +9,24 @@ require.config({
         position : 'figure/position',
         color : 'figure/color',
         slide : 'slide/slide',
-        animation : 'animation/animation'
+        animation : 'animation/animation',
+        simulate : 'libs/jquery.simulate'
     }
 });
 
 require([
 ], function(){
-	
-	console.log("load");
-
     require.config({
         baseUrl: "../js"
     });
 
     var testModules = [
-          "../js/figure/figureTest.js"
-//        "js/modules/common/test_editUtil.js",
-//        "js/modules/functional/insert/test_table.js",
-//        "js/modules/functional/insert/test_bookmark.js",
-//        "js/modules/functional/insert/test_hyperlink.js",
-//        "js/modules/functional/insert/test_headerFooter.js",
-//        "js/modules/functional/edit/test_clipboard.js",
-//        "js/modules/functional/format/test_format.js"
+          "../js/slide/slideTest.js",
+          "../js/figure/figureTest.js",
+          "../js/animation/animationTest.js"
     ];
 
-    require( testModules, function() {
+    require(testModules, function(){
+    	
     });
 });

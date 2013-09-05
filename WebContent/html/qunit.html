@@ -4,10 +4,296 @@
 	<meta charset="utf-8">
 	<title>QUnit</title>
 	<link rel="stylesheet" type="text/css" href="../css/qunit.css" />
+	<link rel="stylesheet" type="text/css" href="../css/layout.css">
+	<link rel="stylesheet" type="text/css" href="../css/figure.css">
+	<link rel="stylesheet" type="text/css" href="../css/animation.css">
+	<link rel="stylesheet" type="text/css" href="../css/menu.css">
+	
 	<script type="text/javascript" src="../test/qunit.js"></script>
-	<script type="text/javascript" data-main="../test/main" src="../js/require.js"></script>
+	<script type="text/javascript" data-main="../js/main" src="../js/require.js"></script>
+	<script type="text/javascript" src="../js/libs/jquery/jquery.js"></script>
 </head>
 <body>
 	<div id="qunit"></div>	
+	<div id="wrap" style="visibility:hidden">
+		<div id="toolBar">
+			<div class="titleBar">
+				<a class="logo" title="logo" href="#"></a>
+				<div class="documentTitle">빈 문서</div>
+			</div>
+			<div class="menuBar">
+				<div class="mainMenu">
+					<ul>
+						<li class="menuFile">파일<span class="menuDropdownNormal"></span>
+							<ul class="subMenuFile">
+								<li class="fileNew"><span>새문서</span><span class="subMenuDropdownNormal"></span>
+								</li>
+								<li class="fileUplode"><span>업로드</span>
+								</li>
+								<li class="menuLine"></li>
+								<li class="fileOpen"><span>열기</span>
+								</li>
+								<li class="fileOpenRecent"><span>최근에 열어본 문서</span>
+								</li>
+								<li class="menuLine"></li>
+								<li class="fileDownlode"><span>다운로드</span><span class="subMenuDropdownNormal"></span>							
+								</li>
+								<li class="menuLine"></li>
+								<li class="filePrint"><span>인쇄</span>
+								</li>
+								<li class="filePrintSetup"><span>인쇄 설정</span>
+								</li>
+								<li class="menuLine"></li>
+								<li class="fileRevision"><span>리비젼 만들기</span>
+								</li>
+								<li class="fileRevisionHistory"><span>리비젼 히스토리</span>
+								</li>
+								<li class="fileProperties"><span>속성</span>
+								</li>
+							</ul>
+						</li>
+						<li class="menuEdit">편집<span class="menuDropdownNormal"></span>
+						<ul class="subMenuEdit">
+							<li class="editUndo"><span>뒤로</span>
+							</li>
+							<li class="editRedo"><span>앞으로</span>
+							</li>
+							<li class="menuLine"></li>
+							<li class="editCopy"><span>복사</span>
+							</li>
+							<li class="editCut"><span>잘라내기</span>
+							</li>
+							<li class="editPaste"><span>붙여넣기</span>
+							</li>
+							<li class="editSelectAll"><span>모두 선택</span>
+							</li>
+							<li class="menuLine"></li>
+							<li class="editFindReplace"><span>찾아 바꾸기</span>
+							</li>
+						</ul>
+					</li>
+					<li class="menuView">보기<span class="menuDropdownNormal"></span>
+						<ul class="subMenuView">
+							<li class="viewRuller"><span>눈금자</span>
+							</li>
+							<li class="viewMemo"><span>메모</span>
+							</li>
+							<li class="viewFullScreen"><span>전체 화면</span>
+							</li>
+						</ul>
+					</li>
+					<li class="menuInsert">입력<span class="menuDropdownNormal"></span>
+						<ul class="subMenuInsert">
+							<li class="insertPageBreak"><span>페이지 나누기</span>
+							</li>
+							<li class="insertPageNumbers"><span>페이지 번호</span>							
+							</li>
+							<li class="menuLine"></li>
+							<li class="insertHeaderFooter"><span>머리말 꼬리말</span>
+							</li>
+							<li class="insertNewMemo"><span>새 메모</span>
+							</li>
+							<li class="insertFootnoteEndnote"><span>각주 미주</span><span class="subMenuDropdownNormal"></span>
+							</li>
+							<li class="insertHyperlink"><span>하이퍼링크</span>
+							</li>
+							<li class="insertBookmark"><span>책갈피</span>
+							</li>
+							<li class="menuLine"></li>
+							<li class="insertTextbox"><span>텍스트 상자</span>
+							</li>
+							<li class="insertImage"><span>그림</span>
+							</li>
+							<li class="insertShape"><span>도형</span>
+							</li>
+						</ul>
+					</li>
+					<li class="menuForm">서식<span class="menuDropdownNormal"></span>
+						<ul class="subMenuForm">
+							<li class="formBold"><span>진하게</span>
+							</li>
+							<li class="formItalic"><span>기울임</span>
+							</li>
+							<li class="formUnderline"><span>밑줄</span>
+							</li>
+							<li class="formStrikethrough"><span>취소선</span>
+							</li>
+							<li class="formSuperscript"><span>윗 첨자</span>
+							</li>
+							<li class="formSubscript"><span>아래 첨자</span>
+							</li>
+							<li class="formIncreaseFontSize"><span>글자 크기 확대</span>
+							</li>
+							<li class="formDecreaseFontSize"><span>글자 크기 축소</span>
+							</li>
+							<li class="formFontFamily"><span>글꼴</span><span class="subMenuDropdownNormal"></span>
+							</li>
+							<li class="menuLine"></li>
+							<li class="formParagraphStyle"><span>단락 스타일</span><span class="subMenuDropdownNormal"></span>
+							</li>
+							<li class="formAlign"><span>정렬</span><span class="subMenuDropdownNormal"></span>
+							</li>
+							<li class="formLineSpacing"><span>줄 간격</span><span class="subMenuDropdownNormal"></span>
+							</li>
+							<li class="formListStyles"><span>글머리표</span><span class="subMenuDropdownNormal"></span>
+							</li>
+							<li class="menuLine"></li>
+							<li class="formFormatPainter"><span>서식 복사</span>
+							</li>
+							<li class="formClearFotmat"><span>서식 지우기</span>
+							</li>
+						</ul>
+					</li>
+					<li class="menuTable">표<span class="menuDropdownNormal"></span>
+						<ul class="subMenuTable">
+							<li class="TableInsert"><span>표 만들기</span>
+							</li>
+							<li class="TableInsertRowAbove"><span>위에 줄 추가하기</span>
+							</li>
+							<li class="TableInsertRowAfter"><span>아래에 줄 추가하기</span>
+							</li>
+							<li class="TableInsertColumnLeft"><span>왼쪽에 칸 추가하기</span>
+							</li>
+							<li class="TableInsertColumnRight"><span>오른쪽에 칸 추가하기</span>
+							</li>
+							<li class="menuLine"></li>
+							<li class="TableDeleteTable"><span>표 지우기</span>
+							</li>
+							<li class="TableDeleteRow"><span>줄 지우기</span>
+							</li>
+							<li class="TableDeleteColumn"><span>칸 지우기</span>
+							</li>
+							<li class="menuLine"></li>
+							<li class="TableMergeCell"><span>셀 합치기</span>
+							</li>
+							<li class="TableSplitCell"><span>셀 나누기</span>
+							</li>
+						</ul>
+					</li>
+					<li class="menuShare">공유<span class="menuDropdownNormal"></span>
+						<ul class="subMenuShare">
+							<li class="SharePeople"><span>공유하기</span>
+							</li>
+							<li class="ShareLink"><span>링크 보내기</span>
+							</li>
+						</ul>
+					</li>
+					</ul>
+				</div>
+			</div>
+			<div class="buttonBar">
+				<div class="figure1">
+					<div class="figures">
+						<div id="circleBox" value="circle">
+	                    	<div class="circle">&nbsp;</div>	
+	                    </div>
+						<div id="squareBox" value="square">
+	                    	<div class="square">&nbsp;</div>
+	                    </div>
+						<div id="triangleBox" value="triangle">
+	                    	<div class="triangle">&nbsp;</div>
+	                    </div>
+						<div id="twelve-point-starBox" value="twelve-point-star">
+	                    	<div class="twelve-point-star">&nbsp;</div>
+	                    </div>
+						<div id="six-point-starBox" value="six-point-star">
+	                    	<div class="six-point-star">&nbsp;</div>
+	                    </div>
+						<div id="pacmanBox" value="pacman">
+	                    	<div class="pacman">&nbsp;</div>
+	                    </div>
+                   	</div>
+                    <div class="figuresTitle">도형 삽입</div>
+				</div>
+				<div class="line"></div>
+				<div class="figure2">
+					<div class="figurePosition">
+						<div class="figureFontIcon"></div>
+						<div class="figureBackIcon"></div>
+					</div>
+					<div class="figurePositionTitle">도형 정렬</div>
+				</div>
+				<div class="line"></div>
+				<div class="figure3">
+					<div class="figureColor">
+						<div id="selectedColor" class="figureColorIcon" style="border: 2px solid rgb(102, 102, 102); width: 30px; height: 3px; left: 780px; top: 103px; position: absolute; z-index: 150; background-color: rgb(146, 208, 80);">&nbsp;</div>
+						<div class="figureColorIcon">
+							<div class="subTextColor" href="#">
+								<ul class="standardColorPalette">
+									<li>
+										<a class="s2" href="#"></a>
+									</li>
+									<li>
+										<a class="s3" href="#"></a>
+									</li>
+									<li>
+										<a class="s4" href="#"></a>
+									</li>
+									<li>
+										<a class="s5" href="#"></a>
+									</li>
+									<li>
+										<a class="s6" href="#"></a>
+									</li>
+									<li>
+										<a class="s7" href="#"></a>
+									</li>
+									<li>
+										<a class="s8" href="#"></a>
+									</li>
+									<li>
+										<a class="s9" href="#"></a>
+									</li>
+									<li>
+										<a class="s10" href="#"></a>
+									</li>		
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="figureColorTitle">도형 색</div>
+				</div>
+				<a class="animation" href="#">animation</a>
+			</div>
+		</div>
+		<div id="container" style="overflow:auto;">
+			<div class="thumbWrap" style="display:none">
+            	<div class="slide">
+                	<div class="slideInsert" href="#">+</div>
+                    <div class="slideDelete" href="#">-</div>
+                </div>
+				<div class="thumbnails">
+                    <div id="thumbnailbox1" class="thumbnail" style="background-color:rgba(248,149,135,0.5);">
+                        <span class="thumbName">1</span>
+                        <div id="thum1" class="thumbnail1"><canvas width="1035" height="522" style="width:114px; height:85px"></canvas></div>
+                    </div>
+                </div>
+			</div>
+			<div class="docWrap">
+				<div id="doc1" class="doc" style="display:inline;">&nbsp;<div id="1" style="width: 50px; height: 50px; position: absolute; left: 200px; top: 150px; cursor: move; z-index: 100;"><div id="circle1" class="circle" style="background-color: rgb(146, 208, 80);"></div></div><div id="b_border" style="width: 49px; height: 49px; position: absolute; left: 198px; top: 148px; border: 3px solid rgba(0, 0, 0, 0.2); cursor: move; z-index: 1; -webkit-transform: rotate(0deg);"></div><div id="div1" style="position: absolute; left: 195px; top: 145px; width: 10px; height: 10px; background-color: rgba(0, 0, 0, 0.4); border: 0px; cursor: nw-resize; z-index: 1; background-position: initial initial; background-repeat: initial initial;"></div><div id="div2" style="position: absolute; left: 219.5px; top: 145px; width: 10px; height: 10px; background-color: rgba(0, 0, 0, 0.4); border: 0px; cursor: n-resize; z-index: 1; background-position: initial initial; background-repeat: initial initial;"></div><div id="divRotation" style="position: absolute; left: 219.5px; top: 130px; width: 10px; height: 10px; background-color: rgba(0, 0, 0, 0.4); border: 0px; cursor: crosshair; z-index: 1; background-position: initial initial; background-repeat: initial initial;"></div><div id="divLine" style="position: absolute; left: 224.5px; top: 135px; width: 1px; height: 20px; background-color: rgba(0, 0, 0, 0.4); border: 0px; z-index: 1; background-position: initial initial; background-repeat: initial initial;"></div><div id="div3" style="position: absolute; left: 245px; top: 145px; width: 10px; height: 10px; background-color: rgba(0, 0, 0, 0.4); border: 0px; cursor: ne-resize; z-index: 1; background-position: initial initial; background-repeat: initial initial;"></div><div id="div4" style="position: absolute; left: 195px; top: 169.5px; width: 10px; height: 10px; background-color: rgba(0, 0, 0, 0.4); border: 0px; cursor: e-resize; z-index: 1; background-position: initial initial; background-repeat: initial initial;"></div><div id="div5" style="position: absolute; left: 245px; top: 169.5px; width: 10px; height: 10px; background-color: rgba(0, 0, 0, 0.4); border: 0px; cursor: w-resize; z-index: 1; background-position: initial initial; background-repeat: initial initial;"></div><div id="div6" style="position: absolute; left: 195px; top: 195px; width: 10px; height: 10px; background-color: rgba(0, 0, 0, 0.4); border: 0px; cursor: sw-resize; z-index: 1; background-position: initial initial; background-repeat: initial initial;"></div><div id="div7" style="position: absolute; left: 219.5px; top: 195px; width: 10px; height: 10px; background-color: rgba(0, 0, 0, 0.4); border: 0px; cursor: s-resize; z-index: 1; background-position: initial initial; background-repeat: initial initial;"></div><div id="div8" style="position: absolute; left: 245px; top: 195px; width: 10px; height: 10px; background-color: rgba(0, 0, 0, 0.4); border: 0px; cursor: se-resize; z-index: 1; background-position: initial initial; background-repeat: initial initial;"></div></div>
+			</div>
+			<div class="aniWrap">
+				<div class="aniContents">
+					<div class="title">애니메이션</div>
+					<div class="contents">
+						<div class="show"><div class="showImg"></div><span>나타내기</span></div>
+						<div class="flyUp"><div class="flyUpImg"></div><span>날아오기-위</span></div>
+						<div class="flyDown"><div class="flyDownImg"></div><span>날아오기-아래</span></div>
+						<div class="flyLeft"><div class="flyLeftImg"></div><span>날아오기-왼쪽</span></div>
+						<div class="flyRight"><div class="flyRightImg"></div><span>날아오기-오른쪽</span></div>
+						<div class="fade"><div class="fadeImg"></div><span>사라지기</span></div>
+					</div>
+				</div>
+				<div class="aniList">
+					<div class="aniListWrap"></div>
+					<div class="aniPosition">
+						<div class="aniUp">▲</div>
+						<div class="aniDown">▼</div>						
+					</div>
+                   	<div class="aniPlay">재생</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
