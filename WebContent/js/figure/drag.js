@@ -1,21 +1,25 @@
 var x, y;
 var dragTarget;
 function startDrag(e){
-	e.originalEvent.preventDefault();
+	e.preventDefault();
+	e.stopPropagation();
 	findFigure(e);
 	createBorder();
 //	createText();		
 
 	dragTarget = e.currentTarget.id;
+	
 	x = $("#"+dragTarget).position().left - e.clientX;
 	y = $("#"+dragTarget).position().top - e.clientY;
 	
 	$(document).mousemove(moveDrag);
 	$(document).mouseup(stopDrag);
 	
+//	$(".docWrap").on("mousedown", borderRemove);
+//	return false;
 }
 function moveDrag(e){
-	createBorder(e);
+	createBorder();
 //	createText();		
 	var dragLeft = e.clientX + x;
 	var dragTop = e.clientY + y;
@@ -30,11 +34,13 @@ function moveDrag(e){
 	}
 }
 function stopDrag(e){
-	createBorder(e);
+	createBorder();
 //	createText();		
 
 	$(document).unbind("mousemove");
 	$(document).unbind("mouseup");
 	
 	applyToWindowCapture();
+	
+//	$(".docWrap").on("mousedown", borderRemove);
 }

@@ -1,5 +1,9 @@
-var startX, startY, startWidth, startHeight,sub_startWidth, sub_startHeight, divtarget, _divtarget, classname;
+var startX, startY, startWidth, startHeight,sub_startWidth, sub_startHeight, divtarget, _divtarget, classname, divId;
 function startResize(e){
+	console.log(e);
+	divId =e.target.id;
+	
+	e.stopPropagation();
 	createBorder(e);
 	
 	divtarget = SelectedFigureId;
@@ -13,26 +17,27 @@ function startResize(e){
 	sub_startHeight = $("#"+_divtarget).height();
 	$(document).mousemove(moveResize);
 	$(document).mouseup(stopResize);	
+
 }
-function moveResize(e){	
-	createBorder(e);
-	
-	$("#"+divtarget).css("width",startWidth + e.clientX - startX);
-	$("#"+divtarget).css("height",startHeight + e.clientY - startY);
-	$("#"+_divtarget).css("width",sub_startWidth + e.clientX - startX);
-	$("#"+_divtarget).css("height",sub_startHeight + e.clientY - startY);
-	
-	classname = $("#"+_divtarget).attr('class');
-	if(classname =='circle'){
-		radius = $("#"+divtarget).width()/2;
-		$("#"+_divtarget).css("border-radius", radius);
-	}else if(classname == 'six-point-star'){
-		radius = $("#"+divtarget).width()-10;
-		$("#"+_divtarget).css("border-top-left-radius",  radius);
-		$("#"+_divtarget).css("border-top-right-radius",  radius);
-	}else if(classname == 'twelve-point-star'){
-		radius = $("#"+divtarget).width();
-		$("#"+_divtarget).css("border-top-right-radius",  radius);
+function moveResize(e){
+	console.log(divId);
+	switch(divId){
+	case 'div1':
+		moveDiv1Resize(e);
+	case 'div2':
+		moveDiv2Resize(e);
+	case 'div3':
+		moveDiv3Resize(e);
+	case 'div4':
+		moveDiv4Resize(e);
+	case 'div5':
+		moveDiv5Resize(e);
+	case 'div6':
+		moveDiv6Resize(e);
+	case 'div7':
+		moveDiv7Resize(e);
+	case 'div8' :
+		moveDiv8Resize(e);
 	}
 }
 function stopResize(e){
@@ -44,7 +49,60 @@ function stopResize(e){
 	applyToWindowCapture();
 }
 
+
+
+
+function startDiv8Resize(e){
+	divId =e.target.id;
+	
+	e.stopPropagation();
+	createBorder(e);
+	
+	divtarget = SelectedFigureId;
+	_divtarget = objectId;
+	startX = e.clientX;
+	startY = e.clientY;
+	
+	startWidth = $("#"+divtarget).width();
+	startHeight = $("#"+divtarget).height();
+	sub_startWidth = $("#"+_divtarget).width();
+	sub_startHeight = $("#"+_divtarget).height();
+	$(document).mousemove(moveDiv8Resize);
+	$(document).mouseup(stopDiv8Resize);	
+	
+}
+function moveDiv8Resize(e){	
+	createBorder(e);
+	
+	$("#"+divtarget).css("width",startWidth + e.clientX - startX);
+	$("#"+divtarget).css("height",startHeight + e.clientY - startY);
+	$("#"+_divtarget).css("width",sub_startWidth + e.clientX - startX);
+	$("#"+_divtarget).css("height",sub_startHeight + e.clientY - startY);
+	
+	classname = $("#"+_divtarget).attr('class');
+	if(classname =='circle'){
+		radius = $("#"+divtarget).width()/2;
+		$("#"+_divtarget).css("border-radius", radius);
+	}else if(classname == 'semicircle'){
+		radius = $("#"+divtarget).width()-10;
+		$("#"+_divtarget).css("border-top-left-radius",  radius);
+		$("#"+_divtarget).css("border-top-right-radius",  radius);
+	}else if(classname == 'a-quater-circle'){
+		radius = $("#"+divtarget).width();
+		$("#"+_divtarget).css("border-top-right-radius",  radius);
+	}
+}
+function stopDiv8Resize(e){
+	createBorder(e);
+	
+	$(document).unbind("mousemove");
+	$(document).unbind("mouseup");
+	
+	applyToWindowCapture();
+}
+
 function startDiv7Resize(e){
+	e.stopPropagation();
 	createBorder(e);
 	
 	divtarget = SelectedFigureId;
@@ -75,6 +133,7 @@ function stopDiv7Resize(e){
 }
 
 function startDiv6Resize(e){
+	e.stopPropagation();
 	createBorder(e);
 	
 	divtarget = SelectedFigureId;
@@ -95,7 +154,7 @@ function moveDiv6Resize(e){
 	createBorder(e);
 	var docLeft =$(".doc").offset().left;
 	$("#"+divtarget).css("left", e.clientX-docLeft);
-	$("#"+divtarget).css("width", startX-e.clientX + startWidth);
+	$("#"+divtarget).css("width", startX-e.clientX + sub_startWidth);
 	$("#"+divtarget).css("height", e.clientY - startY + startHeight);
 	
 	$("#"+_divtarget).css("left", e.clientX-docLeft);
@@ -103,10 +162,18 @@ function moveDiv6Resize(e){
 	$("#"+_divtarget).css("height", e.clientY - startY + sub_startHeight);
 	
 	classname = $("#"+_divtarget).attr('class');
-	radius = $("#"+divtarget).width()/2;
 	if(classname =='circle'){
+		radius = $("#"+divtarget).width()/2;
 		$("#"+_divtarget).css("border-radius", radius);
+	}else if(classname == 'semicircle'){
+		radius = $("#"+divtarget).width()-10;
+		$("#"+_divtarget).css("border-top-left-radius",  radius);
+		$("#"+_divtarget).css("border-top-right-radius",  radius);
+	}else if(classname == 'a-quater-circle'){
+		radius = $("#"+divtarget).width();
+		$("#"+_divtarget).css("border-top-right-radius",  radius);
 	}
+
 	
 }
 function stopDiv6Resize(e){
@@ -119,6 +186,7 @@ function stopDiv6Resize(e){
 }
 
 function startDiv5Resize(e){
+	e.stopPropagation();
 	createBorder(e);
 	
 	divtarget = SelectedFigureId;
@@ -149,6 +217,7 @@ function stopDiv5Resize(e){
 }
 
 function startDiv4Resize(e){
+	e.stopPropagation();
 	createBorder(e);
 	
 	divtarget = SelectedFigureId;
@@ -181,6 +250,7 @@ function stopDiv4Resize(e){
 }
 
 function startDiv3Resize(e){
+	e.stopPropagation();
 	createBorder(e);
 	
 	divtarget = SelectedFigureId;
@@ -208,10 +278,18 @@ function moveDiv3Resize(e){
 	$("#"+_divtarget).css("height",sub_startHeight + startY- e.clientY);
 	
 	classname = $("#"+_divtarget).attr('class');
-	radius = $("#"+divtarget).width()/2;
 	if(classname =='circle'){
+		radius = $("#"+divtarget).width()/2;
 		$("#"+_divtarget).css("border-radius", radius);
-	}	
+	}else if(classname == 'semicircle'){
+		radius = $("#"+divtarget).width()-10;
+		$("#"+_divtarget).css("border-top-left-radius",  radius);
+		$("#"+_divtarget).css("border-top-right-radius",  radius);
+	}else if(classname == 'a-quater-circle'){
+		radius = $("#"+divtarget).width();
+		$("#"+_divtarget).css("border-top-right-radius",  radius);
+	}
+
 }
 function stopDiv3Resize(e){
 	createBorder(e);
@@ -223,6 +301,7 @@ function stopDiv3Resize(e){
 }
 
 function startDiv2Resize(e){
+	e.stopPropagation();
 	createBorder(e);
 	
 	divtarget = SelectedFigureId;
@@ -255,7 +334,9 @@ function stopDiv2Resize(e){
 }
 
 function startDiv1Resize(e){
+	e.stopPropagation();
 	createBorder(e);
+	console.log(e);
 	
 	divtarget = SelectedFigureId;
 	_divtarget = objectId;
@@ -272,7 +353,9 @@ function startDiv1Resize(e){
 	
 }
 function moveDiv1Resize(e){	
+	
 	createBorder(e);
+	console.log(e);
 	var docLeft =$(".doc").offset().left;
 	var docTop =$(".doc").offset().top;
 
@@ -287,10 +370,18 @@ function moveDiv1Resize(e){
 	$("#"+_divtarget).css("height",sub_startHeight + startY- e.clientY);
 	
 	classname = $("#"+_divtarget).attr('class');
-	radius = $("#"+divtarget).width()/2;
 	if(classname =='circle'){
+		radius = $("#"+divtarget).width()/2;
 		$("#"+_divtarget).css("border-radius", radius);
-	}	
+	}else if(classname == 'semicircle'){
+		radius = $("#"+divtarget).width()-10;
+		$("#"+_divtarget).css("border-top-left-radius",  radius);
+		$("#"+_divtarget).css("border-top-right-radius",  radius);
+	}else if(classname == 'a-quater-circle'){
+		radius = $("#"+divtarget).width();
+		$("#"+_divtarget).css("border-top-right-radius",  radius);
+	}
+	
 }
 function stopDiv1Resize(e){
 	createBorder(e);

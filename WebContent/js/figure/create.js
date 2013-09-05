@@ -49,10 +49,10 @@ function createFigure(e){
 //	$(".doc").delegate("#"+n,"click", $.proxy(this.createBorder,this));
 	$(".doc").delegate("#"+n,"mousedown", $.proxy(this.startDrag,this));
 	$(".thumbWrap").on("click", borderRemove);
-	$(".docWrap").delegate("#"+classvalue+n,"mouseout",function(e){
-		$("#"+classvalue+n).unbind("mouseout");
-		$(".docWrap").on("click", borderRemove);
-	});		
+//	$(".docWrap").delegate("#"+classvalue+n,"mouseout",function(e){
+//		$("#"+classvalue+n).unbind("mouseout");
+//		$(".docWrap").on("click", borderRemove);
+//	});		
 };
 function borderRemove(){
 	$("#b_border").remove();
@@ -82,15 +82,15 @@ function createBorder(){
 	h = $("#"+SelectedFigureId).height()-1;
 	l = $("#"+SelectedFigureId).position().left;	
 	t = $("#"+SelectedFigureId).position().top;
-	if($("#"+objectId).attr('class') == 'triangle'){
+	if($("#"+objectId).attr('class') == 'rectangle'){
 		w = w+4;
 		h = h+3;
 	}
-	if($("#"+objectId).attr('class') =='pacman'){
+	if($("#"+objectId).attr('class') =='egg-circle'){
 		w=w-7;
 		h=h-2;
 	}
-	if($("#"+objectId).attr('class') =='six-point-star'){
+	if($("#"+objectId).attr('class') =='semicircle'){
 		w=w+4;
 		h=h+8;
 	}
@@ -117,7 +117,7 @@ function createBorder(){
 	div1.style.border ="0px";
 	div1.style.cursor = "nw-resize";
 	div1.style.zIndex = "1";
-	div1.onmousedown = $.proxy(this.startDiv1Resize, this);
+	div1.onmousedown = this.startDiv1Resize;
 	document.getElementById("doc"+mainNum).appendChild(div1);
 	
 	div2.id = "div2";
@@ -130,7 +130,7 @@ function createBorder(){
 	div2.style.border ="0px";
 	div2.style.cursor = "n-resize";
 	div2.style.zIndex = "1";
-	div2.onmousedown = $.proxy(this.startDiv2Resize, this);
+	div2.onmousedown = this.startDiv2Resize;
 	document.getElementById("doc"+mainNum).appendChild(div2);
 	
 	divRotation.id = "divRotation";
@@ -168,7 +168,7 @@ function createBorder(){
 	div3.style.border ="0px";
 	div3.style.cursor = "ne-resize";
 	div3.style.zIndex = "1";
-	div3.onmousedown = $.proxy(this.startDiv3Resize, this);
+	div3.onmousedown = this.startDiv3Resize;
 	document.getElementById("doc"+mainNum).appendChild(div3);
 	
 	div4.id = "div4";
@@ -181,7 +181,7 @@ function createBorder(){
 	div4.style.border ="0px";
 	div4.style.cursor = "e-resize";
 	div4.style.zIndex = "1";
-	div4.onmousedown = $.proxy(this.startDiv4Resize, this);	
+	div4.onmousedown = this.startDiv4Resize;	
 	document.getElementById("doc"+mainNum).appendChild(div4);
 	
 	div5.id = "div5";
@@ -194,7 +194,7 @@ function createBorder(){
 	div5.style.border ="0px";
 	div5.style.cursor = "w-resize";
 	div5.style.zIndex = "1";
-	div5.onmousedown = $.proxy(this.startDiv5Resize, this);	
+	div5.onmousedown = this.startDiv5Resize;	
 	document.getElementById("doc"+mainNum).appendChild(div5);
 	
 	div6.id = "div6";
@@ -207,7 +207,7 @@ function createBorder(){
 	div6.style.border ="0px";
 	div6.style.cursor = "sw-resize";
 	div6.style.zIndex = "1";
-	div6.onmousedown = $.proxy(this.startDiv6Resize, this);
+	div6.onmousedown = this.startDiv6Resize;
 	document.getElementById("doc"+mainNum).appendChild(div6);
 	
 	div7.id = "div7";
@@ -220,7 +220,7 @@ function createBorder(){
 	div7.style.border ="0px";
 	div7.style.cursor = "s-resize";
 	div7.style.zIndex = "1";	
-	div7.onmousedown = $.proxy(this.startDiv7Resize, this);	
+	div7.onmousedown =this.startDiv7Resize;	
 	document.getElementById("doc"+mainNum).appendChild(div7);
 	
 	div8.id = "div8";
@@ -233,8 +233,12 @@ function createBorder(){
 	div8.style.border ="0px";
 	div8.style.cursor = "se-resize";
 	div8.style.zIndex = "1";
-	div8.onmousedown = $.proxy(this.startResize, this);
+	div8.onmousedown = this.startDiv8Resize;
+//	$(".doc").delegate("#div8","mousedown", $.proxy(this.startResize,this))
 	document.getElementById("doc"+mainNum).appendChild(div8);
+	
+	
+	$(".docWrap").on("mousedown", borderRemove);
 	
 }
 

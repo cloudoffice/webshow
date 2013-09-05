@@ -1,6 +1,8 @@
 var rotationTarget;
 var degree;
 function startRotation(e){
+	e.stopPropagation();
+	
 	createBorder(e);
 	rotationTarget = e.target.id;
 	$(document).mousemove(moveRotation);

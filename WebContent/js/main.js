@@ -22,11 +22,10 @@ require([
 	//$("#contents").append($("<img>").attr("src", "http://www.google.co.kr/webhp?hl=ko&tab=ww"));
 	$("#circleBox").on("click", $.proxy(this.createFigure, this));
 	$("#squareBox").on("click", $.proxy(this.createFigure, this));
-	$("#triangleBox").on("click", $.proxy(this.createFigure, this));
-	$("#twelve-point-starBox").on("click", $.proxy(this.createFigure, this));
-	$("#six-point-starBox").on("click", $.proxy(this.createFigure, this));
-	$("#pacmanBox").on("click", $.proxy(this.createFigure, this));
-	$("#heartBox").on("click", $.proxy(this.createFigure, this));
+	$("#rectangleBox").on("click", $.proxy(this.createFigure, this));
+	$("#a-quater-circleBox").on("click", $.proxy(this.createFigure, this));
+	$("#semicircleBox").on("click", $.proxy(this.createFigure, this));
+	$("#egg-circleBox").on("click", $.proxy(this.createFigure, this));
 	
 	$(".slideInsert").on("click", $.proxy(this.createSlide, this));
 	$(".slideDelete").on("click", $.proxy(this.deleteSlide,this));
@@ -40,6 +39,8 @@ require([
 	$(".figureFontIcon").on("click", $.proxy(this.frontPosition, this));
 	$(".figureBackIcon").on("click", $.proxy(this.backPosition, this));
 	
+	$(".figureColorIcon").on("mousedown", $.proxy(this.showSubFigureColor, this));
+
 	$(".s1").on("click", $.proxy(this.setColorFigure, this));
 	$(".s2").on("click", $.proxy(this.setColorFigure, this));
 	$(".s3").on("click", $.proxy(this.setColorFigure, this));
