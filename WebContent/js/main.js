@@ -31,12 +31,8 @@ require([
 	$(".slideInsert").on("click", $.proxy(this.createSlide, this));
 	$(".slideDelete").on("click", $.proxy(this.deleteSlide,this));
 	
-//	$(".doc").delegate("div","mousedown", $.proxy(this.findFigure,this));
-	$("body").on("keydown", $.proxy(this.figureDelete,this));
-	
+	$(document).on("keydown", $.proxy(this.figureDelete,this));
 
-	
-//	$(".doc").delegate("click", "div", $.proxy(this.findFigure, this));
 	$(".figureFontIcon").on("click", $.proxy(this.frontPosition, this));
 	$(".figureBackIcon").on("click", $.proxy(this.backPosition, this));
 	
@@ -53,29 +49,30 @@ require([
 	$(".s9").on("click", $.proxy(this.setColorFigure, this));
 	$(".s10").on("click", $.proxy(this.setColorFigure, this));
 	$("#selectedColor").on("click", $.proxy(this.selectedColorSetFigure, this));
-	/*
+	
 	var windowWidth = $(window).width();
 	var windowHeight =  $(window).height();
 	$(window).resize(function(e){	
 	   changeLeft = (windowWidth - $(window).width())/10;
-	   changeTop = windowHeight - $(window).height();
+	   changeTop = (windowHeight - $(window).height())/10;
 
-	   var count = $(".doc div").length/2;
-	   for(var i=1;i<count+1;i++){
-		   originalLeft = $("#"+i).offset().left;
-		   originalTop = $("#"+i).offset().top;
+	   for(var i=1;i<n+1;i++){
+		   originalLeft = $("#"+i).position().left;
+		   originalTop = $("#"+i).position().top;
 		   
-		   changedLeft = originalLeft-changeLeft;
-		   changedTop = originalTop-changeTop;
+		   var changedLeft = originalLeft-changeLeft;
+		   var changedTop = originalTop-changeTop;
 	
 		   $("#"+i).css("left",changedLeft);
-		 //  $("#"+i).css("top",changedTop);
+		   $("#"+i).css("top",changedTop);
+		   
+		   createBorder();
 	   }
 	   
 	   windowWidth = $(window).width();
 	   windowHeight = $(window).height();
 	});
-	*/
+
 });
 
 require([

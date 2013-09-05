@@ -1,11 +1,9 @@
 var startX, startY, startWidth, startHeight,sub_startWidth, sub_startHeight, divtarget, _divtarget, classname, divId;
 function startResize(e){
-	console.log(e);
-	divId =e.target.id;
-	
 	e.stopPropagation();
 	createBorder(e);
 	
+	divId =e.target.id;
 	divtarget = SelectedFigureId;
 	_divtarget = objectId;
 	startX = e.clientX;
@@ -20,7 +18,6 @@ function startResize(e){
 
 }
 function moveResize(e){
-	console.log(divId);
 	switch(divId){
 	case 'div1':
 		moveDiv1Resize(e);
@@ -154,7 +151,7 @@ function moveDiv6Resize(e){
 	createBorder(e);
 	var docLeft =$(".doc").offset().left;
 	$("#"+divtarget).css("left", e.clientX-docLeft);
-	$("#"+divtarget).css("width", startX-e.clientX + sub_startWidth);
+	$("#"+divtarget).css("width", startX-e.clientX + startWidth);
 	$("#"+divtarget).css("height", e.clientY - startY + startHeight);
 	
 	$("#"+_divtarget).css("left", e.clientX-docLeft);
@@ -336,7 +333,6 @@ function stopDiv2Resize(e){
 function startDiv1Resize(e){
 	e.stopPropagation();
 	createBorder(e);
-	console.log(e);
 	
 	divtarget = SelectedFigureId;
 	_divtarget = objectId;
@@ -355,7 +351,6 @@ function startDiv1Resize(e){
 function moveDiv1Resize(e){	
 	
 	createBorder(e);
-	console.log(e);
 	var docLeft =$(".doc").offset().left;
 	var docTop =$(".doc").offset().top;
 
