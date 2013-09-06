@@ -50,28 +50,28 @@ require([
 	$(".s10").on("click", $.proxy(this.setColorFigure, this));
 	$("#selectedColor").on("click", $.proxy(this.selectedColorSetFigure, this));
 	
-	var windowWidth = $(window).width();
-	var windowHeight =  $(window).height();
-	$(window).resize(function(e){	
-	   changeLeft = (windowWidth - $(window).width())/10;
-	   changeTop = (windowHeight - $(window).height())/10;
-
-	   for(var i=1;i<n+1;i++){
-		   originalLeft = $("#"+i).position().left;
-		   originalTop = $("#"+i).position().top;
-		   
-		   var changedLeft = originalLeft-changeLeft;
-		   var changedTop = originalTop-changeTop;
-	
-		   $("#"+i).css("left",changedLeft);
-		   $("#"+i).css("top",changedTop);
-		   
-		   createBorder();
-	   }
-	   
-	   windowWidth = $(window).width();
-	   windowHeight = $(window).height();
-	});
+//	var windowWidth = $(window).width();
+//	var windowHeight =  $(window).height();
+//	$(window).resize(function(e){	
+//	   changeLeft = (windowWidth - $(window).width())/10;
+//	   changeTop = (windowHeight - $(window).height())/10;
+//
+//	   for(var i=1;i<n+1;i++){
+//		   originalLeft = $("#"+i).position().left;
+//		   originalTop = $("#"+i).position().top;
+//		   
+//		   var changedLeft = originalLeft-changeLeft;
+//		   var changedTop = originalTop-changeTop;
+//	
+//		   $("#"+i).css("left",changedLeft);
+//		   $("#"+i).css("top",changedTop);
+//		   
+//		   createBorder();
+//	   }
+//	   
+//	   windowWidth = $(window).width();
+//	   windowHeight = $(window).height();
+//	});
 
 });
 

@@ -249,5 +249,5 @@ function applyToWindowCapture(){
 		width : mainWindow.width,
 		height : mainWindow.height
 	});
-	console.log(mainWindow);
+//	console.log(mainWindow);
 } 
