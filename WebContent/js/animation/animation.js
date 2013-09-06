@@ -252,7 +252,7 @@ Animation.prototype = {
 //		$(".doc").on("click", "div", $.proxy(this.getSelectedObjectId, this));
 		
 		//�ִϸ��̼� �޴� ���̱�/�Ⱥ��̱�
-//		$(".animation").on("click", $.proxy(this.displayAniList, this));
+		$(".animation").on("click", $.proxy(this.displayAniList, this));
 		
 		//�ִϸ��̼� ���� �� ����+�ִϸ��̼� mapping �迭�� �߰�
 		$(".show").on("click", $.proxy(this.mappingObjectNAnimation, this));
