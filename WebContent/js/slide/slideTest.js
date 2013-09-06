@@ -1,7 +1,10 @@
 define(['jquery', 'simulate']
     , function ($, simulate) {
-		// webkit browser 처리 
-		$.browser = {webkit : true};
+		// webkit browser 泥�━ 
+		$.browser = {webkit : true, isTest: true};
+		if ($.browser.isTest) {
+			return;
+		}
 		console.log("S");
 
         asyncTest("slide Test", function() {

@@ -1,7 +1,10 @@
 define(['jquery', 'figure', 'color']
     , function ($, figure, color) {
-		// webkit browser 처리 
-		$.browser = {webkit : true};
+		// webkit browser 泥�━ 
+		$.browser = {webkit : true, isTest: true};
+		if ($.browser.isTest) {
+			return;
+		}
 	console.log("F");
         asyncTest("figure Test", function() {
         	setTimeout(function () {

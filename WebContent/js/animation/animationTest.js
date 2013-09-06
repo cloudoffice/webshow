@@ -1,7 +1,10 @@
 define(['jquery', 'animation', 'simulate']
     , function ($, animation, simulate) {
-		// webkit browser 처리 
-		$.browser = {webkit : true};
+		// webkit browser 泥�━ 
+		$.browser = {webkit : true, isTest: true};
+		if ($.browser.isTest) {
+			return;
+		}
 	console.log("A");
         asyncTest("animation Test", function() {
         	setTimeout(function () { 
@@ -16,7 +19,7 @@ define(['jquery', 'animation', 'simulate']
             	
             	$(".slideInsert").simulate('click');         
             	var array2 = ani.getThisOrderArray();
-            	ok(array != array2, "slide 추가 시 animation list 변경되는지 확인");
+            	ok(array != array2, "slide 異�� ��animation list 蹂�꼍���吏����");
             	
 //            	$("#ani1").simulate('click');
 //            	$(".aniUp").simulate('click');
