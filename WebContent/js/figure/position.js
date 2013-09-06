@@ -18,7 +18,7 @@ function backPosition(e){
 }
 //delete  event.which  46
 function figureDelete(e){
-	e.preventDefault();
+//	e.preventDefault();
 	if(e.which == 46){
 		$("#"+SelectedFigureId).remove();
 		borderRemove();
@@ -46,5 +46,5 @@ function figureDelete(e){
 		$("#text").focus();
 		*/
 	}	
-	$(document).unbind("keydown",figureDelete);
+	$(document).on("keydown",figureDelete);
 }
