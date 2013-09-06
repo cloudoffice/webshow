@@ -15,7 +15,7 @@
 .fadeImg {float:left; width:30px; height:20px; background:url(../images/fade.png);}
 
 .aniListWrap {position:absolute; padding-top:12px; overflow-y:scroll; bottom:52px; top:281px; width:100%;}
-.ani1 {display:block; margin:8px 0 0 10px; padding:2px 4px; line-height:20px; width:136px; height:20px; font-size:13px; color:#666; vertical-align:top;}
+.ani1 {display:block; margin:8px 0 0 10px; padding:2px 4px; line-height:22px; width:136px; height:20px; font-size:13px; color:#666; vertical-align:top;}
 .num {float:left; margin-top:1px; width:18px; height:18px; line-height:20px; background-color:#f56d49; text-align:center; color:#fff;}
 .text {float:left;}
 .aniDelete {cursor:pointer; margin-top:1px; float:right; width:18px; height:18px; background:url(../images/delete.png) repeat 1px 1px;}
