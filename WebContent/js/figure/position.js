@@ -18,12 +18,13 @@ function backPosition(e){
 }
 //delete  event.which  46
 function figureDelete(e){
-	e.preventDefault();
+//	e.preventDefault();
+//	e.stopPropagation();
 	if(e.which == 46){
 		$("#"+SelectedFigureId).remove();
 		borderRemove();
 	}else if(e.which == 8){
-		console.log("dd");
+		e.preventDefault();
 		$("#"+SelectedFigureId).remove();
 		borderRemove();
 	}else{
@@ -46,5 +47,7 @@ function figureDelete(e){
 		$("#text").focus();
 		*/
 	}	
-	$(document).unbind("keydown",figureDelete);
+	
+//	$(document).unbind("keydown",figureDelete);
+//	$(document).on("keydown", figureDelete);
 }
